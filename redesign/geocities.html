@@ -1,0 +1,3232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>~*~ Zegema Beach Records ~*~ Official Web Page!!! ~*~</title>
+<style>
+  @font-face{
+    font-family:"Fixedsys Excelsior";
+    src:url("assets/fonts/FixedsysExcelsior.woff2") format("woff2"),
+        url("assets/fonts/FixedsysExcelsior.woff") format("woff");
+    font-weight:normal; font-style:normal; font-display:swap;
+  }
+  @font-face{
+    font-family:"Fixedsys Excelsior";
+    src:url("assets/fonts/FixedsysExcelsior.woff2") format("woff2"),
+        url("assets/fonts/FixedsysExcelsior.woff") format("woff");
+    font-weight:bold; font-style:normal; font-display:swap;
+  }
+
+  [hidden]{ display:none !important; }
+
+  :root{
+    --royalblue:#1E61A8;
+    --aqua:#C0DEFF;
+    --white:#FFFFFF;
+    --silver:#c0c0c0;
+    --ink:#d9d9d9;
+  }
+  * { box-sizing: border-box; }
+  html,body{
+    margin:0; padding:0;
+    background-color:#000033;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Ccircle cx='10' cy='10' r='1' fill='%2319A800'/%3E%3Ccircle cx='40' cy='60' r='1' fill='%2319A800'/%3E%3Ccircle cx='70' cy='20' r='1' fill='%2319A800'/%3E%3Ccircle cx='90' cy='80' r='1.5' fill='%2319A800'/%3E%3Ccircle cx='25' cy='90' r='1' fill='%2319A800'/%3E%3Ccircle cx='55' cy='35' r='1' fill='%2319A800'/%3E%3C/svg%3E");
+    background-size:100px 100px;
+    background-repeat:repeat;
+    font-family:Arial,sans-serif;
+    color:var(--ink);
+    cursor:default;
+  }
+  a{ color:var(--aqua); }
+  a:visited{ color:var(--royalblue); }
+  a:hover{ color:var(--white); background:#000; }
+
+  .skip-link{
+    position:absolute; left:-9999px; top:0;
+    background:#000; color:#0f0; padding:8px 16px; z-index:999;
+  }
+  .skip-link:focus{ left:0; }
+
+  /* ==== PAGE WRAPPER (fixed-width like an old 800px table) ==== */
+  .pagewrap{
+    max-width:980px;
+    margin:14px auto;
+    background:#000011;
+    border:6px ridge var(--royalblue);
+    padding:0;
+  }
+
+  /* ==== HEADER ==== */
+  header{
+    text-align:center;
+    padding:14px 10px 6px;
+    background:#150029;
+    border-bottom:4px solid var(--aqua);
+  }
+  .logoimg{
+    height:100px; width:auto;
+    mix-blend-mode:screen;
+  }
+  h1.sitetitle{
+    font-family:"Arial Narrow",Arial,sans-serif;
+    font-weight:bold; font-style:italic;
+    font-size:48px;
+    margin:6px 0 0;
+    letter-spacing:1px;
+    color:#19A800;
+    text-align:center;
+  }
+  .tagline{
+    font-family:Arial,sans-serif;
+    color:var(--white);
+    font-size:14px;
+    margin:16px 0;
+  }
+
+  /* ==== NAV: beveled 3D buttons ==== */
+  nav.mainnav{
+    background:var(--silver);
+    border-top:3px outset var(--silver);
+    border-bottom:3px outset var(--silver);
+    padding:6px; text-align:center;
+  }
+  .nav-toggle{
+    display:none;
+    width:100%;
+    background:linear-gradient(180deg,#e8e8e8,#a0a0a0);
+    border:2px outset #fff;
+    color:#000066;
+    font-family:"MS Sans Serif","Tahoma",sans-serif;
+    font-weight:bold; font-size:14px;
+    padding:10px; cursor:pointer;
+  }
+  .nav-toggle:active{ border-style:inset; }
+  nav.mainnav ul{
+    list-style:none; margin:0; padding:0;
+    display:flex; flex-wrap:wrap; justify-content:center; gap:4px;
+  }
+  nav.mainnav a{
+    display:inline-block;
+    background:linear-gradient(180deg,#e8e8e8,#a0a0a0);
+    border:2px outset #fff;
+    color:#000066;
+    font-family:"MS Sans Serif","Tahoma",sans-serif;
+    font-weight:bold; font-size:12px;
+    text-decoration:none;
+    padding:6px 10px;
+  }
+  nav.mainnav a:hover{ background:linear-gradient(180deg,#ffffff,#c9c9c9); color:#000; }
+  nav.mainnav a:active, nav.mainnav a[aria-current="page"]{
+    border-style:inset; background:linear-gradient(180deg,#a0a0a0,#e8e8e8);
+  }
+
+  @media (max-width:700px){
+    .nav-toggle{ display:block; }
+    nav.mainnav ul{
+      display:none;
+      flex-direction:column; gap:6px;
+      margin-top:6px;
+    }
+    nav.mainnav ul.open{ display:flex; }
+    nav.mainnav a{ width:100%; padding:10px; font-size:14px; }
+  }
+
+  /* ==== LAYOUT ==== */
+  .layout{ display:flex; flex-wrap:wrap; gap:10px; padding:12px; }
+  .maincol{ flex:2; min-width:0; }
+  .sidecol{ flex:1; min-width:0; }
+
+  /* ==== PAGINATION BY POST DATE ==== */
+  /* ==== USA STORE (UNDER CONSTRUCTION) VIEW ==== */
+  .construction-panel{
+    max-width:640px; margin:24px auto; padding:12px;
+    text-align:center;
+  }
+  .construction-panel .stripes{
+    height:22px; margin:0 0 24px;
+    background-color:#ffff00;
+    background-image:repeating-linear-gradient(-45deg, #000 0 10px, #ffff00 10px 20px);
+    border-top:3px solid #000; border-bottom:3px solid #000;
+  }
+  .construction-panel .stripes:last-child{ margin:24px 0 0; }
+  .construction-panel .digger{ margin:0 0 18px; }
+  .construction-panel .digger img{ width:40px; height:40px; }
+  .construction-panel h2{
+    font-family:"Arial Narrow",Arial,sans-serif;
+    font-weight:bold; font-style:italic;
+    color:var(--white); font-size:32px; margin:0 0 14px;
+  }
+  .construction-panel p{ font-size:15px; line-height:1.6; margin:0; color:var(--ink); }
+
+  .pagenav{ flex-basis:100%; order:1; text-align:center; margin-top:6px; padding-top:6px; }
+  .pagenav-label{
+    display:block; margin-bottom:10px;
+    font-family:"Fixedsys Excelsior","Courier New",monospace; font-size:12px; color:var(--ink);
+  }
+  .pagenav-buttons button{
+    background:linear-gradient(180deg,#e8e8e8,#a0a0a0); border:2px outset #fff;
+    color:#000066; font-family:"MS Sans Serif","Tahoma",sans-serif;
+    font-weight:bold; font-size:13px;
+    width:34px; height:30px; margin:0 3px; cursor:pointer;
+  }
+  .pagenav-buttons button:hover{ background:linear-gradient(180deg,#ffffff,#c9c9c9); color:#000; }
+  .pagenav-buttons button[aria-current="true"]{
+    border-style:inset; background:linear-gradient(180deg,#a0a0a0,#e8e8e8);
+  }
+
+  .post{
+    background:#000; border:3px ridge var(--aqua);
+    padding:20px; margin-bottom:16px;
+  }
+  .post .cat{
+    display:inline-block;
+    font-family:"Fixedsys Excelsior","Courier New",monospace; font-weight:bold; font-size:13px;
+    padding:2px 8px; margin-bottom:6px; color:var(--white);
+    border:2px outset #1D64A7;
+  }
+  .cat-news{ background:#1D64A7; }
+  .cat-releases{ background:#1D64A7; }
+  .post .cat-soldout{ background:#cc0000; border-color:#cc0000; color:var(--white); }
+
+  .post h2, .post h3{
+    font-family:"Arial Narrow",Arial,sans-serif;
+    font-weight:bold; font-style:italic;
+    color:var(--white);
+    text-shadow:1px 1px 0 #660066;
+    margin:4px 0 8px;
+  }
+  .post-title-link, .post-title-link:visited{ color:inherit; text-decoration:none; }
+  .post-title-link:hover{ color:#FFEE00; }
+  .post p{ color:var(--white); font-size:14px; line-height:1.5; }
+  .post img{ max-width:100%; border:4px ridge var(--silver); }
+  .post img.post-img-crop{ width:100%; height:320px; object-fit:cover; object-position:top; }
+  @media (max-width:700px){
+    .post img.post-img-crop{ width:100% !important; height:180px !important; object-fit:cover !important; }
+  }
+  .thumbstrip{ display:flex; flex-wrap:wrap; gap:4px; margin:8px 0; }
+  .thumbstrip img{ width:24%; border:2px outset var(--silver); }
+
+  .bcplayer{ margin:8px 0; border:2px inset var(--silver); line-height:0; }
+  .videolink{
+    display:block; position:relative; margin:8px 0;
+    line-height:0;
+  }
+  .videolink img{ display:block; width:100%; border:none; }
+  .videolink .playbtn{
+    position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+    width:64px; height:44px;
+    background:rgba(0,0,0,0.6); border:2px outset var(--silver);
+    border-radius:6px;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .videolink .playbtn::after{
+    content:""; width:0; height:0;
+    border-top:12px solid transparent; border-bottom:12px solid transparent;
+    border-left:20px solid var(--white);
+    margin-left:4px;
+  }
+  .starlink, .starlink:visited{
+    font-family:"Fixedsys Excelsior","Courier New",monospace; font-weight:bold; font-size:14px;
+    color:#FFEE00; text-decoration:underline;
+  }
+  @media (max-width:700px){
+    .starlink{ font-size:15px; }
+  }
+  .starlink:hover, .starlink:visited:hover{ color:#19A800; }
+
+  .saleband{
+    background:repeating-linear-gradient(45deg,#1a001a,#1a001a 8px,#330033 8px,#330033 16px);
+    border:3px double var(--royalblue);
+    padding:8px; margin-bottom:16px; text-align:center;
+  }
+  .saleband strong{
+    font-family:"Arial Narrow",Arial,sans-serif; font-weight:bold; font-style:italic;
+    font-size:22px; color:var(--white);
+  }
+
+  /* ==== SIDEBAR WIDGETS ==== */
+  .widget{
+    background:#000; border:3px groove var(--aqua);
+    padding:10px; margin-bottom:14px;
+  }
+  .widget h3{
+    font-family:"Fixedsys Excelsior","Courier New",monospace; font-size:13px;
+    color:#000; background:var(--aqua);
+    margin:4px -10px 8px; padding:5px 8px;
+  }
+  .widget h3:first-child{ margin-top:-10px; }
+  .widget p{ color:var(--ink); font-size:13px; }
+  .widget img{ width:100%; border:2px outset var(--silver); margin-bottom:6px; }
+
+  .quicklinks-grid{
+    display:grid; grid-template-columns:repeat(3, 1fr); gap:10px;
+  }
+  .quicklink{
+    display:flex; flex-direction:column; align-items:center; gap:4px;
+    text-decoration:none; padding:6px 2px;
+  }
+  .quicklink .icon{
+    width:52px; height:52px;
+    background:linear-gradient(145deg,#e8e8e8,#a0a0a0);
+    border:2px outset #fff; border-radius:8px;
+    display:flex; align-items:center; justify-content:center;
+    box-shadow:1px 1px 3px rgba(0,0,0,0.5);
+  }
+  .quicklink:hover .icon{ background:linear-gradient(145deg,#fff,#c9c9c9); }
+  .quicklink:active .icon{ border-style:inset; }
+  .quicklink .icon img{ width:32px; height:32px; border:none; margin-bottom:0; }
+  .quicklink .qllabel{
+    font-family:"Fixedsys Excelsior","Courier New",monospace; font-weight:bold; font-size:12px;
+    color:var(--white); text-align:center; text-decoration:none;
+  }
+
+  .mobile-quicklinks{ display:none; }
+  .mobile-quicklinks-toggle{
+    display:block; width:100%; text-align:left; background:#A500A8; color:var(--white);
+    border:none; font-family:"Fixedsys Excelsior","Courier New",monospace;
+    font-weight:bold; font-size:14px; padding:8px 10px; cursor:pointer;
+  }
+  .mobile-quicklinks-toggle .toggle-arrow{ float:right; transition:transform 0.15s ease; }
+  .mobile-quicklinks-toggle[aria-expanded="true"] .toggle-arrow{ transform:rotate(180deg); }
+  .mobile-quicklinks .quicklinks-grid{
+    padding:10px; margin:0; background:#000; border:3px groove #A500A8; border-top:none;
+  }
+  .mobile-quicklinks .quicklinks-grid.collapsed{ display:none; }
+
+  .guestbook-buttons{ display:flex; gap:6px; flex-wrap:wrap; }
+  .gb-btn{
+    flex:1; text-align:center;
+    background:linear-gradient(180deg,#ffffff,#d4d4d4);
+    border:2px outset #ffffff;
+    color:#000332; font-weight:bold; font-family:"Fixedsys Excelsior","Courier New",monospace;
+    font-size:13px; padding:6px 4px; text-decoration:none;
+  }
+  .gb-btn:hover{ background:#1D64A7; border-color:var(--royalblue); color:var(--white); }
+
+  .addcart{ display:flex; align-items:center; gap:12px; margin-top:8px; flex-wrap:wrap; }
+  .addcart .cart-price{
+    font-family:"Fixedsys Excelsior","Courier New",monospace; font-weight:bold; font-size:18px; color:#C0DFFE;
+  }
+  .cart-btn{
+    display:inline-flex; align-items:center; justify-content:center; height:34px;
+    text-align:center;
+    background:linear-gradient(180deg,#ffffff,#d4d4d4);
+    border:2px outset #ffffff;
+    color:#000332; font-weight:bold; font-family:"Fixedsys Excelsior","Courier New",monospace;
+    font-size:13px; padding:0 16px; text-decoration:none; cursor:pointer;
+  }
+  .cart-btn:hover{ background:#1D64A7; border-color:var(--royalblue); color:var(--white); }
+  .cart-btn:active{ border-style:inset; }
+  .cart-btn img{ border:none; }
+  .cart-qty-wrap{
+    display:flex; align-items:center; gap:4px;
+    font-family:"Fixedsys Excelsior","Courier New",monospace; font-weight:bold; font-size:18px; color:var(--white);
+  }
+  .cart-qty{
+    width:44px; height:34px; padding:0 4px; text-align:center;
+    font-family:"Fixedsys Excelsior","Courier New",monospace; font-weight:bold; font-size:13px;
+    border:2px inset var(--silver); background:#fff; color:#000;
+    -webkit-appearance:none; appearance:none; border-radius:0;
+  }
+  .cart-variant-wrap{
+    display:flex; align-items:center; gap:4px;
+    font-family:"Fixedsys Excelsior","Courier New",monospace; font-weight:bold; font-size:13px; color:var(--white);
+  }
+  .addcart > .cart-price + .cart-qty-wrap,
+  .addcart > .cart-price + .cart-variant-wrap{
+    margin-left:10px;
+  }
+  .cart-variant{
+    width:140px; height:34px; padding:0 16px 0 4px; text-align:center;
+    font-family:"Fixedsys Excelsior","Courier New",monospace; font-weight:bold; font-size:13px;
+    border:2px inset var(--silver); background:#fff; color:#000;
+    white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+    -webkit-appearance:none; appearance:none; border-radius:0;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 6'%3E%3Cpolygon points='0,0 10,0 5,6' fill='%23000'/%3E%3C/svg%3E");
+    background-repeat:no-repeat;
+    background-position:right 4px center;
+    background-size:10px 6px;
+  }
+
+  .cart-count{
+    display:inline-block; min-width:16px; margin-left:4px; padding:1px 5px;
+    background:#A500A8; color:var(--white); border-radius:8px;
+    font-family:"Fixedsys Excelsior","Courier New",monospace; font-weight:bold; font-size:11px;
+  }
+
+  .cart-page{
+    max-width:640px; margin:24px auto; padding:12px;
+  }
+  .cart-page .cart-icon{ display:block; width:40px; height:40px; margin:0 auto 10px; }
+  .cart-page h2{
+    font-family:"Arial Narrow",Arial,sans-serif;
+    font-weight:bold; font-style:italic;
+    color:var(--white); font-size:32px; margin:0 0 14px; text-align:center;
+  }
+  .cart-empty{ text-align:center; color:var(--ink); font-size:15px; }
+  .cart-items{ display:flex; flex-direction:column; gap:10px; margin-bottom:16px; }
+  .cart-row{
+    display:flex; align-items:center; gap:10px; flex-wrap:wrap;
+    background:#000; border:3px groove var(--aqua); padding:10px;
+    font-family:"Fixedsys Excelsior","Courier New",monospace; font-size:13px; color:var(--ink);
+  }
+  .cart-row-name{ flex:1; min-width:160px; color:var(--white); font-weight:bold; }
+  .cart-row-remove{
+    background:linear-gradient(180deg,#ffffff,#d4d4d4);
+    border:2px outset #ffffff; color:#000332; font-weight:bold;
+    font-family:"Fixedsys Excelsior","Courier New",monospace; font-size:12px;
+    padding:4px 8px; cursor:pointer;
+  }
+  .cart-row-remove:hover{ background:linear-gradient(180deg,#fff,#eeeeee); }
+  .cart-row-remove:active{ border-style:inset; }
+  @media (max-width:700px){
+    .cart-row-remove{ margin-left:auto; }
+  }
+  .cart-summary{
+    display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px;
+    border-top:2px groove #444; padding-top:14px;
+  }
+  .cart-subtotal-label{ font-family:"Fixedsys Excelsior","Courier New",monospace; font-size:15px; color:var(--white); }
+
+  .contact-page{
+    max-width:640px; margin:24px auto; padding:12px; text-align:center;
+  }
+  .contact-page .contact-icon{ width:40px; height:40px; margin-bottom:10px; }
+  .contact-page .search-icon{ display:block; width:40px; height:40px; margin:0 auto 10px; }
+  .contact-page h2{
+    font-family:"Arial Narrow",Arial,sans-serif;
+    font-weight:bold; font-style:italic;
+    color:var(--white); font-size:32px; margin:0 0 14px;
+  }
+  .contact-page p{ color:var(--white); font-size:15px; line-height:1.6; margin:0 0 12px; }
+
+  .contact-form{
+    display:flex; flex-direction:column; gap:14px; text-align:left; margin-top:20px;
+  }
+  .contact-form-row{ display:flex; gap:14px; flex-wrap:wrap; }
+  .contact-form-row .contact-form-field{ flex:1; min-width:180px; }
+  .contact-form-field{
+    display:flex; flex-direction:column; gap:4px;
+    font-family:"Fixedsys Excelsior","Courier New",monospace; font-weight:bold; font-size:13px; color:var(--white);
+  }
+  .contact-form-field input, .contact-form-field textarea{
+    padding:6px; font-family:"Fixedsys Excelsior","Courier New",monospace; font-size:13px;
+    border:2px inset var(--silver); background:#fff; color:#000; resize:vertical;
+  }
+  .contact-form #contactSubmit{ align-self:flex-start; }
+  .contact-thanks{
+    text-align:center; color:#19A800; font-weight:bold; font-size:15px; margin-top:16px;
+  }
+
+  .archives-page{ max-width:900px; margin:24px auto; padding:12px; }
+  .archives-columns{ display:flex; gap:20px; flex-wrap:wrap; align-items:flex-start; }
+  .archives-section{ flex:1 1 320px; min-width:280px; border:2px inset var(--silver); }
+  .archive-list{
+    list-style:none; margin:0; padding:8px 10px; background:#fff;
+    max-height:420px; overflow-y:auto; text-align:left;
+  }
+  .archive-list li{ margin-bottom:2px; }
+  .archive-list a{
+    display:block; padding:4px 6px; text-decoration:none;
+    font-family:"Fixedsys Excelsior","Courier New",monospace; font-size:14px;
+    color:#1E61A8;
+  }
+  .archive-list a:hover{ background:#1D64A7; color:var(--white); }
+
+  .guestbook-entries{ display:flex; flex-direction:column; gap:12px; margin-top:20px; }
+  .guestbook-entry{
+    background:#000; border:3px groove var(--aqua); padding:10px 12px; text-align:left;
+  }
+  .guestbook-entry-head{
+    display:flex; justify-content:space-between; align-items:baseline; gap:10px; flex-wrap:wrap;
+    margin-bottom:6px;
+  }
+  .guestbook-entry-name{
+    font-family:"Fixedsys Excelsior","Courier New",monospace; font-weight:bold; font-size:14px; color:#FFEE00;
+  }
+  .guestbook-entry-date{
+    font-family:"Fixedsys Excelsior","Courier New",monospace; font-size:11px; color:var(--ink);
+  }
+  .guestbook-entry-message{ color:var(--white); font-size:14px; line-height:1.5; }
+
+  .chat-page{ max-width:700px; margin:24px auto; padding:12px; text-align:center; }
+
+  .chat-titlebar{
+    background:linear-gradient(90deg,var(--royalblue),#0b2d54);
+    color:#fff; font-family:"MS Sans Serif","Tahoma",sans-serif;
+    font-weight:bold; font-size:13px;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:4px 4px 4px 8px;
+    border:2px outset #fff; border-bottom:none;
+    text-align:left;
+  }
+  .chat-titlebar-controls{ letter-spacing:3px; font-size:11px; opacity:0.85; }
+  .chat-window{
+    display:flex; border:2px inset var(--silver); margin-bottom:14px;
+  }
+  .chat-log{
+    background:#fff; padding:8px 10px;
+    height:340px; overflow-y:auto; text-align:left; flex:1; min-width:0;
+    font-family:"Fixedsys Excelsior","Courier New",monospace; font-size:13px;
+  }
+  .chat-line{ margin-bottom:5px; line-height:1.4; word-break:break-word; color:#000; }
+  .chat-time{ color:#888; font-size:11px; margin-right:4px; }
+  .chat-nick{ font-weight:bold; }
+  .chat-nick::after{ content:":"; }
+  .chat-text{ color:#000; }
+  .chat-userlist{
+    background:#fff; border-left:2px solid var(--silver);
+    width:150px; flex:0 0 150px; padding:8px; overflow-y:auto;
+    font-family:"Fixedsys Excelsior","Courier New",monospace; font-size:12px; color:#000; text-align:left;
+  }
+  .chat-userlist-header{
+    font-weight:bold; margin:0 0 6px; padding-bottom:4px;
+    border-bottom:1px solid #999; color:#000;
+  }
+  .chat-userlist ul{ list-style:none; margin:0; padding:0; }
+  .chat-userlist li{ padding:2px 0; color:#1E61A8; }
+  .chat-form{ display:flex; gap:8px; flex-wrap:wrap; text-align:left; }
+  .chat-form input{
+    padding:6px; font-family:"Fixedsys Excelsior","Courier New",monospace; font-size:13px;
+    border:2px inset var(--silver); background:#fff; color:#000;
+    -webkit-appearance:none; appearance:none; border-radius:0;
+  }
+  .chat-nick-field{ flex:0 0 140px; }
+  .chat-msg-field{ flex:1 1 200px; }
+  @media (max-width:700px){
+    .chat-window{ flex-direction:column; }
+    .chat-log{ flex:0 0 auto; height:280px; }
+    .chat-userlist{ width:100%; flex:0 0 auto; border-left:none; border-top:2px solid var(--silver); max-height:140px; }
+  }
+
+  .site-search-field{
+    display:block; font-family:"Fixedsys Excelsior","Courier New",monospace;
+    font-weight:bold; font-size:13px; color:var(--white); margin-bottom:6px;
+  }
+  .site-search-field input{
+    display:block; width:100%; margin-top:6px; padding:8px;
+    font-family:"Fixedsys Excelsior","Courier New",monospace; font-size:14px;
+    border:2px inset var(--silver); background:#fff; color:#000;
+  }
+  .site-search-results{ display:flex; flex-direction:column; gap:12px; margin-top:20px; }
+  .site-search-empty{ text-align:center; color:var(--ink); font-size:14px; margin-top:20px; }
+  .site-search-result{
+    display:block; width:100%; text-align:left; cursor:pointer;
+    background:#000; border:3px groove var(--aqua); padding:10px 12px;
+    font-family:inherit; color:inherit;
+  }
+  .site-search-result:hover{ border-color:#1D64A7; }
+  .site-search-result-head{
+    display:flex; justify-content:space-between; align-items:baseline; gap:10px; flex-wrap:wrap;
+    margin-bottom:6px;
+  }
+  .site-search-result-title{
+    font-family:"Arial Narrow",Arial,sans-serif; font-weight:bold; font-style:italic;
+    font-size:16px; color:var(--white);
+  }
+  .site-search-result-page{
+    font-family:"Fixedsys Excelsior","Courier New",monospace; font-size:11px; color:var(--ink);
+  }
+  .site-search-result-snippet{ color:var(--ink); font-size:13px; line-height:1.5; }
+  .site-search-result-snippet mark{ background:#FFEE00; color:#000; }
+
+  /* ==== CANADA / INTL STORE ==== */
+  .store-page{ max-width:980px; margin:24px auto; padding:12px; }
+  .store-page h2{
+    font-family:"Arial Narrow",Arial,sans-serif; font-weight:bold; font-style:italic;
+    color:var(--white); font-size:32px; margin:0 0 14px; text-align:center;
+  }
+  .store-layout{ display:flex; gap:18px; flex-wrap:wrap; align-items:flex-start; }
+  .store-sidebar{
+    flex:0 0 200px; min-width:160px;
+    background:#000; border:3px groove var(--aqua); padding:10px;
+  }
+  .store-search{
+    display:block; font-family:"Fixedsys Excelsior","Courier New",monospace;
+    font-weight:bold; font-size:12px; color:var(--white); margin-bottom:14px;
+  }
+  .store-search input{
+    display:block; width:100%; margin-top:6px; padding:6px;
+    font-family:"Fixedsys Excelsior","Courier New",monospace; font-size:13px;
+    border:2px inset var(--silver); background:#fff; color:#000;
+  }
+  .store-quicklabels{ display:flex; gap:8px; margin-bottom:14px; }
+  .store-quicklabels button{
+    flex:1; text-align:center;
+    background:linear-gradient(180deg,#ffffff,#d4d4d4);
+    border:2px outset #ffffff;
+    color:#000332; font-weight:bold; font-family:"Fixedsys Excelsior","Courier New",monospace;
+    font-size:13px; padding:6px 4px; cursor:pointer;
+  }
+  .store-quicklabels button:hover{ background:#1D64A7; border-color:var(--royalblue); color:var(--white); }
+  .store-quicklabels button[aria-current="true"]{
+    border-style:inset; background:#FFEE00; color:#000;
+  }
+
+  .sidebar-section{ margin-bottom:6px; }
+  .sidebar-section-toggle{
+    display:block; width:100%; text-align:left; background:var(--aqua); color:#000;
+    border:none; font-family:"Fixedsys Excelsior","Courier New",monospace;
+    font-weight:bold; font-size:14px; margin:0 0 8px; padding:5px 8px; cursor:pointer;
+  }
+  .sidebar-section-toggle .toggle-arrow{
+    display:inline; float:right; transition:transform 0.15s ease;
+  }
+  .sidebar-section-toggle[aria-expanded="true"] .toggle-arrow{ transform:rotate(180deg); }
+  .sidebar-list{ list-style:none; margin:0 0 10px; padding:0; max-height:420px; overflow-y:auto; }
+  .sidebar-list.collapsed{ display:none; }
+  .sidebar-list li{ margin-bottom:2px; }
+  .sidebar-list button{
+    display:block; width:100%; text-align:left; background:none; border:none;
+    font-family:"Fixedsys Excelsior","Courier New",monospace; font-size:13px;
+    color:var(--aqua); padding:4px 6px; cursor:pointer;
+  }
+  .sidebar-list button:hover, .sidebar-list button[aria-current="true"]{
+    background:#1D64A7; color:var(--white);
+  }
+  .sidebar-sublist{ list-style:none; margin:2px 0 2px 14px; padding:0; }
+  .sidebar-sublist li{ margin-bottom:2px; }
+  .sidebar-sublist button{
+    display:block; width:100%; text-align:left; background:none; border:none;
+    font-family:"Fixedsys Excelsior","Courier New",monospace; font-size:12px;
+    color:var(--ink); padding:3px 6px; cursor:pointer;
+  }
+  .sidebar-sublist button:hover, .sidebar-sublist button[aria-current="true"]{
+    background:#1D64A7; color:var(--white);
+  }
+  .store-empty{ color:var(--ink); font-size:14px; padding:10px 2px; }
+
+  @media (max-width:700px){
+    .store-sidebar{ flex:1 1 100%; width:100%; }
+  }
+
+  .store-grid{
+    flex:1; min-width:260px;
+    display:grid; grid-template-columns:repeat(auto-fill, minmax(140px, 1fr)); gap:14px;
+  }
+  .product-tile{
+    display:block; text-align:center; text-decoration:none;
+    background:#000; border:3px groove var(--aqua); padding:8px; cursor:pointer;
+  }
+  .product-tile img{ width:100%; border:2px outset var(--silver); margin-bottom:6px; }
+  .product-tile-band{
+    font-family:Arial,sans-serif; font-weight:bold; font-size:12px;
+    color:#FFEE00; display:block;
+  }
+  .product-tile-title{
+    font-family:Arial,sans-serif; font-size:11px;
+    color:var(--white); display:block; margin:2px 0;
+  }
+  .product-tile-price{
+    font-family:"Fixedsys Excelsior","Courier New",monospace; font-weight:bold; font-size:12px;
+    color:#C0DFFE; display:block;
+  }
+  .product-tile-soldout{ color:#ff6b6b; }
+  .product-tile:hover{ border-color:#1D64A7; }
+
+  .pdp-page{ max-width:900px; margin:24px auto; padding:12px; }
+  .pdp-back{ display:block; margin-bottom:14px; }
+  .pdp-soldout-msg{
+    color:#ff6b6b; font-weight:bold; font-family:"Fixedsys Excelsior","Courier New",monospace;
+    font-size:13px; margin-top:8px;
+  }
+
+  .pdp-columns{ display:flex; gap:24px; align-items:flex-start; flex-wrap:wrap; }
+  .pdp-media{ flex:1 1 300px; max-width:380px; }
+  .pdp-media img{ max-width:100%; }
+  .pdp-info{ flex:2 1 320px; min-width:280px; }
+
+  .pdp-carousel{ position:relative; }
+  .pdp-carousel-track{
+    position:relative; aspect-ratio:750 / 725; overflow:hidden;
+    background:#000; border:4px ridge var(--silver);
+  }
+  .pdp-carousel-img{
+    display:block; width:100%; height:100%; object-fit:contain; object-position:center;
+  }
+  @media (min-width:701px){
+    .pdp-carousel-img{ cursor:pointer; }
+  }
+  .pdp-carousel-prev, .pdp-carousel-next{
+    position:absolute; top:50%; transform:translateY(-50%);
+    background:rgba(0,0,0,0.6); border:2px outset var(--silver); color:var(--white);
+    width:30px; height:30px; cursor:pointer; font-size:12px;
+  }
+  .pdp-carousel-prev:active, .pdp-carousel-next:active{ border-style:inset; }
+  .pdp-carousel-prev{ left:6px; }
+  .pdp-carousel-next{ right:6px; }
+  .pdp-carousel-dots{ display:flex; justify-content:center; gap:6px; margin-top:8px; }
+  .pdp-carousel-dot{
+    width:10px; height:10px; border-radius:50%; background:var(--silver);
+    cursor:pointer; display:inline-block; border:1px solid #000;
+  }
+  .pdp-carousel-dot[aria-current="true"]{ background:#FFEE00; }
+
+  .modal-window.lightbox-window{ width:96vw; height:92vh; max-width:96vw; max-height:92vh; }
+  .lightbox-body{
+    flex:1; min-height:0; display:flex; flex-direction:column;
+    background:#000; padding:16px; text-align:center;
+  }
+  .lightbox-stage{
+    position:relative; flex:1; min-height:0;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .lightbox-img{
+    display:block; max-width:100%; max-height:100%; margin:0 auto;
+    object-fit:contain; border:4px ridge var(--silver);
+  }
+  .lightbox-dots{ flex:0 0 auto; margin-top:12px; }
+
+  .pdp-addcart-action{ display:flex; align-items:center; gap:12px; flex-wrap:wrap; justify-content:flex-start; }
+  .pdp-info .bcplayer{ margin-top:24px; }
+
+  @media (max-width:700px){
+    .pdp-media{ max-width:none; }
+    .addcart .cart-price{ flex-basis:100%; }
+    .addcart > .cart-price + .cart-qty-wrap,
+    .addcart > .cart-price + .cart-variant-wrap{
+      margin-left:0;
+    }
+  }
+
+  .search-highlight{ outline:3px solid #FFEE00; outline-offset:2px; }
+
+  .back-to-top{
+    position:fixed; bottom:20px; right:20px; z-index:500;
+    background:linear-gradient(180deg,#e8e8e8,#a0a0a0); border:2px outset #fff;
+    color:#000066; font-family:"MS Sans Serif","Tahoma",sans-serif;
+    font-weight:bold; font-size:12px; text-align:center;
+    padding:10px 14px; cursor:pointer;
+    box-shadow:2px 2px 6px rgba(0,0,0,0.5);
+  }
+  .back-to-top:hover{ background:linear-gradient(180deg,#ffffff,#c9c9c9); }
+  .back-to-top:active{ border-style:inset; }
+  .back-to-top[hidden]{ display:none; }
+  @media (max-width:700px){
+    .back-to-top{ display:none; }
+  }
+
+  @keyframes guestbookBorderBlink{
+    0%, 49%{ border-color:#FFEE00; }
+    50%, 100%{ border-color:#FF9100; }
+  }
+  @keyframes guestbookBgBlink{
+    0%, 49%{ background-color:#FFEE00; }
+    50%, 100%{ background-color:#FF9100; }
+  }
+  #guestbook-widget{ animation:guestbookBorderBlink 1s step-start infinite; }
+  #guestbook-widget h3{ animation:guestbookBgBlink 1s step-start infinite; }
+  @media (prefers-reduced-motion: reduce){
+    #guestbook-widget{ animation:none; border-color:#FFEE00; }
+    #guestbook-widget h3{ animation:none; background-color:#FFEE00; }
+  }
+
+  footer{
+    text-align:center; background:#000;
+    border-top:4px double var(--aqua);
+    padding:14px 10px; font-family:"Fixedsys Excelsior","Courier New",monospace;
+    font-size:11px; color:var(--silver);
+  }
+  footer p a, footer p a:visited{ color:#C0DFFE; }
+  footer p a:hover, footer p a:visited:hover{ color:#FFEE00; }
+
+  @media (max-width:980px){
+    .pagewrap{ margin:0; border-width:4px; }
+    .layout{ flex-direction:column; }
+    h1.sitetitle{ font-size:34px; }
+    .logoimg{ height:76px; }
+
+    /* Reorder: posts, then that page's Reviews/Features/Johnny's widgets
+       (they're part of that page's post), then pagination, then the
+       remaining sidebar widgets. */
+    .maincol{ display:contents; }
+    .sidecol{ display:contents; }
+    .post-page{ order:1; }
+    #reviews-widget{ order:2; }
+    #features-widget{ order:3; }
+    #johnnys-widget{ order:4; }
+    #reviews-widget-p2-1{ order:2; }
+    #reviews-widget-p2-2{ order:3; }
+    #reviews-widget-p2-3{ order:4; }
+    #features-widget-p2{ order:5; }
+    #johnnys-widget-p2{ order:6; }
+    #features-widget-p3{ order:2; }
+    #johnnys-widget-p3{ order:3; }
+    .pagenav{ order:7; flex-basis:auto; }
+    .sidecol > .widget{ order:8; }
+    #guestbook-widget{ margin-top:20px; }
+
+    /* Safari doesn't reliably stretch flex items whose ancestor is
+       display:contents, so force full width explicitly instead of
+       relying on align-items:stretch. */
+    .post-page, #reviews-widget, #features-widget, #johnnys-widget,
+    #reviews-widget-p2-1, #reviews-widget-p2-2, #reviews-widget-p2-3, #features-widget-p2, #johnnys-widget-p2,
+    #features-widget-p3, #johnnys-widget-p3,
+    .pagenav, .sidecol > .widget{
+      width:100%;
+    }
+
+    .mobile-quicklinks{ display:block; margin:10px 12px 0; }
+    #quicklinks-widget{ display:none; }
+  }
+
+  /* ==== "READ MORE" POPUP WINDOW ==== */
+  .readmore-link{ margin-left:10px; }
+
+  .modal-overlay{
+    position:fixed; inset:0; background:rgba(0,0,0,0.75);
+    display:flex; align-items:center; justify-content:center;
+    padding:20px; z-index:1000;
+  }
+  .modal-overlay[hidden]{ display:none; }
+  .modal-window{
+    background:var(--silver); border:3px outset #fff;
+    width:100%; max-width:620px; max-height:85vh;
+    display:flex; flex-direction:column;
+    box-shadow:6px 6px 0 rgba(0,0,0,0.55);
+  }
+  .modal-titlebar{
+    background:linear-gradient(90deg,var(--royalblue),#0b2d54);
+    color:#fff; font-family:"MS Sans Serif","Tahoma",sans-serif;
+    font-weight:bold; font-size:13px;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:4px 4px 4px 8px; flex:0 0 auto;
+  }
+  .modal-titlebar span{ overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .modal-close{
+    background:linear-gradient(180deg,#e8e8e8,#a0a0a0); border:2px outset #fff;
+    font-family:"MS Sans Serif","Tahoma",sans-serif; font-weight:bold; font-size:15px;
+    width:36px; height:32px; line-height:1; cursor:pointer; color:#000; flex:0 0 auto;
+  }
+  .modal-close:active{ border-style:inset; }
+  .modal-body{
+    background:#000; color:var(--ink); padding:18px 20px;
+    overflow-y:auto; font-family:Arial,sans-serif;
+  }
+  .modal-body h2{
+    font-family:"Arial Narrow",Arial,sans-serif; font-weight:bold; font-style:italic; color:var(--white);
+    margin:2px 0 10px; font-size:26px;
+  }
+  .modal-body p{ line-height:1.6; margin:0 0 14px; font-size:14px; }
+  .modal-body img{ max-width:100%; border:4px ridge var(--silver); margin:0 0 12px; }
+  .modal-body .bcplayer{ margin:0 0 14px; }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="pagewrap">
+
+  <header>
+    <div><img class="logoimg" src="assets/zbr-logo-white-sm.png" alt="Zegema Beach Records logo"></div>
+    <h1 class="sitetitle">Zegema Beach Records</h1>
+    <p class="tagline">A community rooted in promoting honest, passionate, inspiring music -- usually with screaming.</p>
+  </header>
+
+  <nav class="mainnav" aria-label="Main">
+    <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="mainnav-list">&#9776; MENU</button>
+    <ul id="mainnav-list">
+      <li><a href="#" data-view-link="home" aria-current="page">Home</a></li>
+      <li><a href="#" data-view-link="store">Canada / Intl Store</a></li>
+      <li><a href="#" data-view-link="usa">USA Store</a></li>
+      <li><a href="#" data-view-link="archives">Archives</a></li>
+      <li><a href="#" data-view-link="search">Search</a></li>
+      <li><a href="#" data-view-link="contact">Contact</a></li>
+      <li><a href="#" data-view-link="cart">View Cart <span id="cartCount" class="cart-count" hidden>0</span></a></li>
+    </ul>
+  </nav>
+
+  <div class="mobile-quicklinks" id="mobileQuicklinks">
+    <button type="button" class="mobile-quicklinks-toggle" data-toggle-section aria-expanded="false">Quick Links <span class="toggle-arrow">&#9660;</span></button>
+    <div class="quicklinks-grid collapsed" id="mobileQuicklinksGrid">
+      <a class="quicklink" href="https://omsbpodcast.bandcamp.com/" target="_blank" rel="noopener">
+        <span class="icon"><img src="assets/microphone_2-0.png" alt=""></span>
+        <span class="qllabel">OMSB Podcast</span>
+      </a>
+      <a class="quicklink" href="https://openmindsaturatedbrain.blogspot.com/" target="_blank" rel="noopener">
+        <span class="icon"><img src="assets/notepad-2.png" alt=""></span>
+        <span class="qllabel">OMSB Blog</span>
+      </a>
+      <a class="quicklink" href="https://zegemabeachrecords.bandcamp.com/" target="_blank" rel="noopener">
+        <span class="icon"><img src="assets/cd_audio_cd_a-4.png" alt=""></span>
+        <span class="qllabel">Bandcamp</span>
+      </a>
+      <a class="quicklink" href="https://www.youtube.com/@MrSilentStorms" target="_blank" rel="noopener">
+        <span class="icon"><img src="assets/monitor_blue_grad-0.png" alt=""></span>
+        <span class="qllabel">YouTube</span>
+      </a>
+      <a class="quicklink" href="https://www.instagram.com/zegema_beach/" target="_blank" rel="noopener">
+        <span class="icon"><img src="assets/camera-0.png" alt=""></span>
+        <span class="qllabel">Instagram</span>
+      </a>
+      <a class="quicklink" href="#" data-view-link="chatRoom">
+        <span class="icon"><img src="assets/user_computer_pair-0.png" alt=""></span>
+        <span class="qllabel">Chat Room</span>
+      </a>
+    </div>
+  </div>
+
+  <div id="homeView">
+
+  <main id="main" class="layout">
+    <div class="maincol">
+
+      <div class="post-page" data-page="1">
+
+        <article class="post" id="latest">
+          <span class="cat cat-news">News -- July 20, 2026</span>
+          <h2>Beau Navire 10"s in Stock x Constrain EP Released!</h2>
+          <p>First things first, 12 or so EU countries have a new tariff implemented but Canada Post hasn't had time to prepare to charge for it (or something like that) so I cannot ship a few orders until the postal service catches up and fixes it. I might need to hit people up for a measly $3 or whatever the tariff ends up being, but you can just place another order if you want and I can refund your shipping (minus the tariff fee) if that's easier. I'll give you more news when I get it!</p>
+          <p>Second things...second I guess. I am going on vacation to see my family in Ontario from July 24th-August 3rd so obviously nothing will get shipped in the that timeframe, and hopefully the EU stuff is smoothed out by the time I get back.</p>
+          <p>Third things...fourth...right? I mean...<strong>The Names Of Our Friends x Poetry Of Torch</strong> split releases this Friday! It'll go up at a stupid time (cuz I'll be going to the airport at like 4am PST) so half the copies will go up on Bandcamp at that time and the rest will go up in this store at our regular 9am PST.</p>
+        </article>
+
+        <article class="post">
+          <span class="cat cat-releases">Releases</span>
+          <h2><a href="#" class="post-title-link" data-product-id="beau-navire-demo">Beau Navire - 2009 Demo (10")</a></h2>
+          <p><strong>Beau Navire</strong> 10"s for their 'Demo 2009' release are back in stock! This is still the OG pressing from Clue #2 that was stashed away for over a decade -- so once this pressing is gonezo you'll have to pay stupid amounts on Discogs -- but you can get them now for just $30USD including shipping!</p>
+          <img src="https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/4e6730e0-0103-4041-892d-2cb17cf02e88/Beau+demo.jpg?format=750w" alt="Beau Navire demo 10 inch vinyl">
+          <p><strong>For fans of: Loma Prieta, Iwrotehaikusaboutcanniblaisminyouryearbook, and Carrion Spring.</strong></p>
+          <p>This early demo from the immortal Cali band mixes the softer/jazzy stuff from Iwrotehaikus with their later and heavier sound. I wicked snapshot in time. We bought these off Clue #2 Records a few months ago and they moved in a day, so we picked up another 50 copies and this is the only place to get'em!!! Hella rare/awesome find! Thanks Hieg &lt;3</p>
+          <p>10" on black vinyl with lyric insert. 6 songs.</p>
+          <p><a class="starlink" href="https://www.youtube.com/watch?v=QN4SyRc3XnU" target="_blank" rel="noopener">Listen Now</a></p>
+          <div class="addcart" data-product="Beau Navire - 2009 Demo (10&quot;)" data-price="25.00">
+            <span class="cart-price">$25.00 USD</span>
+            <label class="cart-qty-wrap">Qty:
+              <input type="number" class="cart-qty" value="1" min="1" max="99">
+            </label>
+            <a class="cart-btn" href="#">ADD TO CART</a>
+          </div>
+        </article>
+
+        <article class="post">
+          <span class="cat cat-releases">Releases</span>
+          <h2>Constrain '1999' EP</h2>
+          <p><strong>Constrain's</strong> new EP <strong>'1999'</strong> was released last week and I moved more than half of the cassettes already. The sassy metalcore is less sass and more metal than the previous EP but still intertwines them and hits like a fucking truck. The tapes arrive at my house next week and will start shipping in early August.</p>
+          <div class="bcplayer">
+            <iframe style="border:0; width:100%; height:120px;" src="https://bandcamp.com/EmbeddedPlayer/album=3198503332/size=large/bgcol=000000/linkcol=c0deff/tracklist=false/artwork=small/transparent=true/" seamless title="1999 by Constrain on Bandcamp"><a href="https://tombtreetapes.bandcamp.com/album/1999">1999 by Constrain</a></iframe>
+          </div>
+          <a class="videolink" href="https://www.youtube.com/watch?v=bhlxQPTpIX8" target="_blank" rel="noopener">
+            <img src="https://i.ytimg.com/vi/bhlxQPTpIX8/hqdefault.jpg" alt="Watch Constrain - That Smelly Smell That Smells Smelly on YouTube">
+            <span class="playbtn" aria-hidden="true"></span>
+          </a>
+        </article>
+
+        <article class="post">
+          <span class="cat cat-releases">Releases</span>
+          <h2><a href="#" class="post-title-link" data-product-id="hillsboro-apiyn">Hillsboro Tapes</a></h2>
+          <p><strong>Hillsboro</strong> tapes for <strong>'A Party in Your Name'</strong> are officially done and ready to ship! This album is a wicked collection of songs that fall somewhere in the indie/emo/shoegaze category and features my good bud Nima from Wollruss on vocals/guitar.</p>
+          <div class="bcplayer">
+            <iframe style="border:0; width:100%; height:120px;" src="https://bandcamp.com/EmbeddedPlayer/album=3144453157/size=large/bgcol=000000/linkcol=c0deff/tracklist=false/artwork=small/transparent=true/" seamless title="A Party in Your Name by Hillsboro on Bandcamp"><a href="https://hillsboro.bandcamp.com/album/a-party-in-your-name">A Party in Your Name by Hillsboro</a></iframe>
+          </div>
+          <img src="https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/959e2021-d62a-4aa2-8c2f-4b0e80434d5c/0-0+promo.jpg?format=2500w" alt="Hillsboro promo photo" style="margin-top:20px;">
+        </article>
+
+        <article class="post">
+          <span class="cat cat-releases">Last Copy</span>
+          <h2>Snag</h2>
+          <p>In conjunction with our Johnny's Reco-mmendations is our good friends <strong>Snag</strong>. We released their split cassette with <strong>Swallows Nest</strong> (one left!), their debut 12"LP, and their sophomore 12"LP (one left!), which makes them Today's Last Fucking Copy so snag it now or forever hold your peace!</p>
+          <p><a class="starlink" href="https://zegemabeachrecords.bandcamp.com/album/snag-swallows-nest-split" target="_blank" rel="noopener">Shop Now</a></p>
+          <div class="bcplayer">
+            <iframe style="border:0; width:100%; height:120px;" src="https://bandcamp.com/EmbeddedPlayer/album=3279434931/size=large/bgcol=000000/linkcol=c0deff/tracklist=false/artwork=small/transparent=true/" seamless title="Snag / Swallows Nest split on Bandcamp"><a href="https://zegemabeachrecords.bandcamp.com/album/snag-swallows-nest-split">Snag / Swallows Nest split</a></iframe>
+          </div>
+
+          <h3 style="margin-top:20px;"><a href="#" class="post-title-link" data-product-id="snag-death-doula">Death Doula (12"LP/shirt)</a></h3>
+          <p><strong>For fans of: Funeral Diner, Coma Regalia and Eyes Of Verotika</strong></p>
+          <p>Milwaukee's <strong>SNAG</strong> is back for more environmentally/socially/politically conscious screamo.</p>
+          <p>12" vinyl /300, 150 on clear, 50 on clear w/silkscreen b-side, 50 on black, and 50 on black w/silkscreen b-side. Download code included. 7 songs.</p>
+          <div class="addcart" data-product="SNAG - Death Doula (12&quot;LP/shirt)" data-price="25.00">
+            <span class="cart-price">$25.00 USD</span>
+            <label class="cart-variant-wrap">
+              <select class="cart-variant">
+                <option value="" selected>Select Variant</option>
+                <option value="clear">Clear (150)</option>
+                <option value="clear-silkscreen" disabled>Clear w/silkscreen -- SOLD OUT</option>
+                <option value="black" disabled>Black -- SOLD OUT</option>
+                <option value="black-silkscreen" disabled>Black w/silkscreen -- SOLD OUT</option>
+              </select>
+            </label>
+            <a class="cart-btn" href="#">ADD TO CART</a>
+          </div>
+          <div class="bcplayer" style="margin-top:20px;">
+            <iframe style="border:0; width:100%; height:120px;" src="https://bandcamp.com/EmbeddedPlayer/album=2052037531/size=large/bgcol=000000/linkcol=c0deff/tracklist=false/artwork=small/transparent=true/" seamless title="Death Doula by SNAG on Bandcamp"><a href="https://zegemabeachrecords.bandcamp.com/album/death-doula">Death Doula by SNAG</a></iframe>
+          </div>
+        </article>
+
+      </div>
+
+      <div class="post-page" data-page="2" hidden>
+        <article class="post">
+          <span class="cat cat-news">News -- July 13, 2026</span>
+          <h2>Coup D'état 7" Lathe Released!</h2>
+          <img src="https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/a060ef35-87ed-425f-98a9-77c43c5f5cc0/CoupPromo_Cover_RGB.png?format=750w" alt="Coup D'état promo EP cover art">
+          <p>Coup D'état just released the 'coup d'état the band the promo the ep' on black 7" lathe out of 50, with 30 going to the band I've only got 20 for ZBR. Two re-recorded songs and a brand new one (only the first two went on the lathe) highlight the band's peak to date and include "new" guitarist Elle and the last recording with OG bassist Raine.</p>
+          <p>These are pretty expensive but it's because we paid for the express option so the band could have them in hand for New Friends Fest in early August, so please don't think we're gouging, these have like a $3 profit per copy and that's it -- so it shall never be repressed! Snag it now!!!</p>
+          <p><a class="starlink" href="https://zegemabeachrecords.bandcamp.com/album/coup-d-tat-the-band-the-promo-the-ep" target="_blank" rel="noopener">Shop Now</a></p>
+        </article>
+
+        <article class="post">
+          <span class="cat cat-news">News</span>
+          <h2>Beau Navire Demo 10" Restock</h2>
+          <img class="post-img-crop" src="https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/8a1731a2-137b-4966-a96d-644ba1ad00c3/1000005554.jpg?format=750w" alt="Beau Navire demo 10 inch restock photo">
+          <p>I've got a Beau Navire restock for the Demo 10" going back up on Tuesday at 9am PST / 11am CST / 12pm EST. The last time we threw these up we sold 50 in 24 hours, but now there is no US store -- but for the love of science please remember that the $15CAD shipping price is actually just $10US. These are not available anywhere else and they are the OG pressing!!! Check the New Items/Specials page at drop time.</p>
+          <p><a class="starlink" href="#" data-view-link="store" data-special-filter="new">Shop New Items</a></p>
+        </article>
+
+        <article class="post">
+          <span class="cat cat-releases">Releases</span>
+          <h2>Constrain '1999' Drops Friday</h2>
+          <p>Constrain's new EP '1999' releases this Friday July 17th on Tomb Tree! I'll have about 20 copies available for sale but they might not arrive until the week after, but I'll likely get the dips done this week so people know what the variants look like. Check out their new music video for their final single below that was shot on their West Coast weekend run last month...you might even spot yourself a Dave!</p>
+          <a class="videolink" href="https://www.youtube.com/watch?v=bhlxQPTpIX8" target="_blank" rel="noopener">
+            <img src="https://i.ytimg.com/vi/bhlxQPTpIX8/hqdefault.jpg" alt="Watch Constrain - That Smelly Smell That Smells Smelly on YouTube">
+            <span class="playbtn" aria-hidden="true"></span>
+          </a>
+        </article>
+
+        <article class="post">
+          <span class="cat cat-news">News</span>
+          <h2>Sungaze Drops New Music Video</h2>
+          <p>Sungaze released a new music video for one of my favourite tracks from their 'I'm No Longer Afraid Of Heights' 12"LP that Softseed Music released a few months back. Check out the video and scope the album below -- ZBR even has copies in the store for less than Bandcamp!</p>
+          <a class="videolink" href="https://www.youtube.com/watch?v=SKhq5tjReRU" target="_blank" rel="noopener">
+            <img src="https://i.ytimg.com/vi/SKhq5tjReRU/hqdefault.jpg" alt="Watch Sungaze - Another Life (Official Music Video) on YouTube">
+            <span class="playbtn" aria-hidden="true"></span>
+          </a>
+          <div class="bcplayer">
+            <iframe style="border:0; width:100%; height:120px;" src="https://bandcamp.com/EmbeddedPlayer/album=1428819205/size=large/bgcol=000000/linkcol=c0deff/tracklist=false/artwork=small/transparent=true/" seamless title="I'm No Longer Afraid Of Heights by Sungaze on Bandcamp"><a href="https://softseedmusic.bandcamp.com/album/im-no-longer-afraid-of-heights">I'm No Longer Afraid Of Heights by Sungaze</a></iframe>
+          </div>
+        </article>
+
+        <article class="post">
+          <span class="cat cat-releases">Last Copy</span>
+          <h2>Agent Mulder</h2>
+          <p>Today's Last Fucking Copy goes to Agent Mulder's debut EP which somehow has one tape left, snag it! Sassy metallic hardcore from Canada (now dead, so it'll never be made again!).</p>
+          <p><a class="starlink" href="https://tombtreetapes.bandcamp.com/album/and-all-i-loved-i-loved-alone" target="_blank" rel="noopener">Shop Now</a></p>
+          <div class="bcplayer">
+            <iframe style="border:0; width:100%; height:120px;" src="https://bandcamp.com/EmbeddedPlayer/album=1035207150/size=large/bgcol=000000/linkcol=c0deff/tracklist=false/artwork=small/transparent=true/" seamless title="And All I Loved, I Loved Alone by Agent Mulder on Bandcamp"><a href="https://tombtreetapes.bandcamp.com/album/and-all-i-loved-i-loved-alone">And All I Loved, I Loved Alone by Agent Mulder</a></iframe>
+          </div>
+        </article>
+      </div>
+
+      <div class="post-page" data-page="3" hidden>
+        <article class="post" id="releases">
+          <span class="cat cat-news">News -- July 3, 2026</span>
+          <h2>Zampler #27 Released + Final Shirt Sale!</h2>
+          <p>ZAMPLER #27 released on June 30th! 'Take It Out Easy, Cadet' houses 25 songs including a bunch of previously unreleased stuff from Senza, Our Future Is An Absolute Shadow, Poetry Of Torch, Coup D'etat, The Names Of Our Friends, Hauzu, Empathetic, and Mourn Recif. All bandcamp donations in the first 30 days for this go to the artist, shoutout Sinco from Constrain &lt;3</p>
+          <p>All orders placed from June 30th-July 6th will include a Zampler cd for free. I heard their might be a golden ticket in there somewhere!!!</p>
+          <div class="bcplayer">
+            <iframe style="border:0; width:100%; height:120px;" src="https://bandcamp.com/EmbeddedPlayer/album=1056741751/size=large/bgcol=000000/linkcol=c0deff/tracklist=false/artwork=small/transparent=true/" seamless title="Zampler #27 &#39;Take It Out Easy, Cadet&#39; by Zegema Beach Records on Bandcamp"><a href="https://zegemabeachrecords.bandcamp.com/album/zampler-27-take-it-out-easy-cadet">Zampler #27 'Take It Out Easy, Cadet'</a></iframe>
+          </div>
+        </article>
+
+        <article class="post">
+          <span class="cat cat-news">Sale</span>
+          <h2>Final T-Shirt Sale</h2>
+          <p>Oh shit yo the final T-shirts etc. sale just went up so I'm all outta shirts for sale. I cut down my personal collection from almost 200 to just over 50 so there's some insanely rare/awesome shit in there. Some cheap...some not so much lol. Remember, each order by July 6th gets a free Zampler #27!!!</p>
+          <p><a class="starlink" href="#" data-view-link="store" data-category-filter="shirt">Shop Shirts</a></p>
+          <div class="pdp-carousel" id="shirtSaleCarousel">
+            <div class="pdp-carousel-track">
+              <img class="pdp-carousel-img" src="https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/ad5776d4-f751-4f43-9659-986652ee3774/-square.jpg?format=750w" alt="ZBR shirt sale photo">
+              <img class="pdp-carousel-img" src="https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/1783093301571-QRD11L6BCVC5GXA1NVZR/1007a+1.jpg?format=750w" alt="ZBR shirt sale photo" hidden>
+              <img class="pdp-carousel-img" src="https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/1783093301685-FZKCEHLDNHUH4WZUUMEL/blood+1.jpg?format=750w" alt="ZBR shirt sale photo" hidden>
+              <img class="pdp-carousel-img" src="https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/1783093303362-8PXLBPINHTXB1IXGOAK2/brahm.jpg?format=750w" alt="ZBR shirt sale photo" hidden>
+              <img class="pdp-carousel-img" src="https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/1783093303603-8IVLGC9ZEJHN385N9QR6/coma.jpg?format=750w" alt="ZBR shirt sale photo" hidden>
+              <img class="pdp-carousel-img" src="https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/1783093304842-HMLNTPML246YXL4ZJR9N/me+and+him+1.jpg?format=750w" alt="ZBR shirt sale photo" hidden>
+              <img class="pdp-carousel-img" src="https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/1783093305119-DRYZOLK9YS734E8QXABE/shoganai.jpg?format=750w" alt="ZBR shirt sale photo" hidden>
+              <img class="pdp-carousel-img" src="https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/1783093306495-FJKHEFDS11UI6XFNVAI6/sinema.jpg?format=750w" alt="ZBR shirt sale photo" hidden>
+              <img class="pdp-carousel-img" src="https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/1783093306731-VWR2BSDWYUVZB5OW2SP1/votive.jpg?format=750w" alt="ZBR shirt sale photo" hidden>
+              <img class="pdp-carousel-img" src="https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/1783093307756-XWBNGV9X6F2YAFXVDZ08/zbr+og.jpg?format=750w" alt="ZBR shirt sale photo" hidden>
+              <button type="button" class="pdp-carousel-prev" aria-label="Previous photo">&#9664;</button>
+              <button type="button" class="pdp-carousel-next" aria-label="Next photo">&#9654;</button>
+            </div>
+            <div class="pdp-carousel-dots">
+              <span class="pdp-carousel-dot" aria-current="true"></span>
+              <span class="pdp-carousel-dot" aria-current="false"></span>
+              <span class="pdp-carousel-dot" aria-current="false"></span>
+              <span class="pdp-carousel-dot" aria-current="false"></span>
+              <span class="pdp-carousel-dot" aria-current="false"></span>
+              <span class="pdp-carousel-dot" aria-current="false"></span>
+              <span class="pdp-carousel-dot" aria-current="false"></span>
+              <span class="pdp-carousel-dot" aria-current="false"></span>
+              <span class="pdp-carousel-dot" aria-current="false"></span>
+              <span class="pdp-carousel-dot" aria-current="false"></span>
+            </div>
+          </div>
+        </article>
+
+        <article class="post">
+          <span class="cat cat-releases">Interviews</span>
+          <h2>Gus Caldwell (Ostraca) on the OMSB Podcast</h2>
+          <p>Gus (bass/vocals) from Ostraca joined me on the most recent OMSB Podcast! We talked about a bunch of stuff including their sick new record (embedded below), bands that helped form him, his musical journey, and more!</p>
+          <p><a class="starlink" href="https://openmindsaturatedbrain.blogspot.com/2026/06/podcast-198-gus-caldwell-ostraca-absent.html" target="_blank" rel="noopener">Full Blog Post</a></p>
+          <div class="bcplayer">
+            <iframe style="border:0; width:100%; height:120px;" src="https://bandcamp.com/EmbeddedPlayer/album=1432719538/size=large/bgcol=000000/linkcol=c0deff/tracklist=false/artwork=small/transparent=true/" seamless title="Podcast 198: Gus Caldwell (Ostraca, Absent Lights, Guerdon) by OMSB Podcast on Bandcamp"><a href="https://omsbpodcast.bandcamp.com/album/podcast-198-gus-caldwell-ostraca-absent-lights-guerdon">Podcast 198: Gus Caldwell</a></iframe>
+          </div>
+          <div class="bcplayer">
+            <iframe style="border:0; width:100%; height:120px;" src="https://bandcamp.com/EmbeddedPlayer/album=3799033302/size=large/bgcol=000000/linkcol=c0deff/tracklist=false/artwork=small/transparent=true/" seamless title="Thread by Ostraca on Bandcamp"><a href="https://ostraca.bandcamp.com/album/thread">Thread by Ostraca</a></iframe>
+          </div>
+        </article>
+
+        <article class="post">
+          <span class="cat cat-releases">Last Copy</span>
+          <h2>Apostles Of Eris x Encarsia</h2>
+          <p>Today's Last Fucking Copy goes to another CanaDave (now just Dave) release, as I am down to the final Apostles Of Eris x Encarsia split cassette. Arguably some of the best AOE material and pretty much the only proper release from the prog skramz gods Encarsia. This will not be made again. Snag it now below or forever hold your peace.</p>
+          <p><a class="starlink" href="https://zegemabeachrecords.bandcamp.com/album/split-14" target="_blank" rel="noopener">Shop Now</a></p>
+          <div class="bcplayer">
+            <iframe style="border:0; width:100%; height:120px;" src="https://bandcamp.com/EmbeddedPlayer/album=3181300521/size=large/bgcol=000000/linkcol=c0deff/tracklist=false/artwork=small/transparent=true/" seamless title="Split by Apostles Of Eris + Encarsia on Bandcamp"><a href="https://zegemabeachrecords.bandcamp.com/album/split-14">Split by Apostles Of Eris + Encarsia</a></iframe>
+          </div>
+        </article>
+      </div>
+
+      <div class="post-page" data-page="4" hidden>
+        <article class="post">
+          <span class="cat cat-releases">Releases -- June 23, 2026</span>
+          <h2>Mal Criado Released</h2>
+          <img src="https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/1645646257010-LSJI3DG1QK1ZJKT75U6S/cover.jpg?format=750w" alt="Mal Criado Ni Todo La Tierra Entera album cover">
+          <p>Mal Criado's 'Ni Todo La Tierra Entera' released on Tomb Tree! The 13 jams exude anger, dissatisfaction, and inequality at the horseshit system in place, all wrapped in a nasty powerviolence tortilla. Mmmm, so good!!</p>
+          <div class="bcplayer">
+            <iframe style="border:0; width:100%; height:120px;" src="https://bandcamp.com/EmbeddedPlayer/album=2931628913/size=large/bgcol=000000/linkcol=c0deff/tracklist=false/artwork=small/transparent=true/" seamless title="Ni Todo La Tierra Entera by Mal Criado on Bandcamp"><a href="https://malcriadobc.bandcamp.com/album/ni-todo-la-tierra-entera">Ni Todo La Tierra Entera by Mal Criado</a></iframe>
+          </div>
+          <p>
+            <a class="starlink" href="#">Shop Now</a>
+            <a class="starlink readmore-link" href="#" data-modal-target="tmpl-malcriado" data-modal-title="Mal Criado Released">Read More</a>
+          </p>
+        </article>
+        <template id="tmpl-malcriado">
+          <span class="cat cat-releases">Releases -- June 23, 2026</span>
+          <h2>Mal Criado Released</h2>
+          <img src="https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/1645646257010-LSJI3DG1QK1ZJKT75U6S/cover.jpg?format=750w" alt="Mal Criado Ni Todo La Tierra Entera album cover">
+          <p>Mal Criado's 'Ni Todo La Tierra Entera' is out now on Tomb Tree Tapes! This Vancouver four-piece plays politically-charged powerviolence with some punk, grind, and metal leanings woven through -- 13 tracks of anger, dissatisfaction, and inequality at the horseshit systems currently in place, all wrapped in a nasty little tortilla of noise.</p>
+          <p>The tape comes in a handful of variants (swirl, brick, and a couple of test-press-style pressings), so check the shop for exactly what's still available before they're all claimed.</p>
+          <div class="thumbstrip" aria-hidden="true">
+            <img src="https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/1781537609406-33NAN935CRPQJAP7U8UT/1+black.jpg?format=300w" alt="">
+            <img src="https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/1781537609944-3V4E6VJR2VEG1WY2IJY3/2+mapuche+swirl.jpg?format=300w" alt="">
+            <img src="https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/1781537613749-79RR6F1QOUFELQXIKCRX/3+green+%2B+yellow+swirl.jpg?format=300w" alt="">
+            <img src="https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/1781537614820-8R435Z5S9X8CLNTMVX3E/4+test.jpg?format=300w" alt="">
+          </div>
+          <div class="bcplayer">
+            <iframe style="border:0; width:100%; height:120px;" src="https://bandcamp.com/EmbeddedPlayer/album=2931628913/size=large/bgcol=000000/linkcol=c0deff/tracklist=false/artwork=small/transparent=true/" seamless title="Ni Todo La Tierra Entera by Mal Criado on Bandcamp"><a href="https://malcriadobc.bandcamp.com/album/ni-todo-la-tierra-entera">Ni Todo La Tierra Entera by Mal Criado</a></iframe>
+          </div>
+          <p>Stream it above and then go cop a physical copy -- this one's too good to just leave in your queue.</p>
+          <p><a class="starlink" href="#">Shop Now</a></p>
+        </template>
+      </div>
+
+    </div>
+
+    <nav class="pagenav" aria-label="Post pages by date">
+      <span class="pagenav-label" id="pagenavLabel">News from July 20, 2026</span>
+      <div class="pagenav-buttons">
+        <button type="button" data-page-nav="1" aria-current="true">1</button>
+        <button type="button" data-page-nav="2">2</button>
+        <button type="button" data-page-nav="3">3</button>
+        <button type="button" data-page-nav="4">4</button>
+      </div>
+    </nav>
+
+    <div class="sidecol">
+
+      <div class="widget" id="quicklinks-widget" style="border-color:#A500A8;">
+        <h3 style="background:#A500A8;color:var(--white);">Quick Links</h3>
+        <div class="quicklinks-grid">
+          <a class="quicklink" href="https://omsbpodcast.bandcamp.com/" target="_blank" rel="noopener">
+            <span class="icon"><img src="assets/microphone_2-0.png" alt=""></span>
+            <span class="qllabel">OMSB Podcast</span>
+          </a>
+          <a class="quicklink" href="https://openmindsaturatedbrain.blogspot.com/" target="_blank" rel="noopener">
+            <span class="icon"><img src="assets/notepad-2.png" alt=""></span>
+            <span class="qllabel">OMSB Blog</span>
+          </a>
+          <a class="quicklink" href="https://zegemabeachrecords.bandcamp.com/" target="_blank" rel="noopener">
+            <span class="icon"><img src="assets/cd_audio_cd_a-4.png" alt=""></span>
+            <span class="qllabel">Bandcamp</span>
+          </a>
+          <a class="quicklink" href="https://www.youtube.com/@MrSilentStorms" target="_blank" rel="noopener">
+            <span class="icon"><img src="assets/monitor_blue_grad-0.png" alt=""></span>
+            <span class="qllabel">YouTube</span>
+          </a>
+          <a class="quicklink" href="https://www.instagram.com/zegema_beach/" target="_blank" rel="noopener">
+            <span class="icon"><img src="assets/camera-0.png" alt=""></span>
+            <span class="qllabel">Instagram</span>
+          </a>
+          <a class="quicklink" href="#" data-view-link="chatRoom">
+            <span class="icon"><img src="assets/user_computer_pair-0.png" alt=""></span>
+            <span class="qllabel">Chat Room</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="widget" id="reviews-widget" data-sidebar-page="1">
+        <h3 style="background:var(--royalblue);color:var(--white);">Reviews</h3>
+        <p><strong>Orphan Donor's 'Ailments'</strong> got some love from <strong>This Noise Is Ours</strong>!</p>
+        <a class="starlink" href="http://www.thisnoiseisours.com/2026/07/orphan-donor-ailments.html" target="_blank" rel="noopener">Read The Review</a>
+        <div class="bcplayer">
+          <iframe style="border:0; width:100%; height:42px;" src="https://bandcamp.com/EmbeddedPlayer/album=1890948605/size=small/bgcol=000000/linkcol=c0deff/tracklist=false/transparent=true/" seamless title="Ailments by Orphan Donor on Bandcamp"><a href="https://zegemabeachrecords.bandcamp.com/album/ailments">Ailments by Orphan Donor</a></iframe>
+        </div>
+      </div>
+
+      <div class="widget" id="features-widget" style="border-color:#19A800;" data-sidebar-page="1">
+        <h3 style="background:#19A800;color:var(--white);">Features</h3>
+        <p><strong>Operation X-Ray</strong> played some <strong>Coup D'etat</strong> as well as the new <strong>Hauzu</strong> song from the Zampler. Check it out!</p>
+        <a class="starlink" href="https://soundcloud.com/cameron-dennison/operation-xray-ep-235?utm_source=clipboard&amp;utm_campaign=wtshare&amp;utm_medium=widget&amp;utm_content=https%253A%252F%252Fsoundcloud.com%252Fcameron-dennison%252Foperation-xray-ep-235" target="_blank" rel="noopener">Listen to Operation X-Ray</a>
+        <div class="bcplayer">
+          <iframe style="border:0; width:100%; height:42px;" src="https://bandcamp.com/EmbeddedPlayer/track=2797111084/size=small/bgcol=000000/linkcol=c0deff/tracklist=false/transparent=true/" seamless title="Train on the Living by ***HAUZU on Bandcamp"><a href="https://zegemabeachrecords.bandcamp.com/track/train-on-the-living">Train on the Living by ***HAUZU</a></iframe>
+        </div>
+      </div>
+
+      <div class="widget" id="johnnys-widget" data-sidebar-page="1">
+        <h3>Johnny's Reco-mmendations</h3>
+        <p><strong>SNAG</strong> = This band has been kickin' it forever and has a split with Dave's New Zealand band <strong>Swallows Nest</strong> and ZBR released their first and second (aka two previous) full lengths.</p>
+        <a class="starlink" href="#" data-view-link="store" data-band-filter="SNAG">Shop Now</a>
+        <div class="bcplayer">
+          <iframe style="border:0; width:100%; height:42px;" src="https://bandcamp.com/EmbeddedPlayer/album=781253572/size=small/bgcol=000000/linkcol=c0deff/tracklist=false/transparent=true/" seamless title="All The Cages Holding Us Will One Day Turn To Dust by snag. on Bandcamp"><a href="https://snagmke.bandcamp.com/album/all-the-cages-holding-us-will-one-day-turn-to-dust">All The Cages Holding Us Will One Day Turn To Dust</a></iframe>
+        </div>
+      </div>
+
+      <div class="widget" id="reviews-widget-p2-1" data-sidebar-page="2" hidden>
+        <h3 style="background:var(--royalblue);color:var(--white);">Reviews</h3>
+        <p><strong>Concealer's 'This Room Could Be Heaven'</strong> got some love from <strong>Wall Of Sound</strong>! We're hoping to repress this asap cuz it's like...album of the year.</p>
+        <a class="starlink" href="https://www.wallofsoundau.com/news/26-albums-you-may-have-missed-in-2026-so-far" target="_blank" rel="noopener">Read The Review</a>
+        <div class="bcplayer">
+          <iframe style="border:0; width:100%; height:42px;" src="https://bandcamp.com/EmbeddedPlayer/album=3012910951/size=small/bgcol=000000/linkcol=c0deff/tracklist=false/transparent=true/" seamless title="This Room Could Be Heaven by Concealer on Bandcamp"><a href="https://zegemabeachrecords.bandcamp.com/album/this-room-could-be-heaven">This Room Could Be Heaven by Concealer</a></iframe>
+        </div>
+      </div>
+
+      <div class="widget" id="reviews-widget-p2-2" data-sidebar-page="2" hidden>
+        <h3 style="background:var(--royalblue);color:var(--white);">Reviews</h3>
+        <p><strong>Dagerman.</strong> was reviewed by <strong>IYEZINE</strong> in The Queen Is Dead Vol.215.</p>
+        <a class="starlink" href="https://www.iyezine.com/buio-dentro-dagerman-lacasta/" target="_blank" rel="noopener">Read The Review</a>
+        <div class="bcplayer">
+          <iframe style="border:0; width:100%; height:42px;" src="https://bandcamp.com/EmbeddedPlayer/album=2719788109/size=small/bgcol=000000/linkcol=c0deff/tracklist=false/transparent=true/" seamless title="Di Fronte a Noi il Nulla by Dagerman. on Bandcamp"><a href="https://zegemabeachrecords.bandcamp.com/album/di-fronte-a-noi-il-nulla">Di Fronte a Noi il Nulla by Dagerman.</a></iframe>
+        </div>
+      </div>
+
+      <div class="widget" id="reviews-widget-p2-3" data-sidebar-page="2" hidden>
+        <h3 style="background:var(--royalblue);color:var(--white);">Reviews</h3>
+        <p><strong>Rockambula</strong> gave the new <strong>Vibora</strong> a stellar review. 'Egin Ez Dugun Guztia' is down to single-digit copies!</p>
+        <a class="starlink" href="https://www.rockambula.com/i-dischi-che-non-ti-ho-detto-gennaio-giugno-2026-parte-i/" target="_blank" rel="noopener">Read The Review</a>
+        <div class="bcplayer">
+          <iframe style="border:0; width:100%; height:42px;" src="https://bandcamp.com/EmbeddedPlayer/album=3662440684/size=small/bgcol=000000/linkcol=c0deff/tracklist=false/transparent=true/" seamless title="Egin Ez Dugun Guztia by Vibora on Bandcamp"><a href="https://zegemabeachrecords.bandcamp.com/album/egin-ez-dugun-guztia">Egin Ez Dugun Guztia by Vibora</a></iframe>
+        </div>
+      </div>
+
+      <div class="widget" id="features-widget-p2" style="border-color:#19A800;" data-sidebar-page="2" hidden>
+        <h3 style="background:#19A800;color:var(--white);">Features</h3>
+        <p><strong>Operation X-Ray</strong> played previously unreleased tracks from the Zampler -- this episode Andre focused on <strong>Senza</strong> (split 12" w/Rainmaking on Aug 24th) and <strong>Mourn Recif</strong> (Zampler exclusive, a b-side from their only recording session, band is now Cadere).</p>
+        <a class="starlink" href="https://soundcloud.com/cameron-dennison/operation-xray-ep-234-july-3" target="_blank" rel="noopener">Listen to Operation X-Ray</a>
+        <div class="bcplayer">
+          <iframe style="border:0; width:100%; height:42px;" src="https://bandcamp.com/EmbeddedPlayer/album=1056741751/size=small/bgcol=000000/linkcol=c0deff/tracklist=false/transparent=true/" seamless title="Zampler #27 &#39;Take It Out Easy, Cadet&#39; by Zegema Beach Records on Bandcamp"><a href="https://zegemabeachrecords.bandcamp.com/album/zampler-27-take-it-out-easy-cadet">Zampler #27 'Take It Out Easy, Cadet'</a></iframe>
+        </div>
+      </div>
+
+      <div class="widget" id="johnnys-widget-p2" data-sidebar-page="2" hidden>
+        <h3>Johnny's Reco-mmendations</h3>
+        <p><strong>VALESKA SURATT</strong> = Oh my god there's a new Valeska Suratt full length and it's everything I hoped it would be. Amazing stuff.</p>
+        <a class="starlink" href="https://valeskasuratt.bandcamp.com/album/beyond-recognition" target="_blank" rel="noopener">Shop Now</a>
+        <div class="bcplayer">
+          <iframe style="border:0; width:100%; height:42px;" src="https://bandcamp.com/EmbeddedPlayer/album=1727472732/size=small/bgcol=000000/linkcol=c0deff/tracklist=false/transparent=true/" seamless title="Beyond Recognition by Valeska Suratt on Bandcamp"><a href="https://valeskasuratt.bandcamp.com/album/beyond-recognition">Beyond Recognition by Valeska Suratt</a></iframe>
+        </div>
+      </div>
+
+      <div class="widget" id="features-widget-p3" style="border-color:#19A800;" data-sidebar-page="3" hidden>
+        <h3 style="background:#19A800;color:var(--white);">Features</h3>
+        <p><strong>Everything Is Noise</strong> included the new <strong>Mal Criado</strong> album 'Ni Todo La Tierra Entera' in their monthly blast!</p>
+        <a class="starlink" href="https://everythingisnoise.net/features/the-noise-of-june-2026/" target="_blank" rel="noopener">Read Now</a>
+        <div class="bcplayer">
+          <iframe style="border:0; width:100%; height:42px;" src="https://bandcamp.com/EmbeddedPlayer/album=1575890970/size=small/bgcol=000000/linkcol=c0deff/tracklist=false/transparent=true/" seamless title="Ni Todo La Tierra Entera by Mal Criado on Bandcamp"><a href="https://tombtreetapes.bandcamp.com/album/ni-todo-la-tierra-entera">Ni Todo La Tierra Entera by Mal Criado</a></iframe>
+        </div>
+      </div>
+
+      <div class="widget" id="johnnys-widget-p3" data-sidebar-page="3" hidden>
+        <h3>Johnny's Reco-mmendations</h3>
+        <p><strong>MIEKE</strong> = This Kiwi all-star just released another new jam, and I have the 12"LP for 'Frau Eva' on Softseed Music so you can snag it directly from this store!</p>
+        <a class="starlink" href="https://softseedmusic.bandcamp.com/album/frau-eva" target="_blank" rel="noopener">Shop Now</a>
+        <div class="bcplayer">
+          <iframe style="border:0; width:100%; height:42px;" src="https://bandcamp.com/EmbeddedPlayer/album=3236546299/size=small/bgcol=000000/linkcol=c0deff/tracklist=false/transparent=true/" seamless title="Frau Eva by MIEKE on Bandcamp"><a href="https://softseedmusic.bandcamp.com/album/frau-eva">Frau Eva by MIEKE</a></iframe>
+        </div>
+      </div>
+
+      <div class="widget" id="guestbook-widget">
+        <h3 style="color:#000;">Sign My Guestbook!</h3>
+        <p>Let us know you stopped by the site!</p>
+        <div class="guestbook-buttons">
+          <a class="gb-btn" href="#" data-view-link="guestbookSign">SIGN<br>GUESTBOOK</a>
+          <a class="gb-btn" href="#" data-view-link="guestbookList">VIEW<br>GUESTBOOK</a>
+        </div>
+      </div>
+
+      <div class="widget">
+        <h3>Mailing List</h3>
+        <p>Zamplers, lathes, last copies, and tour news -- straight to your inbox!</p>
+        <a class="starlink" href="mailto:zegemabeachrecords@example.com">Email The Webmaster</a>
+      </div>
+
+    </div>
+  </main>
+
+  </div>
+
+  <div id="storeView" hidden>
+    <div class="store-page">
+      <div class="store-layout">
+        <aside class="store-sidebar">
+          <label class="store-search">Search
+            <input type="text" id="storeSearch" placeholder="Band or release...">
+          </label>
+
+          <div class="store-quicklabels">
+            <button type="button" data-special-filter="new">New Items</button>
+            <button type="button" data-special-filter="steals">Steals</button>
+          </div>
+
+          <div class="sidebar-section">
+            <button type="button" class="sidebar-section-toggle" data-toggle-section aria-expanded="false">Bands A-Z <span class="toggle-arrow">&#9660;</span></button>
+            <ul class="sidebar-list collapsed" id="bandList"></ul>
+          </div>
+
+          <div class="sidebar-section">
+            <button type="button" class="sidebar-section-toggle" data-toggle-section aria-expanded="false">Merch <span class="toggle-arrow">&#9660;</span></button>
+            <ul class="sidebar-list collapsed" id="merchList">
+              <li><button type="button" data-view-all>View All</button></li>
+              <li>
+                <button type="button" data-category-filter="vinyl">Vinyl</button>
+                <ul class="sidebar-sublist">
+                  <li><button type="button" data-category-filter="vinyl" data-vinyl-size="12">12" Records</button></li>
+                  <li><button type="button" data-category-filter="vinyl" data-vinyl-size="7">7" Records</button></li>
+                  <li><button type="button" data-category-filter="vinyl" data-vinyl-size="5,6,9,10">5"/6"/9"/10" Records</button></li>
+                </ul>
+              </li>
+              <li><button type="button" data-category-filter="cd">CDs</button></li>
+              <li><button type="button" data-category-filter="cassette">Cassettes</button></li>
+              <li><button type="button" data-category-filter="shirt">Shirts</button></li>
+              <li><button type="button" data-category-filter="poster">Posters</button></li>
+              <li><button type="button" data-category-filter="button">Buttons</button></li>
+              <li><button type="button" data-category-filter="sticker">Stickers</button></li>
+            </ul>
+          </div>
+
+          <div class="sidebar-section">
+            <button type="button" class="sidebar-section-toggle" data-toggle-section aria-expanded="false">Labels <span class="toggle-arrow">&#9660;</span></button>
+            <ul class="sidebar-list collapsed" id="labelList">
+              <li><button type="button" data-view-all>View All</button></li>
+              <li><button type="button" data-label-filter="Zegema Beach Releases">Zegema Beach Releases</button></li>
+              <li><button type="button" data-label-filter="Tomb Tree">Tomb Tree</button></li>
+              <li><button type="button" data-label-filter="Softseed Music">Softseed Music</button></li>
+            </ul>
+          </div>
+        </aside>
+        <div class="store-grid" id="storeGrid"></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="pdpView" hidden>
+    <div class="pdp-page" id="pdpContent"></div>
+  </div>
+
+  <div id="searchView" hidden>
+    <div class="contact-page">
+      <img src="assets/search_directory-5.png" alt="" class="search-icon">
+      <label class="site-search-field">Search the site
+        <input type="text" id="siteSearchInput" placeholder="Search band names, releases, news...">
+      </label>
+      <div id="siteSearchResults"></div>
+    </div>
+  </div>
+
+  <div id="usaStoreView" hidden>
+    <div class="construction-panel">
+      <div class="digger" aria-hidden="true"><img src="assets/directory_folder_options-4.png" alt=""></div>
+      <h2>Under Construction</h2>
+      <p>Check back soon -- in the meantime, the Canada / International store and Bandcamp are open for business!</p>
+      <div class="stripes" aria-hidden="true"></div>
+    </div>
+  </div>
+
+  <div id="cartView" hidden>
+    <div class="cart-page">
+      <img src="assets/recycle_bin_empty_cool-0.png" alt="" class="cart-icon" id="cartEmptyIcon">
+      <p id="cartEmpty" class="cart-empty">Your cart is empty -- go add some records!</p>
+      <div id="cartItems" class="cart-items" hidden></div>
+      <div class="cart-summary" id="cartSummary" hidden>
+        <span class="cart-subtotal-label">Subtotal: <strong id="cartSubtotal">$0.00 USD</strong></span>
+        <a class="cart-btn" href="#"><img src="assets/key_padlock-1.png" alt="" style="width:14px; height:14px; vertical-align:middle; margin-right:4px;"> CHECKOUT</a>
+      </div>
+    </div>
+  </div>
+
+  <div id="contactView" hidden>
+    <div class="contact-page">
+      <img src="assets/modem-5.png" alt="" class="contact-icon">
+      <p>If you would like to contact Zegema Beach Records just fill out this contact form. A response will be returned within 24 hours. ZBR loves open communication!!! You can also email ZBR at <a class="starlink" href="mailto:zegemabeachrecords@gmail.com">zegemabeachrecords@gmail.com</a></p>
+
+      <form id="contactForm" class="contact-form">
+        <div class="contact-form-row">
+          <label class="contact-form-field">First Name (required)
+            <input type="text" name="firstName" required>
+          </label>
+          <label class="contact-form-field">Last Name (required)
+            <input type="text" name="lastName" required>
+          </label>
+        </div>
+        <label class="contact-form-field">Email Address (required)
+          <input type="email" name="email" required>
+        </label>
+        <label class="contact-form-field">Message (required)
+          <textarea name="message" rows="6" required></textarea>
+        </label>
+        <a class="cart-btn" href="#" id="contactSubmit">SUBMIT</a>
+      </form>
+
+      <p id="contactThanks" class="contact-thanks" hidden>Thanks for reaching out! ZBR will get back to you within 24 hours.</p>
+    </div>
+  </div>
+
+  <div id="guestbookSignView" hidden>
+    <div class="contact-page">
+      <img src="assets/write_yellow-1.png" alt="Sign My Guestbook" class="search-icon">
+      <p>Leave a note -- it'll show up on the <a class="starlink" href="#" data-view-link="guestbookList">guestbook page</a> for everyone to see!</p>
+
+      <form id="guestbookForm" class="contact-form">
+        <label class="contact-form-field">Name (required)
+          <input type="text" name="gbName" required>
+        </label>
+        <label class="contact-form-field">Website (optional)
+          <input type="url" name="gbWebsite" placeholder="https://">
+        </label>
+        <label class="contact-form-field">Message (required)
+          <textarea name="gbMessage" rows="5" required></textarea>
+        </label>
+        <a class="cart-btn" href="#" id="guestbookSubmit">SIGN GUESTBOOK</a>
+      </form>
+
+      <p id="guestbookThanks" class="contact-thanks" hidden>Thanks for signing! <a class="starlink" href="#" data-view-link="guestbookList">View the guestbook</a> to see your entry.</p>
+    </div>
+  </div>
+
+  <div id="guestbookListView" hidden>
+    <div class="contact-page">
+      <img src="assets/address_book-0.png" alt="Guestbook" class="search-icon">
+      <p>Here's what everyone's been saying! <a class="starlink" href="#" data-view-link="guestbookSign">Sign the guestbook</a> yourself.</p>
+      <div id="guestbookEntries" class="guestbook-entries"></div>
+    </div>
+  </div>
+
+  <div id="chatRoomView" hidden>
+    <div class="chat-page">
+      <div class="chat-titlebar">
+        <span>ZBR Chat Room</span>
+        <span class="chat-titlebar-controls" aria-hidden="true">&#9632;&#9633;&#10005;</span>
+      </div>
+      <div class="chat-window">
+        <div class="chat-log" id="chatLog"></div>
+        <div class="chat-userlist">
+          <div class="chat-userlist-header">10 people here</div>
+          <ul id="chatUserList">
+            <li>skramz4life</li>
+            <li>xxlathebrainxx</li>
+            <li>VHS_forever</li>
+            <li>mothflame_screamo</li>
+            <li>basement_show_kid</li>
+            <li>dave_from_constrain</li>
+            <li>wallofsound_stan</li>
+            <li>tapehoarder99</li>
+            <li>riffwitch</li>
+            <li>lathecollector</li>
+          </ul>
+        </div>
+      </div>
+      <form class="chat-form" id="chatForm">
+        <input type="text" name="chatNick" class="chat-nick-field" placeholder="Nickname" aria-label="Nickname" maxlength="24" required>
+        <input type="text" name="chatMessage" class="chat-msg-field" placeholder="Say something..." aria-label="Message" maxlength="200" required>
+        <button type="submit" class="cart-btn" id="chatSend">SEND</button>
+      </form>
+    </div>
+  </div>
+
+  <div id="archivesView" hidden>
+    <div class="archives-page">
+      <div class="archives-columns">
+        <div class="archives-section">
+          <div class="chat-titlebar">
+            <span>Interviews</span>
+            <span class="chat-titlebar-controls" aria-hidden="true">&#9632;&#9633;&#10005;</span>
+          </div>
+          <ul class="archive-list">
+        <li><a href="https://www.zegemabeachrecords.com/colinmay-interview" target="_blank" rel="noopener">MAY, COLIN (Phoenix Bodies/Brighter Arrows) Interview</a></li>
+        <li><a href="https://www.zegemabeachrecords.com/interviews" target="_blank" rel="noopener">OMSB Interview Reel</a></li>
+        <li><a href="https://www.zegemabeachrecords.com/adolina-interview" target="_blank" rel="noopener">ADOLINA Interview</a></li>
+        <li><a href="https://www.zegemabeachrecords.com/apollo18-interview" target="_blank" rel="noopener">APOLLO 18 Interview</a></li>
+        <li><a href="https://www.zegemabeachrecords.com/beaunavire-interview" target="_blank" rel="noopener">BEAU NAVIRE Interview</a></li>
+        <li><a href="https://www.zegemabeachrecords.com/boland-interview" target="_blank" rel="noopener">BOLAND, CASEY (Hot Cross / You And I) Interview</a></li>
+        <li><a href="https://www.zegemabeachrecords.com/brodskyinterview" target="_blank" rel="noopener">BRODSKY, STEPHEN (Cave In) Interview</a></li>
+        <li><a href="https://www.zegemabeachrecords.com/big-dick-interview" target="_blank" rel="noopener">BIG DICK Interview</a></li>
+        <li><a href="https://www.zegemabeachrecords.com/cysis-interview" target="_blank" rel="noopener">CAPTAIN, YOUR SHIP IS SINKING interview</a></li>
+        <li><a href="https://www.zegemabeachrecords.com/careless-interview" target="_blank" rel="noopener">CARELESS Interview</a></li>
+        <li><a href="https://www.zegemabeachrecords.com/ceaseuponthecapitol-interview" target="_blank" rel="noopener">CEASE UPON THE CAPITOL Interview</a></li>
+        <li><a href="https://www.zegemabeachrecords.com/chuglife-interview" target="_blank" rel="noopener">CHUG LIFE Interview</a></li>
+        <li><a href="https://www.zegemabeachrecords.com/creeperinterview" target="_blank" rel="noopener">CREEPER Interview</a></li>
+        <li><a href="https://www.zegemabeachrecords.com/deathofannakarina-interview" target="_blank" rel="noopener">DEATH OF ANNA KARINA Interview</a></li>
+        <li><a href="https://www.zegemabeachrecords.com/foxmoulder-interview" target="_blank" rel="noopener">FOXMOULDER interview</a></li>
+        <li><a href="https://www.zegemabeachrecords.com/haloofflies-interview" target="_blank" rel="noopener">HALO OF FLIES Interview</a></li>
+        <li><a href="https://www.zegemabeachrecords.com/initrecords-interview" target="_blank" rel="noopener">INIT RECORDS Interview</a></li>
+        <li><a href="https://www.zegemabeachrecords.com/kenmode-interview" target="_blank" rel="noopener">KEN MODE Interview</a></li>
+        <li><a href="https://www.zegemabeachrecords.com/leetaylor-interview" target="_blank" rel="noopener">LEE TAYLOR (Merridew / Dear John) Interview</a></li>
+        <li><a href="https://www.zegemabeachrecords.com/locktender-interview" target="_blank" rel="noopener">LOCKTENDER / MEN AS TREES Interview</a></li>
+        <li><a href="https://www.zegemabeachrecords.com/loma-prieta-interview" target="_blank" rel="noopener">LOMA PRIETA Interview</a></li>
+        <li><a href="https://www.zegemabeachrecords.com/lordsnowinterview" target="_blank" rel="noopener">LORD SNOW Interview / Live Sets</a></li>
+        <li><a href="https://www.zegemabeachrecords.com/mahria-interview" target="_blank" rel="noopener">MAHRIA Interview</a></li>
+        <li><a href="https://www.zegemabeachrecords.com/mnwa-interview" target="_blank" rel="noopener">мища Interview</a></li>
+        <li><a href="https://www.zegemabeachrecords.com/native-interview" target="_blank" rel="noopener">NATIVE Interview</a></li>
+        <li><a href="https://www.zegemabeachrecords.com/stephenpierce-interview" target="_blank" rel="noopener">PIERCE, STEPHEN (Ampere, Kindling, Montcalm, The Last Forty Seconds)</a></li>
+        <li><a href="https://www.zegemabeachrecords.com/pthinterview-boxset" target="_blank" rel="noopener">PROTEST THE HERO interview &amp; LP cassette box set</a></li>
+        <li><a href="https://www.zegemabeachrecords.com/pth-luke-interview" target="_blank" rel="noopener">PROTEST THE HERO video interview / show review</a></li>
+        <li><a href="https://www.zegemabeachrecords.com/protestant-interview" target="_blank" rel="noopener">PROTESTANT Interview</a></li>
+        <li><a href="https://www.zegemabeachrecords.com/roche-interview" target="_blank" rel="noopener">ROCHE, STEVE (Saetia/Off Minor/Ordinary Lives) Interview</a></li>
+        <li><a href="https://www.zegemabeachrecords.com/schlatter-interview" target="_blank" rel="noopener">SCHLATTER, THOMAS (Capacities, etc.)</a></li>
+        <li><a href="https://www.zegemabeachrecords.com/secretsmoker-interview" target="_blank" rel="noopener">SECRET SMOKER Interview</a></li>
+        <li><a href="https://www.zegemabeachrecords.com/chrisstory-interview" target="_blank" rel="noopener">STORY, CHRIS (Jenny Piccolo / Makara / Yaphet Kotto)</a></li>
+        <li><a href="https://www.zegemabeachrecords.com/telfyr-interview" target="_blank" rel="noopener">TEL FYR Interview</a></li>
+        <li><a href="https://www.zegemabeachrecords.com/tentacles-interview" target="_blank" rel="noopener">TENTACLES Interview</a></li>
+        <li><a href="https://www.zegemabeachrecords.com/timeasacolorducthearts-interview" target="_blank" rel="noopener">TIME AS A COLOR / DUCT HEARTS interview</a></li>
+        <li><a href="https://www.zegemabeachrecords.com/youthnovel-interview" target="_blank" rel="noopener">YOUTH NOVEL interview</a></li>
+          </ul>
+        </div>
+        <div class="archives-section">
+          <div class="chat-titlebar">
+            <span>Shows &amp; Features</span>
+            <span class="chat-titlebar-controls" aria-hidden="true">&#9632;&#9633;&#10005;</span>
+          </div>
+          <ul class="archive-list">
+        <li><a href="https://www.zegemabeachrecords.com/the-world-that-summer-firstfull-set" target="_blank" rel="noopener">THE WORLD THAT SUMMER first/full set</a></li>
+        <li><a href="https://www.zegemabeachrecords.com/congratulations-release-show-wnous" target="_blank" rel="noopener">CONGRATULATIONS release show w/NOUS ÉTIONS &amp; TERRY GREEN</a></li>
+        <li><a href="https://www.zegemabeachrecords.com/creeper-lastshow" target="_blank" rel="noopener">CREEPER last show</a></li>
+        <li><a href="https://www.zegemabeachrecords.com/foxmoulderreleaseshow" target="_blank" rel="noopener">FOXMOULDER release show</a></li>
+        <li><a href="https://www.zegemabeachrecords.com/zbrshow1" target="_blank" rel="noopener">ZBR Show #1 - Itto / Life In Vacuum / Congratulations / Sketchbooks / Fossil</a></li>
+        <li><a href="https://www.zegemabeachrecords.com/liveconqldsc" target="_blank" rel="noopener">ZBR Show #2 - LIV / CONGRATS / QUIET LAKES / DINOSAUR SEX CHANGE show review</a></li>
+        <li><a href="https://www.zegemabeachrecords.com/zbrshow3" target="_blank" rel="noopener">ZBR Show #3 - Reptilian / Two Knights / Congratulations / Total Bummer / Wimp City</a></li>
+        <li><a href="https://www.zegemabeachrecords.com/zbrshow4" target="_blank" rel="noopener">ZBR show #4 - My Dad / Animal Faces / Worst Gift / Terry Green / Quiet Lakes</a></li>
+        <li><a href="https://www.zegemabeachrecords.com/zbrshow5" target="_blank" rel="noopener">ZBR show #5 - LIV / Slates / Get Off The Cop / Sensei</a></li>
+        <li><a href="https://www.zegemabeachrecords.com/zbrshow6" target="_blank" rel="noopener">ZBR Show #6 - LIV / POOL BOYS / TERRY GREEN / DINOSAUR SEX CHANGE / GET OFF THE COP</a></li>
+        <li><a href="https://www.zegemabeachrecords.com/zbrshow7" target="_blank" rel="noopener">ZBR show #7 JOLIETTE / LIV / HOUSING / MOLLY DRAG / BUNT</a></li>
+        <li><a href="https://www.zegemabeachrecords.com/zbrshow8" target="_blank" rel="noopener">ZBR SHOW #8 NOUVEAU / TERRY GREEN / FOSSIL / NANETTE / WIMP CITY</a></li>
+        <li><a href="https://www.zegemabeachrecords.com/zbrshow9" target="_blank" rel="noopener">ZBR SHOW #9 HARRIS HAWK / BLOOD PHEASANT / SHAHMAN / FOSSIL / SALEM WITCHES / YOU ME AND THE MACHINE</a></li>
+        <li><a href="https://www.zegemabeachrecords.com/zbr-minifest" target="_blank" rel="noopener">ZBR minifest</a></li>
+        <li><a href="https://www.zegemabeachrecords.com/aba-fest" target="_blank" rel="noopener">AUSTIN BLOOD ALLIANCE 2-Day Fest</a></li>
+        <li><a href="https://www.zegemabeachrecords.com/yusuke-locktender-shoto-show" target="_blank" rel="noopener">YUSUKE / LOCKTENDER / SHOTO full sets</a></li>
+        <li><a href="https://www.zegemabeachrecords.com/cautioncongratulationsshow" target="_blank" rel="noopener">CAUTION CHILDREN / CONGRATULATIONS / NEW WINGS / FOXMOULDER / TWO CROSSES live show</a></li>
+        <li><a href="https://www.zegemabeachrecords.com/nous-etions-shaman-atsuko-chiba-brauer" target="_blank" rel="noopener">NOUS ETIONS / SHAMAN / ATSUKO CHIBA / BRAUER</a></li>
+        <li><a href="https://www.zegemabeachrecords.com/lifeinvacuum-show" target="_blank" rel="noopener">LIFE IN VACUUM / SLENDER LORIS / THE KETTLE BLACK live show</a></li>
+        <li><a href="https://www.zegemabeachrecords.com/worstgift1stshow" target="_blank" rel="noopener">ITTO / BLACK LOVE / BIRD DEATH / WORST GIFT show review</a></li>
+        <li><a href="https://www.zegemabeachrecords.com/atsukochiba-quietlakes-teleportoise" target="_blank" rel="noopener">ATSUKO CHIBA / QUIET LAKES / TELEPORTOISE</a></li>
+        <li><a href="https://www.zegemabeachrecords.com/carrionspring-tsaaeb-show" target="_blank" rel="noopener">CARRION SPRING / THE SKY ABOVE AND EARTH BELOW show</a></li>
+        <li><a href="https://www.zegemabeachrecords.com/un-show" target="_blank" rel="noopener">UNITED NATIONS / FRAMEWORKS / BLACK CLOUDS / FOXMOULDER show</a></li>
+        <li><a href="https://www.zegemabeachrecords.com/skramdenyards-rip" target="_blank" rel="noopener">SKRAMDEN YARDS rip Capacities / Foxmoulder / Black Belt</a></li>
+        <li><a href="https://www.zegemabeachrecords.com/shahman-housing" target="_blank" rel="noopener">SHAHMAN / TOQUE / HOUSING / DINOSAUR SEX CHANGE</a></li>
+        <li><a href="https://www.zegemabeachrecords.com/lonely-animals-foxmoulder-terry-green" target="_blank" rel="noopener">LONELY ANIMALS / FOXMOULDER / TERRY GREEN</a></li>
+        <li><a href="https://www.zegemabeachrecords.com/lockthefox" target="_blank" rel="noopener">LOCKTENDER / FOXMOULDER / RESPIRE / SHAHMAN / WOODLOUSE show reivew</a></li>
+        <li><a href="https://www.zegemabeachrecords.com/pile-animal-faces-liv-worst-gift" target="_blank" rel="noopener">PILE / ANIMAL FACES / LIV / WORST GIFT show review</a></li>
+        <li><a href="https://www.zegemabeachrecords.com/worstgift-taperelease" target="_blank" rel="noopener">EDHOCHULI / WORST GIFT / WOODLOUSE / SURGES show review</a></li>
+        <li><a href="https://www.zegemabeachrecords.com/lordsnowaug5th2015" target="_blank" rel="noopener">LORD SNOW / LIZZY BOREDOM / WIMP CITY show review</a></li>
+        <li><a href="https://www.zegemabeachrecords.com/olam" target="_blank" rel="noopener">OLAM</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 Zegema Beach Records -- Canada</p>
+    <p><a href="#" data-view-link="store">Canada / Intl Store</a> &middot; <a href="#" data-view-link="usa">USA Store</a> &middot; <a href="#" data-view-link="archives">Archives</a> &middot; <a href="#" data-view-link="contact">Contact</a></p>
+  </footer>
+
+</div>
+
+<div class="modal-overlay" id="postModal" hidden>
+  <div class="modal-window" role="dialog" aria-modal="true" aria-labelledby="modalTitleText">
+    <div class="modal-titlebar">
+      <span id="modalTitleText">Post</span>
+      <button type="button" class="modal-close" id="modalClose" aria-label="Close">&#10006;</button>
+    </div>
+    <div class="modal-body" id="modalBody"></div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="imageLightbox" hidden>
+  <div class="modal-window lightbox-window" role="dialog" aria-modal="true" aria-labelledby="lightboxTitleText">
+    <div class="modal-titlebar">
+      <span id="lightboxTitleText">Image</span>
+      <button type="button" class="modal-close" id="lightboxClose" aria-label="Close">&#10006;</button>
+    </div>
+    <div class="lightbox-body">
+      <div class="lightbox-stage">
+        <img class="lightbox-img" id="lightboxImg" src="" alt="">
+        <button type="button" class="pdp-carousel-prev lightbox-prev" aria-label="Previous photo">&#9664;</button>
+        <button type="button" class="pdp-carousel-next lightbox-next" aria-label="Next photo">&#9654;</button>
+      </div>
+      <div class="pdp-carousel-dots lightbox-dots" id="lightboxDots"></div>
+    </div>
+  </div>
+</div>
+
+<button type="button" id="backToTop" class="back-to-top" aria-label="Back to top" hidden>&#8593; TOP</button>
+
+<script>
+  var navToggle = document.querySelector('.nav-toggle');
+  var navList = document.getElementById('mainnav-list');
+  navToggle.addEventListener('click', function () {
+    var open = navList.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', String(open));
+    navToggle.innerHTML = open ? '&#10006; CLOSE' : '&#9776; MENU';
+  });
+  navList.querySelectorAll('a').forEach(function (link) {
+    link.addEventListener('click', function () {
+      navList.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+      navToggle.innerHTML = '&#9776; MENU';
+    });
+  });
+
+  var postModal = document.getElementById('postModal');
+  var modalBody = document.getElementById('modalBody');
+  var modalTitle = document.getElementById('modalTitleText');
+  var modalClose = document.getElementById('modalClose');
+  var lastFocusedTrigger = null;
+
+  function openModal(trigger) {
+    var tmpl = document.getElementById(trigger.dataset.modalTarget);
+    if (!tmpl) return;
+    modalBody.innerHTML = '';
+    modalBody.appendChild(tmpl.content.cloneNode(true));
+    modalTitle.textContent = trigger.dataset.modalTitle || 'Post';
+    lastFocusedTrigger = trigger;
+    postModal.hidden = false;
+    document.body.style.overflow = 'hidden';
+    modalClose.focus();
+  }
+
+  function closeModal() {
+    postModal.hidden = true;
+    document.body.style.overflow = '';
+    if (lastFocusedTrigger) lastFocusedTrigger.focus();
+  }
+
+  document.querySelectorAll('[data-modal-target]').forEach(function (trigger) {
+    trigger.addEventListener('click', function (e) {
+      e.preventDefault();
+      openModal(trigger);
+    });
+  });
+
+  modalClose.addEventListener('click', closeModal);
+  postModal.addEventListener('click', function (e) {
+    if (e.target === postModal) closeModal();
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && !postModal.hidden) closeModal();
+  });
+
+  var imageLightbox = document.getElementById('imageLightbox');
+  var lightboxImg = document.getElementById('lightboxImg');
+  var lightboxTitle = document.getElementById('lightboxTitleText');
+  var lightboxClose = document.getElementById('lightboxClose');
+  var lightboxDots = document.getElementById('lightboxDots');
+  var lightboxPrev = document.querySelector('.lightbox-prev');
+  var lightboxNext = document.querySelector('.lightbox-next');
+  var lightboxGallery = [];
+  var lightboxIndex = 0;
+  var lightboxLastFocus = null;
+
+  function hiResSrc(url) {
+    return url.replace(/format=\d+w/, 'format=2500w');
+  }
+
+  function showLightboxSlide(i) {
+    lightboxIndex = (i + lightboxGallery.length) % lightboxGallery.length;
+    var photo = lightboxGallery[lightboxIndex];
+    lightboxImg.src = hiResSrc(photo.src);
+    lightboxImg.alt = photo.alt;
+    lightboxDots.querySelectorAll('.pdp-carousel-dot').forEach(function (dot, idx) {
+      dot.setAttribute('aria-current', idx === lightboxIndex ? 'true' : 'false');
+    });
+  }
+
+  function openLightbox(gallery, title, startIndex, trigger) {
+    lightboxGallery = gallery;
+    lightboxTitle.textContent = title;
+    lightboxDots.innerHTML = '';
+    gallery.forEach(function (photo, idx) {
+      var dot = document.createElement('span');
+      dot.className = 'pdp-carousel-dot';
+      dot.setAttribute('aria-current', idx === startIndex ? 'true' : 'false');
+      dot.addEventListener('click', function () { showLightboxSlide(idx); });
+      lightboxDots.appendChild(dot);
+    });
+    showLightboxSlide(startIndex);
+    lightboxLastFocus = trigger;
+    imageLightbox.hidden = false;
+    document.body.style.overflow = 'hidden';
+    lightboxClose.focus();
+  }
+
+  function closeLightbox() {
+    imageLightbox.hidden = true;
+    document.body.style.overflow = '';
+    if (lightboxLastFocus) lightboxLastFocus.focus();
+  }
+
+  lightboxPrev.addEventListener('click', function () { showLightboxSlide(lightboxIndex - 1); });
+  lightboxNext.addEventListener('click', function () { showLightboxSlide(lightboxIndex + 1); });
+  lightboxClose.addEventListener('click', closeLightbox);
+  imageLightbox.addEventListener('click', function (e) {
+    if (e.target === imageLightbox) closeLightbox();
+  });
+  document.addEventListener('keydown', function (e) {
+    if (imageLightbox.hidden) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') showLightboxSlide(lightboxIndex - 1);
+    if (e.key === 'ArrowRight') showLightboxSlide(lightboxIndex + 1);
+  });
+
+  var postPages = document.querySelectorAll('.post-page');
+  var pageButtons = document.querySelectorAll('[data-page-nav]');
+  var pagenavLabel = document.getElementById('pagenavLabel');
+  var sidebarPageWidgets = document.querySelectorAll('[data-sidebar-page]');
+  var pageDates = { 1: 'July 20, 2026', 2: 'July 13, 2026', 3: 'July 3, 2026', 4: 'June 23, 2026' };
+
+  function showPage(n) {
+    postPages.forEach(function (page) {
+      page.hidden = page.dataset.page !== n;
+    });
+    sidebarPageWidgets.forEach(function (widget) {
+      widget.hidden = widget.dataset.sidebarPage !== n;
+    });
+    pageButtons.forEach(function (btn) {
+      btn.setAttribute('aria-current', btn.dataset.pageNav === n ? 'true' : 'false');
+    });
+    pagenavLabel.textContent = 'News from ' + pageDates[n];
+  }
+
+  pageButtons.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      showPage(btn.dataset.pageNav);
+      document.querySelector('#main').scrollIntoView({ block: 'start', behavior: 'instant' });
+    });
+  });
+
+  var views = {
+    home: document.getElementById('homeView'),
+    usa: document.getElementById('usaStoreView'),
+    cart: document.getElementById('cartView'),
+    contact: document.getElementById('contactView'),
+    guestbookSign: document.getElementById('guestbookSignView'),
+    guestbookList: document.getElementById('guestbookListView'),
+    store: document.getElementById('storeView'),
+    pdp: document.getElementById('pdpView'),
+    search: document.getElementById('searchView'),
+    archives: document.getElementById('archivesView'),
+    chatRoom: document.getElementById('chatRoomView')
+  };
+  var viewLinks = document.querySelectorAll('[data-view-link]');
+  var navHighlightAs = { pdp: 'store' };
+  var mobileQuicklinks = document.getElementById('mobileQuicklinks');
+
+  function showView(view) {
+    Object.keys(views).forEach(function (key) {
+      views[key].hidden = key !== view;
+    });
+    mobileQuicklinks.hidden = view !== 'home';
+    var highlight = navHighlightAs[view] || view;
+    viewLinks.forEach(function (link) {
+      if (link.dataset.viewLink === highlight) {
+        link.setAttribute('aria-current', 'page');
+      } else {
+        link.removeAttribute('aria-current');
+      }
+    });
+    if (view === 'chatRoom') {
+      chatLogEl.scrollTop = chatLogEl.scrollHeight;
+    }
+    if (window.innerWidth <= 700 && view !== 'usa') {
+      document.querySelector('nav.mainnav').scrollIntoView({ block: 'start', behavior: 'instant' });
+    } else {
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    }
+  }
+
+  document.addEventListener('click', function (e) {
+    var link = e.target.closest('[data-view-link]');
+    if (link) {
+      e.preventDefault();
+      if (link.dataset.viewLink === 'store' && link.dataset.storeReturn === undefined) {
+        activeBandFilter = link.dataset.bandFilter || '';
+        activeCategoryFilter = link.dataset.categoryFilter || '';
+        activeVinylSizeFilter = '';
+        activeLabelFilter = '';
+        activeSpecialFilter = link.dataset.specialFilter || '';
+        renderStoreGrid();
+      }
+      showView(link.dataset.viewLink);
+      if (link.dataset.storeReturn !== undefined && lastOpenedProductId) {
+        var tile = document.querySelector('.product-tile[data-product-id="' + lastOpenedProductId + '"]');
+        if (tile) tile.scrollIntoView({ block: 'center', behavior: 'instant' });
+      }
+    }
+  });
+
+  var CART_STORAGE_KEY = 'zbrCart';
+
+  function loadCart() {
+    try {
+      var parsed = JSON.parse(localStorage.getItem(CART_STORAGE_KEY));
+      return Array.isArray(parsed) ? parsed : [];
+    } catch (e) {
+      return [];
+    }
+  }
+
+  function saveCart() {
+    try {
+      localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(cart));
+    } catch (e) { /* storage unavailable/full -- cart still works for this session */ }
+  }
+
+  var cart = loadCart();
+  var cartCount = document.getElementById('cartCount');
+  var cartEmpty = document.getElementById('cartEmpty');
+  var cartEmptyIcon = document.getElementById('cartEmptyIcon');
+  var cartItemsEl = document.getElementById('cartItems');
+  var cartSummary = document.getElementById('cartSummary');
+  var cartSubtotal = document.getElementById('cartSubtotal');
+
+  function renderCart() {
+    saveCart();
+    cartItemsEl.innerHTML = '';
+    var hasItems = cart.length > 0;
+    cartEmpty.hidden = hasItems;
+    cartEmptyIcon.hidden = hasItems;
+    cartItemsEl.hidden = !hasItems;
+    cartSummary.hidden = !hasItems;
+
+    var subtotal = 0;
+    cart.forEach(function (item, i) {
+      subtotal += item.price * item.qty;
+      var row = document.createElement('div');
+      row.className = 'cart-row';
+      var label = item.name + (item.variant ? ' -- ' + item.variant : '');
+      row.innerHTML =
+        '<span class="cart-row-name">' + label + '</span>' +
+        '<span>Qty: ' + item.qty + '</span>' +
+        '<span>$' + (item.price * item.qty).toFixed(2) + ' USD</span>' +
+        '<button type="button" class="cart-row-remove" data-remove-index="' + i + '">&#10006; REMOVE</button>';
+      cartItemsEl.appendChild(row);
+    });
+
+    var count = cart.reduce(function (sum, item) { return sum + item.qty; }, 0);
+    cartCount.textContent = count;
+    cartCount.hidden = count === 0;
+    cartSubtotal.textContent = '$' + subtotal.toFixed(2) + ' USD';
+  }
+
+  cartItemsEl.addEventListener('click', function (e) {
+    if (e.target.matches('[data-remove-index]')) {
+      cart.splice(parseInt(e.target.dataset.removeIndex, 10), 1);
+      renderCart();
+    }
+  });
+
+  function wireAddToCart(box) {
+    var btn = box.querySelector('.cart-btn');
+    var qtyInput = box.querySelector('.cart-qty');
+    var variantSelect = box.querySelector('.cart-variant');
+
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
+
+      var variant = null;
+      if (variantSelect) {
+        if (!variantSelect.value) {
+          variantSelect.style.borderColor = '#ff3333';
+          variantSelect.focus();
+          return;
+        }
+        variant = variantSelect.options[variantSelect.selectedIndex].text;
+        variantSelect.style.borderColor = '';
+      }
+
+      cart.push({
+        name: box.dataset.product,
+        price: parseFloat(box.dataset.price),
+        qty: qtyInput ? parseInt(qtyInput.value, 10) || 1 : 1,
+        variant: variant
+      });
+      renderCart();
+
+      var originalLabel = btn.innerHTML;
+      btn.innerHTML = '&#10003; ADDED!';
+      setTimeout(function () { btn.innerHTML = originalLabel; }, 1200);
+    });
+  }
+
+  document.querySelectorAll('.addcart[data-product]').forEach(wireAddToCart);
+
+  renderCart();
+
+  var products = [
+    {
+      id: 'beau-navire-demo',
+      band: 'Beau Navire',
+      title: '2009 Demo (10")',
+      cat: 'Releases',
+      price: 25.00,
+      priceLabel: '$25.00 USD',
+      image: 'https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/4e6730e0-0103-4041-892d-2cb17cf02e88/Beau+demo.jpg?format=750w',
+      imageAlt: 'Beau Navire demo 10 inch vinyl',
+      description: [
+        'For fans of: Loma Prieta, Iwrotehaikusaboutcanniblaisminyouryearbook, and Carrion Spring.',
+        "This early demo from the immortal Cali band mixes the softer/jazzy stuff from Iwrotehaikus with their later and heavier sound. A wicked snapshot in time. We bought these off Clue #2 Records a few months ago and they moved in a day, so we picked up another 50 copies and this is the only place to get'em!!! Hella rare/awesome find! Thanks Hieg <3",
+        '10" on black vinyl with lyric insert. 6 songs.'
+      ],
+      listenUrl: 'https://www.youtube.com/watch?v=QN4SyRc3XnU',
+      bcAlbumId: null,
+      variants: null,
+      category: 'vinyl',
+      vinylSize: '10',
+      label: 'Zegema Beach Releases',
+      listenBeforeCart: true,
+      soldOut: false
+    },
+    {
+      id: 'constrain-1999',
+      band: 'Constrain',
+      title: "'1999' (cassette)",
+      cat: 'Releases',
+      price: 15.00,
+      priceLabel: 'from CA$15.00',
+      image: 'https://f4.bcbits.com/img/a3679845641_10.jpg',
+      imageAlt: 'Constrain 1999 EP cover art',
+      description: [
+        "CONSTRAIN '1999' cassette EP (TT154). For fans of: SeeYouSpaceCowboy, I Promised The World, and Concealer.",
+        "This Hamilton band ditches a lot of sass and leans more heavily into the metalcore on their sophomore EP '1999'. Unrelenting in its assault, the attacks are thunderous with enough speed behind them to create a wave-after-wave effect but compressed into less than three minutes. Pressing on 25 cassettes. Released on Tomb Tree, co-released with Paper Wings.",
+        'Cassettes /25: 15 swirl and 10 grey, w/j-card. 5 songs.'
+      ],
+      listenUrl: 'https://tombtreetapes.bandcamp.com/album/1999',
+      bcAlbumId: '3198503332',
+      variants: [
+        { value: 'swirl', label: 'Swirl (/15)', available: true },
+        { value: 'grey', label: 'Grey (/10)', available: true }
+      ],
+      category: 'cassette',
+      label: 'Tomb Tree',
+      isNew: true,
+      soldOut: false
+    },
+    {
+      id: 'hillsboro-apiyn',
+      band: 'Hillsboro',
+      title: 'A Party in Your Name (Ltd. Cassette)',
+      cat: 'Releases',
+      price: 11.00,
+      priceLabel: '$11.00 USD',
+      image: 'https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/959e2021-d62a-4aa2-8c2f-4b0e80434d5c/0-0+promo.jpg?format=2500w',
+      imageAlt: 'Hillsboro promo photo',
+      description: [
+        "Hillsboro's 'A Party in Your Name' is a wicked collection of songs that fall somewhere in the indie/emo/shoegaze category and features Nima from Wollruss on vocals/guitar.",
+        'PT-193 Limited Edition Cassette (ltd. 50): homedubbed, real time duplicated red cassettes with transparent vinyl AB labels. Double-sided 3-panel J-card printed on matte 110lb cardstock, cut and folded by hand. Your choice of black or clear cassette case. 8 songs.'
+      ],
+      listenUrl: 'https://hillsboro.bandcamp.com/album/a-party-in-your-name',
+      bcAlbumId: '3144453157',
+      variants: null,
+      category: 'cassette',
+      label: 'Softseed Music',
+      isNew: true,
+      soldOut: false
+    },
+    {
+      id: 'snag-death-doula',
+      band: 'SNAG',
+      title: 'Death Doula (12"LP/shirt)',
+      cat: 'Last Copy',
+      price: 25.00,
+      priceLabel: 'from CA$25.00',
+      image: 'https://f4.bcbits.com/img/a3960401376_10.jpg',
+      imageAlt: 'SNAG Death Doula cover art',
+      gallery: [
+        { src: 'https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/1618898126667-B8FYY1OAHRYMB7MBQIMK/Bandcamp.png?format=1500w', alt: 'SNAG Death Doula album cover art' },
+        { src: 'https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/1618898122582-DD6YFR1MJ6HVEVP05G7W/Webp.net-resizeimage+-+2021-04-19T225157.872.jpg?format=750w', alt: 'SNAG Death Doula 12" vinyl and jacket' },
+        { src: 'https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/1618898129801-L0YR35GOFYJUJCHBE9RE/Webp.net-resizeimage+-+2021-04-19T225240.811.jpg?format=750w', alt: 'SNAG Death Doula vinyl detail' },
+        { src: 'https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/1618898125386-BGAIM1UM56XYAJSMUL8G/Webp.net-resizeimage+-+2021-04-19T225456.406.jpg?format=750w', alt: 'SNAG Death Doula vinyl detail' },
+        { src: 'https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/1618898128958-SC6PU966MY9FU1D2JW6G/Webp.net-resizeimage+-+2021-04-19T225335.932.jpg?format=750w', alt: 'SNAG Death Doula vinyl detail' },
+        { src: 'https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/1618900661994-LT0Q2JP9WXCS89WG1R49/Shrooms-Doulas-coyote-tee-01-BANDCAMP.png?format=750w', alt: 'SNAG Death Doula t-shirt front and back' },
+        { src: 'https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/1618900662056-2533YIW2URDBFEFVO8P6/TO-SUFFER-nome-art-LongsleeveBANDCAMP-03.png?format=750w', alt: 'SNAG Death Doula longsleeve shirt' },
+        { src: 'https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/1618900663874-JY3YT05KUASAQS5G9568/TO-SUFFER-nome-art-FOR+BANDCAMP-02.png?format=750w', alt: 'SNAG Death Doula shirt design' }
+      ],
+      description: [
+        'For fans of: Funeral Diner, Coma Regalia and Eyes Of Verotika',
+        "Milwaukee's SNAG is back for more environmentally/socially/politically conscious screamo.",
+        '12" vinyl /300, 150 on clear, 50 on clear w/silkscreen b-side, 50 on black, and 50 on black w/silkscreen b-side. Download code included. 7 songs.'
+      ],
+      listenUrl: 'https://zegemabeachrecords.bandcamp.com/album/death-doula',
+      bcAlbumId: '2052037531',
+      variants: [
+        { value: 'clear', label: 'Clear (150)', available: true },
+        { value: 'clear-silkscreen', label: 'Clear w/silkscreen -- SOLD OUT', available: false },
+        { value: 'black', label: 'Black -- SOLD OUT', available: false },
+        { value: 'black-silkscreen', label: 'Black w/silkscreen -- SOLD OUT', available: false }
+      ],
+      category: 'vinyl',
+      vinylSize: '12',
+      label: 'Zegema Beach Releases',
+      soldOut: false
+    },
+    {
+      id: 'snag-swallowsnest-split',
+      band: 'SNAG',
+      title: 'Snag / Swallows Nest Split (cassette)',
+      cat: 'Last Copy',
+      price: 15.00,
+      priceLabel: '$15.00 USD',
+      image: 'https://f4.bcbits.com/img/a2989564054_10.jpg',
+      imageAlt: 'Snag Swallows Nest split cassette cover art',
+      description: [
+        'A screamo/emo-violence split with New Zealand’s Swallows Nest -- down to the last copy!',
+        'Cassette split EP on 100 yellow and 100 red, comes with an 11x17 two-sided poster as a case, includes lyrics and band statements.'
+      ],
+      listenUrl: 'https://zegemabeachrecords.bandcamp.com/album/snag-swallows-nest-split',
+      bcAlbumId: '3279434931',
+      variants: null,
+      maxQty: 1,
+      category: 'cassette',
+      label: 'Zegema Beach Releases',
+      soldOut: false
+    },
+    {
+      id: 'snag-debut-lp',
+      band: 'SNAG',
+      title: 'snag (self-titled 12"LP)',
+      cat: 'Sold Out',
+      price: null,
+      priceLabel: 'SOLD OUT',
+      image: 'https://f4.bcbits.com/img/a1394667157_10.jpg',
+      imageAlt: 'Snag self-titled LP cover art',
+      description: [
+        'Snag is; milwaukee river skramz about climate anxiety.',
+        'SNAG’s debut self-titled LP is sold out physically -- digital download still available on Bandcamp.'
+      ],
+      listenUrl: 'https://zegemabeachrecords.bandcamp.com/album/snag',
+      bcAlbumId: '4179526474',
+      variants: null,
+      category: 'vinyl',
+      vinylSize: '12',
+      label: 'Zegema Beach Releases',
+      soldOut: true
+    },
+    {
+      id: 'closet-witch-chiaroscuro',
+      band: 'Closet Witch',
+      title: 'Chiaroscuro (12"LP)',
+      cat: 'Releases',
+      price: 23.00,
+      priceLabel: 'CA$23.00',
+      image: 'https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/1697421209398-9GMNFVXSK47NOB01DCWQ/front.jpg?format=1500w',
+      imageAlt: 'Closet Witch Chiaroscuro album cover art',
+      gallery: [
+        { src: 'https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/1697421209398-9GMNFVXSK47NOB01DCWQ/front.jpg?format=1500w', alt: 'Closet Witch Chiaroscuro album cover art' },
+        { src: 'https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/1697421199731-2VO5XR0WPSIKF6JTM12T/promo.jpg?format=1500w', alt: 'Closet Witch promo photo' },
+        { src: 'https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/1697421190521-C6TIDA2OAQ36A3FF2K5M/2+splatter.jpg?format=1500w', alt: 'Closet Witch Chiaroscuro purple+black smoke w/red splatter vinyl' },
+        { src: 'https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/1697421189955-DXNF4KJNH8EMKCDM4J3F/splatter+closeup.jpg?format=1500w', alt: 'Closet Witch Chiaroscuro splatter vinyl closeup' },
+        { src: 'https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/1697421179932-6OX8MLYZ108BXHNS2MYK/3+smash.jpg?format=1500w', alt: 'Closet Witch Chiaroscuro red/white merge vinyl' },
+        { src: 'https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/1697421193993-4ABJH6XHN7IFAJHLIICV/smash+closeup.jpg?format=1500w', alt: 'Closet Witch Chiaroscuro red/white vinyl closeup' },
+        { src: 'https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/1697421194853-OKBFXJ67C0SKVVG1F06W/cover+closeup.jpg?format=1500w', alt: 'Closet Witch Chiaroscuro cover art closeup' },
+        { src: 'https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/1697421195190-7JXTPCXKKHJ3R8QPM70W/centre+closeup.jpg?format=1500w', alt: 'Closet Witch Chiaroscuro vinyl label closeup' }
+      ],
+      description: [
+        'For fans of: Fluoride, Cloud Rat, (early) Oathbreaker, Malevich, and Tentacles.',
+        'Five long years after their last full length album, Iowa\'s Closet Witch are back with 13 liquefying tracks known collectively as \'Chiaroscuro\'. Following a health scare, the four-piece return with their most visceral and simultaneously most epic material. An absolute tour-de-force and truly impressive return by some most excellent humans.',
+        '12"s /500: 250 on purple+black smoke w/red splatter and 250 on red/white merge. Includes two-sided lyric insert, and ZBR sticker. 13 tracks.'
+      ],
+      listenUrl: 'https://zegemabeachrecords.bandcamp.com/album/chiaroscuro',
+      bcAlbumId: '4154641699',
+      variants: [
+        { value: 'purple-black-smoke', label: 'Purple+black smoke w/red splatter (/250)', available: true },
+        { value: 'red-white-merge', label: 'Red/white merge (/250)', available: true }
+      ],
+      category: 'vinyl',
+      vinylSize: '12',
+      label: 'Zegema Beach Releases',
+      soldOut: false
+    },
+    {
+      id: 'coma-regalia-vau-faelgoh',
+      band: 'Coma Regalia',
+      title: 'Vau Faelgoh (12"LP)',
+      cat: 'Releases',
+      price: 15.00,
+      priceLabel: 'from CA$15.00',
+      image: 'https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/1558756931833-G0NW3ZEVV0OLW57LWXZS/cover.jpg?format=1500w',
+      imageAlt: 'Coma Regalia Vau Faelgoh album cover art',
+      description: [
+        'For fans of: Orchid, Funeral Diner and Beau Navire.',
+        'The new Coma Regalia, to put it lightly, fucking owns. 11 tracks of desperately passionate/cathartic screamo from the mind, fingers, feet and lungs of Shawn Decker (Middle Man Records). This is the angriest, fastest and most chaotic of all their material.',
+        '12" vinyl on black/300, forest green/200 (100 of those have pop-up covers). 11 songs. Download code included.'
+      ],
+      listenUrl: 'https://zegemabeachrecords.bandcamp.com/album/vau-faelgoh',
+      bcAlbumId: '2961647456',
+      variants: [
+        { value: 'forest-green-popup', label: 'Forest Green/pop-up', available: true },
+        { value: 'forest-green', label: 'Forest Green', available: true },
+        { value: 'black', label: 'Black', available: true }
+      ],
+      category: 'vinyl',
+      vinylSize: '12',
+      label: 'Zegema Beach Releases',
+      soldOut: false
+    },
+    {
+      id: 'dagerman-di-fronte',
+      band: 'Dagerman.',
+      title: 'Di Fronte a Noi il Nulla (12"LP)',
+      cat: 'Releases',
+      price: 27.50,
+      priceLabel: 'from CA$27.50',
+      image: 'https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/7d3d2c7e-828d-42e3-822a-468eae111df4/1000107402.jpg?format=1500w',
+      imageAlt: 'Dagerman. Di Fronte a Noi il Nulla album cover art',
+      gallery: [
+        { src: 'https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/7d3d2c7e-828d-42e3-822a-468eae111df4/1000107402.jpg?format=1500w', alt: 'Dagerman. Di Fronte a Noi il Nulla album cover art' },
+        { src: 'https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/49b62ece-d80a-4650-b46d-2f1ac61982a7/promo.jpg?format=1500w', alt: 'Dagerman. promo photo' },
+        { src: 'https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/a8e0ca89-7cec-4db7-a079-3b946858feeb/2e669d91-097b-4835-99cf-fca9d6ca6ded.jpg?format=1500w', alt: 'Dagerman. Di Fronte a Noi il Nulla vinyl detail' }
+      ],
+      description: [
+        'For fans of: Raein, Ojne, La Quiete, Joliette, and Radura.',
+        'This Italian band is back with their sophomore effort, evolving into more screamo and less post hardcore than their previous record. \'Di Fronte a Noi il Nulla\' is a truly captivating listen, the songs ebb and flow from gorgeous Italian emo/screamo to technical bits with breakdowns to thick post-hardcore. ZBR only has 50 copies so pick one up asap!',
+        '12"s /300 blood orange w/two-sided insert. 8 tracks.'
+      ],
+      listenUrl: 'https://zegemabeachrecords.bandcamp.com/album/di-fronte-a-noi-il-nulla',
+      bcAlbumId: '2719788109',
+      variants: [
+        { value: 'blood-orange', label: 'Blood orange (/300)', available: true },
+        { value: 'bundle-1st-2nd', label: 'Set w/1st + 2nd LP', available: true }
+      ],
+      category: 'vinyl',
+      vinylSize: '12',
+      label: 'Zegema Beach Releases',
+      soldOut: false
+    },
+    {
+      id: 'carrion-spring-those-weve-lost',
+      band: 'Carrion Spring',
+      title: 'Those We\'ve Lost and Continue to Lose (12"LP)',
+      cat: 'Releases',
+      price: 35.00,
+      priceLabel: 'from CA$35.00',
+      image: 'https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/22a62aa7-3211-4307-9376-9cf4c49fbae1/CarrionSpring_albumCoverDigital.png?format=1500w',
+      imageAlt: 'Carrion Spring Those We\'ve Lost and Continue to Lose album cover art',
+      gallery: [
+        { src: 'https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/22a62aa7-3211-4307-9376-9cf4c49fbae1/CarrionSpring_albumCoverDigital.png?format=1500w', alt: 'Carrion Spring Those We\'ve Lost and Continue to Lose album cover art' },
+        { src: 'https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/c8545c2d-e10f-4d1e-b425-1a559bc86864/0+promo.png?format=1500w', alt: 'Carrion Spring promo photo' },
+        { src: 'https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/2c552325-7da6-46f5-b7b1-3d110f426899/1+closer+promo.png?format=1500w', alt: 'Carrion Spring vinyl closeup' },
+        { src: 'https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/36d5cdc0-d556-43b7-92d7-4a428024aae5/2+close+up.png?format=1500w', alt: 'Carrion Spring splatter vinyl closeup' },
+        { src: 'https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/86b96a8d-088e-4789-a021-72398a5a0c1b/3+test.jpg?format=1500w', alt: 'Carrion Spring test press photo' },
+        { src: 'https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/81589083-237b-4854-9013-96824994b912/4+CarrionSpring_PressPhotoLive_2026.jpg?format=1500w', alt: 'Carrion Spring live press photo' }
+      ],
+      description: [
+        'For fans of: Eyelet, Kidcrash, Hundreds Of AU, Leveless, and Bloom Dream.',
+        'The Portland band\'s 3rd full length album, recorded at Atomic Garden Studios with Kurt Ballou of God City Studios/Converge, mastered by Brad Boatright at Audiosiege. 12 emotionally heavy songs weaving hardcore and screamo, exploring subdued moody passages, explosive breakdowns, tense build ups, and driving intricate riffs. As the title suggests, the album largely deals with many different aspects of loss.',
+        '12"s /250 white/green color-in-color w/red + black splatter w/two-sided insert. 12 tracks.'
+      ],
+      listenUrl: 'https://zegemabeachrecords.bandcamp.com/album/those-weve-lost-and-continue-to-lose',
+      bcAlbumId: '703502751',
+      variants: [
+        { value: 'splatter', label: 'Splatter (/250)', available: true },
+        { value: 'test-press', label: 'Test press (/8)', available: true }
+      ],
+      category: 'vinyl',
+      vinylSize: '12',
+      label: 'Zegema Beach Releases',
+      isNew: true,
+      soldOut: false
+    },
+    {
+      id: 'emma-goldman-all-you-are-is-we',
+      band: 'Emma Goldman',
+      title: 'all you are is we (tape/12"LP)',
+      cat: 'Releases',
+      price: 13.00,
+      priceLabel: 'from CA$13.00',
+      image: 'https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/d4ade7a2-2343-4a3d-b005-5312f6f570e5/cover.jpg?format=1500w',
+      imageAlt: 'Emma Goldman all you are is we album cover art',
+      gallery: [
+        { src: 'https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/d4ade7a2-2343-4a3d-b005-5312f6f570e5/cover.jpg?format=1500w', alt: 'Emma Goldman all you are is we album cover art' },
+        { src: 'https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/45fcc8c2-f91f-4b2c-9609-5e13acccb1ad/SECOND+press+1.jpg?format=1500w', alt: 'Emma Goldman 2nd pressing Cornetto vinyl' },
+        { src: 'https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/20728273-91b3-482b-bc0d-c6a2d8868ceb/SECOND+press+2.jpg?format=1500w', alt: 'Emma Goldman 2nd pressing vinyl detail' },
+        { src: 'https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/3430aa0a-7d62-41fe-8f45-00c727420f6b/tape+promo.jpg?format=1500w', alt: 'Emma Goldman cassette tape photo' },
+        { src: 'https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/ead5a977-1ad5-41b7-9b4f-2bc40bdd12e5/promo.jpg?format=1500w', alt: 'Emma Goldman promo photo' },
+        { src: 'https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/3b0c3714-7e53-4ee9-8da9-2709a9169b52/cover+logo.jpg?format=1500w', alt: 'Emma Goldman cover art with logo' },
+        { src: 'https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/a6e27289-2832-4933-85ea-d1505c2cb15a/band+insert.jpg?format=1500w', alt: 'Emma Goldman band insert' },
+        { src: 'https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/c901eafb-25dd-49ad-885c-d1ec390eb844/blob.jpg?format=1500w', alt: 'Emma Goldman Blob vinyl variant' },
+        { src: 'https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/1cf01e57-6c18-478c-9647-6298c4c552bf/song+titles.jpg?format=1500w', alt: 'Emma Goldman song titles insert' },
+        { src: 'https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/a2739b03-dfd0-4cec-8c49-859e954a29fa/red.jpg?format=1500w', alt: 'Emma Goldman Red vinyl variant' },
+        { src: 'https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/97e739e5-baa2-439e-8cd2-2b9206295573/disarm%2Bdivest.jpg?format=1500w', alt: 'Emma Goldman disarm and divest insert' },
+        { src: 'https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/7d616b98-c9ea-4324-b00d-d49c912d7963/logo+key.jpg?format=1500w', alt: 'Emma Goldman logo key insert' },
+        { src: 'https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/936c4361-e2cb-43ef-97f7-7b306be40cdd/release+show.png?format=1500w', alt: 'Emma Goldman release show flyer' }
+      ],
+      description: [
+        'For fans of: New Forms, Mahria, Nuvolascura, and The Blood Brothers.',
+        'This Vancouver BC four-piece have been growing and evolving for nearly a decade now, and their debut 12"LP is just as intricate as it is massive. 12 tracks including 8 fire screamo/emo-violence/math/sass songs as well as 4 interludes ranging from spoken word to full-on gabber/breakbeat.',
+        '12"s 1st pressing /300: 150 transparent yellow w/red blob and 150 opaque red. 2nd pressing /200 Cornetto. Tapes /100 yellow in clear/red case. 12 tracks.'
+      ],
+      listenUrl: 'https://zegemabeachrecords.bandcamp.com/album/all-you-are-is-we',
+      bcAlbumId: '3263745863',
+      variants: [
+        { value: 'cornetto', label: '2nd press Cornetto (/200)', available: true },
+        { value: 'cassette', label: 'Cassette (/100)', available: true },
+        { value: 'red', label: 'Red (/150)', available: true },
+        { value: 'blob', label: 'Blob (/150)', available: true }
+      ],
+      category: 'vinyl',
+      vinylSize: '12',
+      label: 'Zegema Beach Releases',
+      isNew: true,
+      soldOut: false
+    },
+    {
+      id: 'orphan-donor-ailments',
+      band: 'Orphan Donor',
+      title: 'Ailments (CD)',
+      cat: 'Releases',
+      price: 15.00,
+      priceLabel: 'CA$15.00',
+      image: 'https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/98435d49-2bde-4b90-adfc-faf12cc8a0ad/cover.png?format=1500w',
+      imageAlt: 'Orphan Donor Ailments album cover art',
+      gallery: [
+        { src: 'https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/98435d49-2bde-4b90-adfc-faf12cc8a0ad/cover.png?format=1500w', alt: 'Orphan Donor Ailments album cover art' },
+        { src: 'https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/9ca62a91-5176-47f2-bb94-2f2e5d85e01c/promo.png?format=1500w', alt: 'Orphan Donor promo photo' }
+      ],
+      description: [
+        'For fans of: Meth., Secret Cutter, and Old Man Gloom.',
+        'Half a decade after their last release, the almighty Orphan Donor is back with a new full length that will tear your mind apart. Part grind, part sludge, part screamo, and part metallic hardcore, curated from over 50 ideas and whittled down to eight tracks. Art by James Ravelle.',
+        'CDs /100 in 4-panel digipak. 8 tracks.'
+      ],
+      listenUrl: 'https://zegemabeachrecords.bandcamp.com/album/ailments',
+      bcAlbumId: '1890948605',
+      variants: null,
+      category: 'cd',
+      label: 'Zegema Beach Releases',
+      soldOut: false
+    },
+    {
+      id: 'letterstoyou-shoebox',
+      band: 'Letterstoyou',
+      title: 'a shoebox of letterstoyou (cassette)',
+      cat: 'Releases',
+      price: 15.00,
+      priceLabel: 'from CA$15.00',
+      image: 'https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/e3484149-b4a1-420d-b5b2-c99155360bdd/bandcamp.jpeg?format=1500w',
+      imageAlt: 'Letterstoyou a shoebox of letterstoyou cassette cover art',
+      gallery: [
+        { src: 'https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/e3484149-b4a1-420d-b5b2-c99155360bdd/bandcamp.jpeg?format=1500w', alt: 'Letterstoyou a shoebox of letterstoyou cassette cover art' },
+        { src: 'https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/9a1e3029-745c-4bed-ace4-2bd621f922bd/1+grey+jar.jpg?format=1500w', alt: 'Letterstoyou grey jar cassette' },
+        { src: 'https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/65512dfb-4a39-46a3-a72b-f7087954b94c/2+leaves.jpg?format=1500w', alt: 'Letterstoyou leaves swirl cassette' },
+        { src: 'https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/afc9670a-69b3-4191-a82a-7e1d6fc1c731/3+flowers+swirl.jpg?format=1500w', alt: 'Letterstoyou flowers swirl cassette' },
+        { src: 'https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/1ead4ce0-4bd8-4ae0-9c4b-2dee7257dd4c/4+fest+swirl.jpg?format=1500w', alt: 'Letterstoyou ZBR Fest 2026 swirl cassette' },
+        { src: 'https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/fb0cba92-197e-4d7d-80bf-efabcfd84003/5+test.jpg?format=1500w', alt: 'Letterstoyou test dip cassette' }
+      ],
+      description: [
+        'For fans of: Senza, Life, and Nuvolascura.',
+        'Sonic mastermind Damián Ojeda pushed out three releases in 2025, earning him certified "screamo of the year" status. This cassette houses the \'and crying impulse\' EP, \'feral growth at the side of mystery\' EP, and \'letterstoyou\' full length. Co-released with Third House Label.',
+        'Cassettes /205: 80 grey jar, 60 leaf swirl, 40 flower swirl, 20 ZBR Fest 2026 swirl, 5 test dips, all with two-sided j-card and insert. 18 songs.'
+      ],
+      listenUrl: 'https://zegemabeachrecords.bandcamp.com/album/a-shoebox-of-letterstoyou',
+      bcAlbumId: '3521346466',
+      variants: [
+        { value: 'grey-jar', label: 'Grey jar (/80)', available: true },
+        { value: 'leaves-swirl', label: 'Leaves swirl (/60)', available: true },
+        { value: 'fest-swirl', label: 'ZBR Fest 2026 swirl (/20)', available: true },
+        { value: 'flowers-swirl', label: 'Flowers swirl (/40)', available: true },
+        { value: 'test-dip', label: 'Test dip w/matching swirl case (/5)', available: true }
+      ],
+      category: 'cassette',
+      label: 'Zegema Beach Releases',
+      isNew: true,
+      soldOut: false
+    },
+    {
+      id: 'vibora-egin-ez-dugun-guztia',
+      band: 'Vibora',
+      title: 'Egin Ez Dugun Guztia (12"LP)',
+      cat: 'Releases',
+      price: 35.50,
+      priceLabel: 'CA$35.50',
+      image: 'https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/99858b39-b5a5-4f2a-9439-8192aa1f1811/EEDG_Digital+Cover.jpg?format=1500w',
+      imageAlt: 'Vibora Egin Ez Dugun Guztia album cover art',
+      gallery: [
+        { src: 'https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/99858b39-b5a5-4f2a-9439-8192aa1f1811/EEDG_Digital+Cover.jpg?format=1500w', alt: 'Vibora Egin Ez Dugun Guztia album cover art' },
+        { src: 'https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/7c6de158-9b0b-4b97-bfa1-fc01291de43a/IMG_6790.JPG?format=1500w', alt: 'Vibora vinyl photo' },
+        { src: 'https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/553d5675-1c11-42f9-80d7-3dfe430c14b3/IMG_6789.JPG?format=1500w', alt: 'Vibora vinyl detail photo' },
+        { src: 'https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/ed1d5b1f-f703-4c11-aefe-be3702af805d/IMG_6785.JPG?format=1500w', alt: 'Vibora gatefold jacket photo' }
+      ],
+      description: [
+        'PLEASE NOTE: this is a PRE-ORDER and will not ship until (most likely) March.',
+        'For fans of: Boneflower, Storm{o}, and Crossed.',
+        'Vitoria Gasteiz\'s Vibora are back with their sophomore 12"LP after laying absolute waste to ZBR Fest 2024. 10 tracks of malleable but dense and electrifying screamo/post-hardcore that swings between gorgeousness and absolute devastation.',
+        '12"s /500: 250 on Galaxy Blue & White, 250 on Tri-colour wheel. Gatefold jacket with selected glow finish on matte. 10 tracks.'
+      ],
+      listenUrl: 'https://zegemabeachrecords.bandcamp.com/album/egin-ez-dugun-guztia',
+      bcAlbumId: '3662440684',
+      variants: [
+        { value: 'galaxy-blue-white', label: 'Galaxy Blue & White (/250)', available: true },
+        { value: 'tri-color', label: 'Tri-color wheel (/250)', available: true }
+      ],
+      category: 'vinyl',
+      vinylSize: '12',
+      label: 'Zegema Beach Releases',
+      isNew: true,
+      soldOut: false
+    },
+    {
+      id: 'duct-hearts-prick-us',
+      band: 'Duct Hearts',
+      title: 'If You Prick Us, Do We Not Bleed? (7")',
+      cat: 'Releases',
+      price: 6.00,
+      priceLabel: 'CA$6.00',
+      image: 'https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/1428622073417-YW4JLUJR1QW20HJVD8IS/ducthearts-ifyouprickus_front.jpg?format=1500w',
+      imageAlt: 'Duct Hearts If You Prick Us Do We Not Bleed cover art',
+      gallery: [
+        { src: 'https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/1429758468494-5JCSDVV910M7UJK6EN5D/IMG_20150422_223230760.jpg?format=1500w', alt: 'Duct Hearts promo photo' },
+        { src: 'https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/1428622073417-YW4JLUJR1QW20HJVD8IS/ducthearts-ifyouprickus_front.jpg?format=1500w', alt: 'Duct Hearts If You Prick Us Do We Not Bleed cover art' },
+        { src: 'https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/1428622073684-EY47EH554HMX9KQAMHD7/ducthearts-ifyouprickus_full.jpg?format=1500w', alt: 'Duct Hearts If You Prick Us Do We Not Bleed full sleeve' }
+      ],
+      description: [
+        'For fans of: Arktika, Guiltmaker and Amber.',
+        'Ambient post-everything from München, Germany. Melodic vocals, massive riffs and a nod to space-rock. Comes in a beautifully packaged fold-over sleeve.',
+        '7" vinyl. 1 track over the course of 2 sides.'
+      ],
+      listenUrl: 'https://zegemabeachrecords.bandcamp.com/album/if-you-prick-us-do-we-not-bleed',
+      bcAlbumId: '625886485',
+      variants: [
+        { value: 'black', label: 'Black', available: true },
+        { value: 'transparent-grey-smoke', label: 'Transparent Grey/Smoke', available: true }
+      ],
+      category: 'vinyl',
+      vinylSize: '7',
+      label: 'Zegema Beach Releases',
+      soldOut: false
+    },
+    {
+      id: 'demersal-death-routines',
+      band: 'Demersal',
+      title: 'Death Routines (7")',
+      cat: 'Releases',
+      price: 9.00,
+      priceLabel: 'CA$9.00',
+      image: 'https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/1631768594967-KLIB50KAQEASYUGFW61K/Death+Routines+cover.jpeg?format=1500w',
+      imageAlt: 'Demersal Death Routines cover art',
+      gallery: [
+        { src: 'https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/1631768594967-KLIB50KAQEASYUGFW61K/Death+Routines+cover.jpeg?format=1500w', alt: 'Demersal Death Routines cover art' },
+        { src: 'https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/1631768595055-90RG3X3Q85K84KG8WI0B/promo1.jpg?format=1500w', alt: 'Demersal promo photo 1' },
+        { src: 'https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/1631768595727-P0EC5770JHQ9UOGF9B1G/promo2.jpg?format=1500w', alt: 'Demersal promo photo 2' }
+      ],
+      description: [
+        'For fans of: We Are Among Clouds, Lentic Waters and Converge.',
+        'This ridiculously good sophomore EP by Denmark\'s Demersal is 5 tracks of metallic hardcore/screamo fire, themed around negative routines in everyday life that consume us. It\'s a sadly honest EP that is over almost as soon as it begins. No filler. Just destruction.',
+        '7" vinyl on black/500 with lyric insert and gorgeous jackets. 5 tracks. Co-released by ten labels across six countries.'
+      ],
+      listenUrl: 'https://zegemabeachrecords.bandcamp.com/album/death-routines',
+      bcAlbumId: '1461604660',
+      variants: null,
+      category: 'vinyl',
+      vinylSize: '7',
+      label: 'Zegema Beach Releases',
+      soldOut: false
+    },
+    {
+      id: 'athousandangels-army-shirt',
+      band: 'Athousandangelsandseven',
+      title: "'Army' (Large t-shirt)",
+      cat: 'Releases',
+      price: 20.00,
+      priceLabel: 'CA$20.00',
+      image: 'https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/7bcf8691-dc63-4045-a1ea-495b2940e68e/1007a+1.jpg?format=750w',
+      imageAlt: 'Athousandangelsandseven Army t-shirt',
+      gallery: [
+        { src: 'https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/7bcf8691-dc63-4045-a1ea-495b2940e68e/1007a+1.jpg?format=750w', alt: 'Athousandangelsandseven Army t-shirt front' },
+        { src: 'https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/efc94cce-c3c1-4f8c-827d-f961d202e5aa/1007a+2.jpg?format=750w', alt: 'Athousandangelsandseven Army t-shirt back' }
+      ],
+      description: [
+        'L size. USED. In awesome condition, worn 3x max.'
+      ],
+      listenUrl: null,
+      bcAlbumId: null,
+      variants: null,
+      maxQty: 1,
+      category: 'shirt',
+      soldOut: false
+    },
+    {
+      id: 'black-love-coffee-baby-shirt',
+      band: 'Black Love',
+      title: "'Coffee Baby' (Large t-shirt)",
+      cat: 'Releases',
+      price: 10.00,
+      priceLabel: 'CA$10.00',
+      image: 'https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/1a79315c-dd2a-4236-b65f-ae5f69e6e42f/black+love.jpg?format=750w',
+      imageAlt: 'Black Love Coffee Baby t-shirt',
+      description: [
+        'Large size. USED. In decent condition considering how old this is.'
+      ],
+      listenUrl: null,
+      bcAlbumId: null,
+      variants: null,
+      maxQty: 1,
+      category: 'shirt',
+      soldOut: false
+    },
+    {
+      id: 'crossed-vibora-snake-tear-shirt',
+      band: 'Crossed x Vibora',
+      title: "'Snake Tear' (Large t-shirt)",
+      cat: 'Releases',
+      price: 25.00,
+      priceLabel: 'CA$25.00',
+      image: 'https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/7236aba8-73bb-412a-b235-c3978cbe4ca1/crossed+vibora.jpg?format=750w',
+      imageAlt: 'Crossed x Vibora Snake Tear t-shirt',
+      description: [
+        'L size. USED. In awesome condition. Only worn a handful of times.'
+      ],
+      listenUrl: null,
+      bcAlbumId: null,
+      variants: null,
+      maxQty: 1,
+      category: 'shirt',
+      soldOut: false
+    },
+    {
+      id: 'edhochuli-temple-shirt',
+      band: 'Edhochuli',
+      title: "'Temple' (Large t-shirt)",
+      cat: 'Releases',
+      price: 20.00,
+      priceLabel: 'CA$20.00',
+      image: 'https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/1beb3895-a5fa-4ad3-87ee-c243917a55b9/edhochuli.jpg?format=750w',
+      imageAlt: 'Edhochuli Temple t-shirt',
+      description: [
+        'Large size. USED. In awesome condition.'
+      ],
+      listenUrl: null,
+      bcAlbumId: null,
+      variants: null,
+      maxQty: 1,
+      category: 'shirt',
+      soldOut: false
+    },
+    {
+      id: 'emma-goldman-gas-shirt',
+      band: 'Emma Goldman',
+      title: "'Nothin' But Fucking Gas' (Large t-shirt)",
+      cat: 'Releases',
+      price: 25.00,
+      priceLabel: 'CA$25.00',
+      image: 'https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/4d2bd59c-3d15-4b6e-a24e-990c4c47ec5a/emma.jpg?format=750w',
+      imageAlt: 'Emma Goldman Nothin But Fucking Gas t-shirt',
+      description: [
+        'Large size. USED. In awesome condition.'
+      ],
+      listenUrl: null,
+      bcAlbumId: null,
+      variants: null,
+      maxQty: 1,
+      category: 'shirt',
+      soldOut: false
+    },
+    {
+      id: 'hauzu-bloody-face-shirt',
+      band: 'Hauzu',
+      title: "'Bloody Face' (L t-shirt)",
+      cat: 'Releases',
+      price: 15.00,
+      priceLabel: 'CA$15.00',
+      image: 'https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/7fdd4056-21b0-4397-8558-4d1352b1ae1c/Hauzu+1.jpg?format=750w',
+      imageAlt: 'Hauzu Bloody Face t-shirt',
+      gallery: [
+        { src: 'https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/7fdd4056-21b0-4397-8558-4d1352b1ae1c/Hauzu+1.jpg?format=750w', alt: 'Hauzu Bloody Face t-shirt front' },
+        { src: 'https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/1e29023d-ec4f-446c-90fb-c0de7230330a/Hauzu+2.jpg?format=750w', alt: 'Hauzu Bloody Face t-shirt back' }
+      ],
+      description: [
+        'Large size. USED. In awesome condition.'
+      ],
+      listenUrl: null,
+      bcAlbumId: null,
+      variants: null,
+      maxQty: 1,
+      category: 'shirt',
+      soldOut: false
+    },
+    {
+      id: 'heavenly-blue-gang-shirt',
+      band: 'Heavenly Blue',
+      title: "'Gang' (L t-shirt)",
+      cat: 'Releases',
+      price: 20.00,
+      priceLabel: 'CA$20.00',
+      image: 'https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/3d5008ce-a2e2-4f04-836f-deec1930efa5/Heavenly+Blue.jpg?format=750w',
+      imageAlt: 'Heavenly Blue Gang t-shirt',
+      description: [
+        'Large size. USED. In awesome condition.'
+      ],
+      listenUrl: null,
+      bcAlbumId: null,
+      variants: null,
+      maxQty: 1,
+      category: 'shirt',
+      soldOut: false
+    },
+    {
+      id: 'hetta-cutters-shirt',
+      band: 'Hetta',
+      title: "'Cutters' (t-shirt)",
+      cat: 'Releases',
+      price: 30.00,
+      priceLabel: 'CA$30.00',
+      image: 'https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/1678436104250-BQ1YXB69QD67IY5H9YKM/hetta+tshirt.jpg?format=750w',
+      imageAlt: 'Hetta Cutters t-shirt',
+      description: [
+        "A black on pink / pink on black t-shirt from Portugal's best. NEW."
+      ],
+      listenUrl: null,
+      bcAlbumId: null,
+      variants: [
+        { value: 'pink-on-black-l', label: 'Pink logo on black t-shirt (L)', available: true },
+        { value: 'pink-on-black-xl', label: 'Pink logo on black t-shirt (XL)', available: true },
+        { value: 'pink-on-black-3xl', label: 'Pink logo on black t-shirt (3XL)', available: true }
+      ],
+      variantLabel: 'Select Size',
+      category: 'shirt',
+      soldOut: false
+    },
+    {
+      id: 'keratin-inverted-crewneck',
+      band: 'Keratin',
+      title: "'inverted' (XL crewneck shirt)",
+      cat: 'Releases',
+      price: 30.00,
+      priceLabel: 'CA$30.00',
+      image: 'https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/1f4b0566-8382-4ee7-8e78-6ff8b4ebc200/Keratin+1.jpg?format=750w',
+      imageAlt: 'Keratin inverted crewneck shirt',
+      gallery: [
+        { src: 'https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/1f4b0566-8382-4ee7-8e78-6ff8b4ebc200/Keratin+1.jpg?format=750w', alt: 'Keratin inverted crewneck front' },
+        { src: 'https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/f1f601cf-de5b-4bfe-91ba-cb0712cd25a6/Keratin+2.jpg?format=750w', alt: 'Keratin inverted crewneck back' }
+      ],
+      description: [
+        'XL size. USED. In awesome condition.'
+      ],
+      listenUrl: null,
+      bcAlbumId: null,
+      variants: null,
+      maxQty: 1,
+      category: 'shirt',
+      soldOut: false
+    },
+    {
+      id: 'lower-automation-shoebox-shirt',
+      band: 'Lower Automation',
+      title: "'Shoebox Companion' (L t-shirt)",
+      cat: 'Releases',
+      price: 12.50,
+      priceLabel: 'CA$12.50',
+      image: 'https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/1ac1d51c-ee4a-428e-9fdb-4ee26ce61c50/lower+automation+yellow+face.jpg?format=750w',
+      imageAlt: 'Lower Automation Shoebox Companion t-shirt',
+      description: [
+        'Large size. USED. In awesome condition.'
+      ],
+      listenUrl: null,
+      bcAlbumId: null,
+      variants: null,
+      maxQty: 1,
+      category: 'shirt',
+      soldOut: false
+    },
+    {
+      id: 'malevich-behead-shirt',
+      band: 'Malevich',
+      title: "'Behead the Fascist Spectre' (L crewneck shirt)",
+      cat: 'Releases',
+      price: 25.00,
+      priceLabel: 'CA$25.00',
+      image: 'https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/54393ac3-e71d-46ca-87cf-356b8993e30c/Malevich.jpg?format=750w',
+      imageAlt: 'Malevich Behead the Fascist Spectre crewneck shirt',
+      description: [
+        'Large size. USED. In awesome condition.'
+      ],
+      listenUrl: null,
+      bcAlbumId: null,
+      variants: null,
+      maxQty: 1,
+      category: 'shirt',
+      soldOut: false
+    },
+    {
+      id: 'niboowin-witch-shirt',
+      band: 'Niboowin',
+      title: "'Witch' (L t-shirt)",
+      cat: 'Releases',
+      price: 12.50,
+      priceLabel: 'CA$12.50',
+      image: 'https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/d74073e3-b786-4201-af4f-178365402319/Niboowin.jpg?format=750w',
+      imageAlt: 'Niboowin Witch t-shirt',
+      description: [
+        'Large size. USED. In great condition.'
+      ],
+      listenUrl: null,
+      bcAlbumId: null,
+      variants: null,
+      maxQty: 1,
+      category: 'shirt',
+      soldOut: false
+    },
+    {
+      id: 'snag-ashs-head-shirt',
+      band: 'SNAG',
+      title: "'Ash's Head' (Large t-shirt)",
+      cat: 'Releases',
+      price: 20.00,
+      priceLabel: 'CA$20.00',
+      image: 'https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/26f48161-3c87-40bf-98b9-25c3c3c5712b/snag.jpg?format=750w',
+      imageAlt: "SNAG Ash's Head t-shirt",
+      description: [
+        "Large size. USED. In good condition but decal is cracked - worn a ton through so it'll be fine. I love this shirt but I just have too many."
+      ],
+      listenUrl: null,
+      bcAlbumId: null,
+      variants: null,
+      maxQty: 1,
+      category: 'shirt',
+      soldOut: false
+    },
+    {
+      id: 'wotm-little-roy-shirt',
+      band: 'Wreck Of The Minotaur',
+      title: "'Little Roy' (L t-shirt)",
+      cat: 'Releases',
+      price: 25.00,
+      priceLabel: 'CA$25.00',
+      image: 'https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/bd04f16b-b49f-4b71-8f8b-0e07d24c72f8/Wreck+of+the+Minotaur.jpg?format=750w',
+      imageAlt: 'Wreck Of The Minotaur Little Roy t-shirt',
+      description: [
+        'Large size. USED. In awesome condition.'
+      ],
+      listenUrl: null,
+      bcAlbumId: null,
+      variants: null,
+      maxQty: 1,
+      category: 'shirt',
+      soldOut: false
+    },
+    {
+      id: 'zbr-fest-dave-sweatshirt',
+      band: 'Zegema Beach Records',
+      title: "'Fest 2023 DAVE' (L sweatshirt)",
+      cat: 'Releases',
+      price: 30.00,
+      priceLabel: 'CA$30.00',
+      image: 'https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/d03a09d6-275b-4c60-8435-7e01863ccb85/ZBR+Fest+Dave+1.jpg?format=750w',
+      imageAlt: 'Zegema Beach Records Fest 2023 DAVE sweatshirt',
+      gallery: [
+        { src: 'https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/d03a09d6-275b-4c60-8435-7e01863ccb85/ZBR+Fest+Dave+1.jpg?format=750w', alt: 'ZBR Fest 2023 DAVE sweatshirt front' },
+        { src: 'https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/257f1d0d-92dc-411f-8e9e-a996d7c0840f/ZBR+Fest+Dave.jpg?format=750w', alt: 'ZBR Fest 2023 DAVE sweatshirt back' }
+      ],
+      description: [
+        'Large size. USED. In awesome condition.'
+      ],
+      listenUrl: null,
+      bcAlbumId: null,
+      variants: null,
+      maxQty: 1,
+      category: 'shirt',
+      soldOut: false
+    }
+  ];
+
+  var storeGrid = document.getElementById('storeGrid');
+  var bandList = document.getElementById('bandList');
+  var merchList = document.getElementById('merchList');
+  var labelList = document.getElementById('labelList');
+  var storeQuicklabels = document.querySelector('.store-quicklabels');
+  var storeSearch = document.getElementById('storeSearch');
+  var pdpContent = document.getElementById('pdpContent');
+  var activeBandFilter = '';
+  var activeCategoryFilter = '';
+  var activeVinylSizeFilter = '';
+  var activeLabelFilter = '';
+  var activeSpecialFilter = '';
+  var lastOpenedProductId = '';
+
+  function escapeHtml(str) {
+    var div = document.createElement('div');
+    div.textContent = str;
+    return div.innerHTML.replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+  }
+
+  function renderBandList() {
+    var bands = [];
+    products.forEach(function (p) {
+      if (p.band === 'Zegema Beach Records') return;
+      if (bands.indexOf(p.band) === -1) bands.push(p.band);
+    });
+    bands.sort();
+    bandList.innerHTML = '<li><button type="button" data-view-all>View All</button></li>' + bands.map(function (band) {
+      return '<li><button type="button" data-band-filter="' + escapeHtml(band) + '">' + escapeHtml(band) + '</button></li>';
+    }).join('');
+  }
+
+  function renderStoreGrid() {
+    var query = storeSearch.value.trim().toLowerCase();
+    var filtered = products.filter(function (p) {
+      var matchesBand = !activeBandFilter || p.band === activeBandFilter;
+      var matchesCategory = !activeCategoryFilter || p.category === activeCategoryFilter;
+      var matchesVinylSize = !activeVinylSizeFilter || (p.vinylSize && activeVinylSizeFilter.split(',').indexOf(p.vinylSize) !== -1);
+      var matchesLabel = !activeLabelFilter || p.label === activeLabelFilter;
+      var matchesSpecial = !activeSpecialFilter || (activeSpecialFilter === 'new' ? p.isNew : p.cat === 'Last Copy');
+      var matchesQuery = !query || (p.band + ' ' + p.title).toLowerCase().indexOf(query) !== -1;
+      return matchesBand && matchesCategory && matchesVinylSize && matchesLabel && matchesSpecial && matchesQuery;
+    });
+
+    if (filtered.length === 0) {
+      storeGrid.innerHTML = '<p class="store-empty">No releases match that search.</p>';
+    } else {
+      storeGrid.innerHTML = filtered.map(function (p) {
+        return '' +
+          '<button type="button" class="product-tile" data-product-id="' + p.id + '">' +
+          '<img src="' + p.image + '" alt="' + escapeHtml(p.imageAlt) + '">' +
+          '<span class="product-tile-band">' + escapeHtml(p.band) + '</span>' +
+          '<span class="product-tile-title">' + escapeHtml(p.title) + '</span>' +
+          '<span class="product-tile-price' + (p.soldOut ? ' product-tile-soldout' : '') + '">' + escapeHtml(p.priceLabel) + '</span>' +
+          '</button>';
+      }).join('');
+    }
+
+    bandList.querySelectorAll('button').forEach(function (btn) {
+      var isViewAll = 'viewAll' in btn.dataset;
+      btn.setAttribute('aria-current', isViewAll ? (!activeBandFilter ? 'true' : 'false') : (btn.dataset.bandFilter === activeBandFilter ? 'true' : 'false'));
+    });
+    merchList.querySelectorAll('button').forEach(function (btn) {
+      var isViewAll = 'viewAll' in btn.dataset;
+      if (isViewAll) {
+        btn.setAttribute('aria-current', !activeCategoryFilter ? 'true' : 'false');
+      } else if ('vinylSize' in btn.dataset) {
+        btn.setAttribute('aria-current', btn.dataset.vinylSize === activeVinylSizeFilter ? 'true' : 'false');
+      } else {
+        btn.setAttribute('aria-current', (btn.dataset.categoryFilter === activeCategoryFilter && !activeVinylSizeFilter) ? 'true' : 'false');
+      }
+    });
+    storeQuicklabels.querySelectorAll('button').forEach(function (btn) {
+      btn.setAttribute('aria-current', btn.dataset.specialFilter === activeSpecialFilter ? 'true' : 'false');
+    });
+    labelList.querySelectorAll('button').forEach(function (btn) {
+      var isViewAll = 'viewAll' in btn.dataset;
+      btn.setAttribute('aria-current', isViewAll ? (!activeLabelFilter ? 'true' : 'false') : (btn.dataset.labelFilter === activeLabelFilter ? 'true' : 'false'));
+    });
+  }
+
+  function clearStoreFilters() {
+    activeBandFilter = '';
+    activeCategoryFilter = '';
+    activeVinylSizeFilter = '';
+    activeLabelFilter = '';
+    activeSpecialFilter = '';
+    renderStoreGrid();
+  }
+
+  storeSearch.addEventListener('input', renderStoreGrid);
+
+  bandList.addEventListener('click', function (e) {
+    if (e.target.closest('[data-view-all]')) { clearStoreFilters(); return; }
+    var btn = e.target.closest('[data-band-filter]');
+    if (!btn) return;
+    activeBandFilter = activeBandFilter === btn.dataset.bandFilter ? '' : btn.dataset.bandFilter;
+    activeCategoryFilter = '';
+    activeVinylSizeFilter = '';
+    activeLabelFilter = '';
+    activeSpecialFilter = '';
+    renderStoreGrid();
+  });
+
+  merchList.addEventListener('click', function (e) {
+    if (e.target.closest('[data-view-all]')) { clearStoreFilters(); return; }
+    var btn = e.target.closest('[data-category-filter]');
+    if (!btn) return;
+    if ('vinylSize' in btn.dataset) {
+      activeVinylSizeFilter = activeVinylSizeFilter === btn.dataset.vinylSize ? '' : btn.dataset.vinylSize;
+      activeCategoryFilter = activeVinylSizeFilter ? 'vinyl' : '';
+    } else {
+      activeCategoryFilter = activeCategoryFilter === btn.dataset.categoryFilter ? '' : btn.dataset.categoryFilter;
+      activeVinylSizeFilter = '';
+    }
+    activeBandFilter = '';
+    activeLabelFilter = '';
+    activeSpecialFilter = '';
+    renderStoreGrid();
+  });
+
+  storeQuicklabels.addEventListener('click', function (e) {
+    var btn = e.target.closest('[data-special-filter]');
+    if (!btn) return;
+    activeSpecialFilter = activeSpecialFilter === btn.dataset.specialFilter ? '' : btn.dataset.specialFilter;
+    activeBandFilter = '';
+    activeCategoryFilter = '';
+    activeVinylSizeFilter = '';
+    activeLabelFilter = '';
+    renderStoreGrid();
+  });
+
+  labelList.addEventListener('click', function (e) {
+    if (e.target.closest('[data-view-all]')) { clearStoreFilters(); return; }
+    var btn = e.target.closest('[data-label-filter]');
+    if (!btn) return;
+    activeLabelFilter = activeLabelFilter === btn.dataset.labelFilter ? '' : btn.dataset.labelFilter;
+    activeBandFilter = '';
+    activeCategoryFilter = '';
+    activeVinylSizeFilter = '';
+    activeSpecialFilter = '';
+    renderStoreGrid();
+  });
+
+  document.querySelectorAll('[data-toggle-section]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var list = btn.nextElementSibling;
+      var collapsed = list.classList.toggle('collapsed');
+      btn.setAttribute('aria-expanded', collapsed ? 'false' : 'true');
+    });
+  });
+
+  function wireCarousel(container, gallery, title) {
+    var slides = container.querySelectorAll('.pdp-carousel-img');
+    var dots = container.querySelectorAll('.pdp-carousel-dot');
+    var index = 0;
+
+    function show(i) {
+      index = (i + slides.length) % slides.length;
+      slides.forEach(function (img, idx) { img.hidden = idx !== index; });
+      dots.forEach(function (dot, idx) { dot.setAttribute('aria-current', idx === index ? 'true' : 'false'); });
+    }
+
+    container.querySelector('.pdp-carousel-prev').addEventListener('click', function () { show(index - 1); });
+    container.querySelector('.pdp-carousel-next').addEventListener('click', function () { show(index + 1); });
+    dots.forEach(function (dot, idx) {
+      dot.addEventListener('click', function () { show(idx); });
+    });
+
+    var track = container.querySelector('.pdp-carousel-track');
+    var touchStartX = 0;
+    var touchStartY = 0;
+    var touchActive = false;
+    track.addEventListener('touchstart', function (e) {
+      touchStartX = e.touches[0].clientX;
+      touchStartY = e.touches[0].clientY;
+      touchActive = true;
+    }, { passive: true });
+    track.addEventListener('touchmove', function (e) {
+      if (!touchActive) return;
+      var dx = e.touches[0].clientX - touchStartX;
+      var dy = e.touches[0].clientY - touchStartY;
+      if (Math.abs(dx) > Math.abs(dy)) e.preventDefault();
+    }, { passive: false });
+    track.addEventListener('touchend', function (e) {
+      if (!touchActive) return;
+      touchActive = false;
+      var dx = e.changedTouches[0].clientX - touchStartX;
+      var dy = e.changedTouches[0].clientY - touchStartY;
+      if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) {
+        show(dx < 0 ? index + 1 : index - 1);
+      }
+    });
+
+    if (gallery) {
+      slides.forEach(function (img) {
+        img.addEventListener('click', function () {
+          if (window.innerWidth < 701) return;
+          openLightbox(gallery, title, index, img);
+        });
+      });
+    }
+  }
+
+  function openProduct(id) {
+    var p = products.filter(function (item) { return item.id === id; })[0];
+    if (!p) return;
+    lastOpenedProductId = id;
+
+    var html = '<a href="#" class="starlink pdp-back" data-view-link="store" data-store-return>&laquo; Back to Store</a>';
+    html += '<article class="post">';
+    if (p.soldOut) {
+      html += '<span class="cat cat-soldout">' + escapeHtml(p.cat) + '</span>';
+    }
+    html += '<div class="pdp-columns">';
+
+    html += '<div class="pdp-media">';
+    if (p.gallery) {
+      html += '<div class="pdp-carousel">';
+      html += '<div class="pdp-carousel-track">';
+      p.gallery.forEach(function (photo, idx) {
+        html += '<img class="pdp-carousel-img" src="' + photo.src + '" alt="' + escapeHtml(photo.alt) + '"' + (idx === 0 ? '' : ' hidden') + '>';
+      });
+      html += '<button type="button" class="pdp-carousel-prev" aria-label="Previous photo">&#9664;</button>';
+      html += '<button type="button" class="pdp-carousel-next" aria-label="Next photo">&#9654;</button>';
+      html += '</div>';
+      html += '<div class="pdp-carousel-dots">';
+      p.gallery.forEach(function (photo, idx) {
+        html += '<span class="pdp-carousel-dot" aria-current="' + (idx === 0 ? 'true' : 'false') + '"></span>';
+      });
+      html += '</div>';
+      html += '</div>';
+    } else {
+      html += '<img src="' + p.image + '" alt="' + escapeHtml(p.imageAlt) + '">';
+    }
+    html += '</div>';
+
+    html += '<div class="pdp-info">';
+    html += '<h2>' + escapeHtml(p.band) + ' - ' + escapeHtml(p.title) + '</h2>';
+    p.description.forEach(function (para) {
+      html += '<p>' + para + '</p>';
+    });
+
+    var addcartHtml = '';
+    if (p.soldOut) {
+      addcartHtml = '<p class="pdp-soldout-msg">This release is sold out in physical formats. Grab the digital download via the Bandcamp link above.</p>';
+    } else {
+      addcartHtml += '<div class="addcart pdp-addcart" data-product="' + escapeHtml(p.band + ' - ' + p.title) + '" data-price="' + p.price + '">';
+      addcartHtml += '<span class="cart-price">' + escapeHtml(p.priceLabel) + '</span>';
+      addcartHtml += '<div class="pdp-addcart-action">';
+      if (p.variants) {
+        addcartHtml += '<label class="cart-variant-wrap"><select class="cart-variant"><option value="" selected>' + escapeHtml(p.variantLabel || 'Select Variant') + '</option>';
+        p.variants.forEach(function (v) {
+          addcartHtml += '<option value="' + v.value + '"' + (v.available ? '' : ' disabled') + '>' + escapeHtml(v.label) + '</option>';
+        });
+        addcartHtml += '</select></label>';
+      } else {
+        addcartHtml += '<label class="cart-qty-wrap">Qty:<input type="number" class="cart-qty" value="1" min="1" max="' + (p.maxQty || 99) + '"></label>';
+      }
+      addcartHtml += '<a class="cart-btn" href="#">ADD TO CART</a>';
+      addcartHtml += '</div>';
+      addcartHtml += '</div>';
+    }
+
+    var listenHtml = '';
+    if (p.bcAlbumId) {
+      listenHtml = '<div class="bcplayer"><iframe style="border:0; width:100%; height:42px;" src="https://bandcamp.com/EmbeddedPlayer/album=' + p.bcAlbumId + '/size=small/bgcol=000000/linkcol=c0deff/tracklist=false/transparent=true/" seamless title="' + escapeHtml(p.band + ' - ' + p.title) + ' on Bandcamp"><a href="' + p.listenUrl + '">' + escapeHtml(p.band + ' - ' + p.title) + '</a></iframe></div>';
+    } else if (p.listenUrl) {
+      listenHtml = '<p><a class="starlink" href="' + p.listenUrl + '" target="_blank" rel="noopener">Listen Now</a></p>';
+    }
+
+    if (p.listenBeforeCart) {
+      html += listenHtml + addcartHtml;
+    } else {
+      html += addcartHtml + listenHtml;
+    }
+    html += '</div>';
+    html += '</div>';
+    html += '</article>';
+
+    pdpContent.innerHTML = html;
+    var addcartBox = pdpContent.querySelector('.addcart');
+    if (addcartBox) wireAddToCart(addcartBox);
+    var carousel = pdpContent.querySelector('.pdp-carousel');
+    if (carousel) wireCarousel(carousel, p.gallery, p.band + ' - ' + p.title);
+
+    showView('pdp');
+  }
+
+  document.addEventListener('click', function (e) {
+    var tile = e.target.closest('[data-product-id]');
+    if (tile) {
+      e.preventDefault();
+      openProduct(tile.dataset.productId);
+    }
+  });
+
+  renderBandList();
+  renderStoreGrid();
+
+  var contactForm = document.getElementById('contactForm');
+  var contactThanks = document.getElementById('contactThanks');
+  document.getElementById('contactSubmit').addEventListener('click', function (e) {
+    e.preventDefault();
+    if (!contactForm.reportValidity()) { return; }
+    contactForm.hidden = true;
+    contactThanks.hidden = false;
+    contactForm.reset();
+  });
+
+  var GUESTBOOK_STORAGE_KEY = 'zbrGuestbook';
+  var guestbookSeed = [
+    { name: 'Hieg', website: '', message: 'Thanks for keeping DIY screamo alive, ZBR crew! Beau Navire forever.', date: 'Jul 18, 2026' },
+    { name: 'skramz4life', website: '', message: 'just found this site through the Constrain tape, instant follow. more Zampler comps please!!!', date: 'Jul 12, 2026' },
+    { name: 'Nima (Wollruss)', website: 'https://hillsboro.bandcamp.com/', message: 'Stoked to be part of the Hillsboro release, thanks for having us on the label <3', date: 'Jul 3, 2026' }
+  ];
+
+  function loadGuestbook() {
+    try {
+      var parsed = JSON.parse(localStorage.getItem(GUESTBOOK_STORAGE_KEY));
+      return Array.isArray(parsed) ? parsed : [];
+    } catch (e) {
+      return [];
+    }
+  }
+
+  function saveGuestbook() {
+    try {
+      localStorage.setItem(GUESTBOOK_STORAGE_KEY, JSON.stringify(guestbookEntries));
+    } catch (e) { /* storage unavailable/full -- guestbook still works for this session */ }
+  }
+
+  var guestbookEntries = loadGuestbook();
+  var guestbookEntriesEl = document.getElementById('guestbookEntries');
+
+  function renderGuestbook() {
+    guestbookEntriesEl.innerHTML = '';
+    guestbookEntries.concat(guestbookSeed).forEach(function (entry) {
+      var row = document.createElement('div');
+      row.className = 'guestbook-entry';
+
+      var head = document.createElement('div');
+      head.className = 'guestbook-entry-head';
+
+      var nameEl = document.createElement('span');
+      nameEl.className = 'guestbook-entry-name';
+      if (entry.website && /^https?:\/\//i.test(entry.website)) {
+        var link = document.createElement('a');
+        link.href = entry.website;
+        link.target = '_blank';
+        link.rel = 'noopener';
+        link.className = 'starlink';
+        link.textContent = entry.name;
+        nameEl.appendChild(link);
+      } else {
+        nameEl.textContent = entry.name;
+      }
+
+      var dateEl = document.createElement('span');
+      dateEl.className = 'guestbook-entry-date';
+      dateEl.textContent = entry.date;
+
+      head.appendChild(nameEl);
+      head.appendChild(dateEl);
+
+      var msgEl = document.createElement('p');
+      msgEl.className = 'guestbook-entry-message';
+      msgEl.textContent = entry.message;
+
+      row.appendChild(head);
+      row.appendChild(msgEl);
+      guestbookEntriesEl.appendChild(row);
+    });
+  }
+  renderGuestbook();
+
+  var guestbookForm = document.getElementById('guestbookForm');
+  var guestbookThanks = document.getElementById('guestbookThanks');
+  document.getElementById('guestbookSubmit').addEventListener('click', function (e) {
+    e.preventDefault();
+    if (!guestbookForm.reportValidity()) { return; }
+    guestbookEntries.unshift({
+      name: guestbookForm.gbName.value.trim(),
+      website: guestbookForm.gbWebsite.value.trim(),
+      message: guestbookForm.gbMessage.value.trim(),
+      date: new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
+    });
+    saveGuestbook();
+    renderGuestbook();
+    guestbookForm.hidden = true;
+    guestbookThanks.hidden = false;
+    guestbookForm.reset();
+  });
+
+  var CHAT_STORAGE_KEY = 'zbrChat';
+  var CHAT_NICK_STORAGE_KEY = 'zbrChatNick';
+  var chatSeed = [
+    { nick: 'skramz4life', text: "anyone copping the coup d'etat lathe before they're gone??", time: '9:14 PM' },
+    { nick: 'xxlathebrainxx', text: 'already got mine. sounds insane on a real turntable', time: '9:15 PM' },
+    { nick: 'VHS_forever', text: 'just put on the beau navire demo for the 100th time this year', time: '9:16 PM' },
+    { nick: 'dave_from_constrain', text: 'haha hi yes this is really me. see you all at the release show', time: '9:17 PM' },
+    { nick: 'mothflame_screamo', text: "is the zampler #27 sold out yet? need that sinco art", time: '9:19 PM' },
+    { nick: 'skramz4life', text: 'nah still a few left, check the store', time: '9:20 PM' },
+    { nick: 'basement_show_kid', text: "ZBR fest can't come soon enough", time: '9:22 PM' },
+    { nick: 'xxlathebrainxx', text: "anyone else notice david's always awake at 4am posting news updates", time: '9:24 PM' },
+    { nick: 'VHS_forever', text: "the man doesn't sleep, he just presses more records", time: '9:25 PM' },
+    { nick: 'mothflame_screamo', text: 'screamo hours >>> business hours', time: '9:27 PM' }
+  ];
+  var chatNickColors = ['#1E61A8', '#A500A8', '#CC0000', '#19A800', '#CC6600', '#000080'];
+
+  function chatNickColor(nick) {
+    var hash = 0;
+    for (var i = 0; i < nick.length; i++) { hash = (hash * 31 + nick.charCodeAt(i)) >>> 0; }
+    return chatNickColors[hash % chatNickColors.length];
+  }
+
+  function loadChat() {
+    try {
+      var parsed = JSON.parse(localStorage.getItem(CHAT_STORAGE_KEY));
+      return Array.isArray(parsed) ? parsed : [];
+    } catch (e) {
+      return [];
+    }
+  }
+
+  function saveChat() {
+    try {
+      localStorage.setItem(CHAT_STORAGE_KEY, JSON.stringify(chatMessages));
+    } catch (e) { /* storage unavailable/full -- chat still works for this session */ }
+  }
+
+  var chatMessages = loadChat();
+  var chatLogEl = document.getElementById('chatLog');
+
+  function renderChat() {
+    chatLogEl.innerHTML = '';
+    chatSeed.concat(chatMessages).forEach(function (msg) {
+      var line = document.createElement('div');
+      line.className = 'chat-line';
+
+      var time = document.createElement('span');
+      time.className = 'chat-time';
+      time.textContent = '[' + msg.time + ']';
+
+      var nick = document.createElement('span');
+      nick.className = 'chat-nick';
+      nick.style.color = chatNickColor(msg.nick);
+      nick.textContent = msg.nick;
+
+      var text = document.createElement('span');
+      text.className = 'chat-text';
+      text.textContent = ' ' + msg.text;
+
+      line.appendChild(time);
+      line.appendChild(nick);
+      line.appendChild(text);
+      chatLogEl.appendChild(line);
+    });
+    chatLogEl.scrollTop = chatLogEl.scrollHeight;
+  }
+  renderChat();
+
+  var shirtSaleCarousel = document.getElementById('shirtSaleCarousel');
+  if (shirtSaleCarousel) {
+    wireCarousel(shirtSaleCarousel, [
+      { src: 'https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/ad5776d4-f751-4f43-9659-986652ee3774/-square.jpg?format=750w', alt: 'ZBR shirt sale photo' },
+      { src: 'https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/1783093301571-QRD11L6BCVC5GXA1NVZR/1007a+1.jpg?format=750w', alt: 'ZBR shirt sale photo' },
+      { src: 'https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/1783093301685-FZKCEHLDNHUH4WZUUMEL/blood+1.jpg?format=750w', alt: 'ZBR shirt sale photo' },
+      { src: 'https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/1783093303362-8PXLBPINHTXB1IXGOAK2/brahm.jpg?format=750w', alt: 'ZBR shirt sale photo' },
+      { src: 'https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/1783093303603-8IVLGC9ZEJHN385N9QR6/coma.jpg?format=750w', alt: 'ZBR shirt sale photo' },
+      { src: 'https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/1783093304842-HMLNTPML246YXL4ZJR9N/me+and+him+1.jpg?format=750w', alt: 'ZBR shirt sale photo' },
+      { src: 'https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/1783093305119-DRYZOLK9YS734E8QXABE/shoganai.jpg?format=750w', alt: 'ZBR shirt sale photo' },
+      { src: 'https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/1783093306495-FJKHEFDS11UI6XFNVAI6/sinema.jpg?format=750w', alt: 'ZBR shirt sale photo' },
+      { src: 'https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/1783093306731-VWR2BSDWYUVZB5OW2SP1/votive.jpg?format=750w', alt: 'ZBR shirt sale photo' },
+      { src: 'https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/1783093307756-XWBNGV9X6F2YAFXVDZ08/zbr+og.jpg?format=750w', alt: 'ZBR shirt sale photo' }
+    ], 'Final T-Shirt Sale');
+  }
+
+  var chatForm = document.getElementById('chatForm');
+  var savedChatNick = localStorage.getItem(CHAT_NICK_STORAGE_KEY);
+  if (savedChatNick) chatForm.chatNick.value = savedChatNick;
+
+  chatForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (!chatForm.reportValidity()) return;
+    var nick = chatForm.chatNick.value.trim();
+    var text = chatForm.chatMessage.value.trim();
+    if (!nick || !text) return;
+    chatMessages.push({
+      nick: nick,
+      text: text,
+      time: new Date().toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' })
+    });
+    saveChat();
+    try { localStorage.setItem(CHAT_NICK_STORAGE_KEY, nick); } catch (e) { /* storage unavailable */ }
+    renderChat();
+    chatForm.chatMessage.value = '';
+    chatForm.chatMessage.focus();
+  });
+
+  var siteSearchInput = document.getElementById('siteSearchInput');
+  var siteSearchResults = document.getElementById('siteSearchResults');
+  var currentSearchMatches = [];
+
+  var searchIndex = Array.prototype.reduce.call(document.querySelectorAll('.post-page'), function (acc, page) {
+    page.querySelectorAll('.post').forEach(function (article) {
+      var h2 = article.querySelector('h2');
+      if (!h2) return;
+      var body = Array.prototype.map.call(article.querySelectorAll('p'), function (p) { return p.textContent; }).join(' ');
+      acc.push({ el: article, page: page.dataset.page, title: h2.textContent, body: body });
+    });
+    return acc;
+  }, []);
+
+  function buildSnippet(text, query) {
+    var idx = text.toLowerCase().indexOf(query.toLowerCase());
+    if (idx === -1) {
+      return escapeHtml(text.slice(0, 140)) + (text.length > 140 ? '...' : '');
+    }
+    var start = Math.max(0, idx - 40);
+    var end = Math.min(text.length, idx + query.length + 100);
+    var before = text.slice(start, idx);
+    var match = text.slice(idx, idx + query.length);
+    var after = text.slice(idx + query.length, end);
+    return (start > 0 ? '...' : '') + escapeHtml(before) + '<mark>' + escapeHtml(match) + '</mark>' + escapeHtml(after) + (end < text.length ? '...' : '');
+  }
+
+  function renderSiteSearch() {
+    var query = siteSearchInput.value.trim();
+    if (!query) {
+      siteSearchResults.innerHTML = '<p class="site-search-empty">Start typing to search news posts and releases.</p>';
+      currentSearchMatches = [];
+      return;
+    }
+
+    var lowerQuery = query.toLowerCase();
+    currentSearchMatches = searchIndex.filter(function (item) {
+      return item.title.toLowerCase().indexOf(lowerQuery) !== -1 || item.body.toLowerCase().indexOf(lowerQuery) !== -1;
+    });
+
+    if (currentSearchMatches.length === 0) {
+      siteSearchResults.innerHTML = '<p class="site-search-empty">No posts match "' + escapeHtml(query) + '".</p>';
+      return;
+    }
+
+    siteSearchResults.innerHTML = currentSearchMatches.map(function (item, i) {
+      return '' +
+        '<button type="button" class="site-search-result" data-result-index="' + i + '">' +
+        '<div class="site-search-result-head">' +
+        '<span class="site-search-result-title">' + escapeHtml(item.title) + '</span>' +
+        '<span class="site-search-result-page">Page ' + item.page + '</span>' +
+        '</div>' +
+        '<p class="site-search-result-snippet">' + buildSnippet(item.body, query) + '</p>' +
+        '</button>';
+    }).join('');
+  }
+
+  siteSearchInput.addEventListener('input', renderSiteSearch);
+  renderSiteSearch();
+
+  siteSearchResults.addEventListener('click', function (e) {
+    var btn = e.target.closest('[data-result-index]');
+    if (!btn) return;
+    var item = currentSearchMatches[parseInt(btn.dataset.resultIndex, 10)];
+    if (!item) return;
+    showView('home');
+    showPage(item.page);
+    item.el.scrollIntoView({ block: 'start', behavior: 'instant' });
+    item.el.classList.add('search-highlight');
+    setTimeout(function () { item.el.classList.remove('search-highlight'); }, 1500);
+  });
+
+  var backToTop = document.getElementById('backToTop');
+  window.addEventListener('scroll', function () {
+    backToTop.hidden = window.scrollY < 400;
+  });
+  backToTop.addEventListener('click', function () {
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    window.scrollTo({ top: 0, behavior: reduceMotion ? 'instant' : 'smooth' });
+  });
+</script>
+</body>
+</html>

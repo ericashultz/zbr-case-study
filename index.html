@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zegema Beach Records — Case Study</title>
+<style>
+  :root{
+    --bg:#0b0c10;
+    --bg-alt:#14161d;
+    --card:#181b24;
+    --card-border:#2a2e3a;
+    --text:#f2f1ec;
+    --text-dim:#a9adba;
+    --text-faint:#6b7080;
+    --red:#ff2529;
+    --red-dim:#3a1012;
+    --teal:#19a800;
+    --teal-dim:#0f2712;
+    --mono: "SF Mono", "Courier New", monospace;
+    --sans: Arial, Helvetica, sans-serif;
+    --headline: "Arial Narrow", "Helvetica Neue Condensed Bold", Arial, sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{height:100%;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:var(--sans);
+    overflow:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  /* ---- progress bar ---- */
+  .progress{
+    position:fixed; top:0; left:0; right:0; height:3px;
+    background:var(--card-border); z-index:50;
+  }
+  .progress-fill{
+    height:100%; background:linear-gradient(90deg,var(--red),var(--teal));
+    width:0%; transition:width .35s ease;
+  }
+
+  /* ---- deck / slides ---- */
+  .deck{
+    position:relative; width:100%; height:100%;
+  }
+  .slide{
+    position:absolute; inset:0;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    padding:64px 8vw 90px;
+    opacity:0; visibility:hidden;
+    transform:translateX(40px);
+    transition:opacity .4s ease, transform .4s ease;
+  }
+  .slide.active{
+    opacity:1; visibility:visible; transform:translateX(0);
+  }
+  .slide.leaving{
+    transform:translateX(-40px);
+  }
+  .slide-inner{
+    width:100%; max-width:1180px; margin:0 auto;
+    display:flex; flex-direction:column; align-items:center; text-align:center;
+    gap:22px;
+  }
+  .slide-inner.left{ align-items:flex-start; text-align:left; }
+
+  .eyebrow{
+    font-family:var(--mono); font-size:12px; letter-spacing:.16em; text-transform:uppercase;
+    color:var(--text-dim); font-weight:700;
+  }
+  .eyebrow.problem{ color:var(--red); }
+  .eyebrow.solution{ color:var(--teal); }
+
+  h1{ font-family:var(--headline); font-size:clamp(34px,5vw,58px); line-height:1.08; font-weight:700; font-style:oblique; letter-spacing:-.005em; }
+  h2{ font-family:var(--headline); font-size:clamp(26px,3.4vw,40px); line-height:1.12; font-weight:700; font-style:oblique; letter-spacing:-.005em; }
+  p.lede{ font-size:clamp(16px,1.6vw,19px); color:var(--text-dim); line-height:1.6; max-width:720px; }
+  .slide-inner.left p.lede{ max-width:640px; }
+  p.lede.title-lede{ max-width:none; white-space:nowrap; }
+
+  /* ---- title slide ---- */
+  .brand-mark{
+    font-family:var(--mono); font-size:13px; font-weight:700; letter-spacing:.08em; color:var(--text-dim);
+    border:1px solid #3a3f4d; border-radius:999px;
+    padding:6px 16px; display:inline-block;
+  }
+  .byline{ margin-top:8px; color:var(--text-faint); font-size:14px; }
+
+  /* ---- section divider ---- */
+  .divider{ gap:8px; }
+  .divider h1{ font-size:clamp(38px,6vw,72px); margin-top:12px; }
+  .divider .bar{
+    width:48px; height:2px; border-radius:1px;
+  }
+  .divider.problem .bar{ background:var(--red); }
+  .divider.solution .bar{ background:var(--teal); }
+
+  /* ---- screenshot cards ---- */
+  .browser-frame{
+    width:100%; border-radius:12px; overflow:hidden;
+    background:var(--card); border:1px solid var(--card-border);
+    box-shadow:0 30px 80px -20px rgba(0,0,0,.6);
+  }
+  .browser-chrome{
+    display:flex; align-items:center; gap:6px;
+    padding:10px 14px; background:#1e212b; border-bottom:1px solid var(--card-border);
+  }
+  .browser-chrome span{ width:9px; height:9px; border-radius:50%; background:#3a3f4d; }
+  .browser-chrome .url{
+    margin-left:10px; font-family:var(--mono); font-size:11px; color:var(--text-faint);
+    background:#12141b; padding:3px 10px; border-radius:5px; flex:1; text-align:left;
+    overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
+  }
+  .shot-scroll{
+    max-height:46vh; overflow:hidden; position:relative; background:#000;
+  }
+  .shot-scroll img{ width:100%; display:block; }
+
+  .two-col{
+    display:grid; grid-template-columns:1.15fr .85fr; gap:40px; align-items:center; width:100%;
+  }
+  .two-col.reverse{ grid-template-columns:.85fr 1.15fr; }
+  .two-col.reverse .browser-frame{ order:2; }
+  .two-col.mobile-feature{ grid-template-columns:1fr 1fr; gap:48px; }
+  .callouts{ display:flex; flex-direction:column; gap:14px; max-width:440px; text-align:left; }
+  .callout{
+    display:flex; gap:12px; align-items:flex-start; text-align:left;
+    padding:14px 16px; border-radius:10px; background:var(--card); border:1px solid var(--card-border);
+  }
+  .callout .dot{
+    flex:none; width:20px; height:20px; border-radius:50%; margin-top:2px;
+    display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:800;
+    font-family:var(--mono);
+  }
+  .problem .callout .dot{ background:var(--red-dim); color:var(--red); }
+  .solution .callout .dot{ background:var(--teal-dim); color:var(--teal); }
+  .callout p{ font-size:14.5px; line-height:1.55; color:var(--text-dim); }
+  .callout strong{ color:var(--text); }
+
+  .stat{
+    font-family:var(--mono); font-size:clamp(40px,5vw,64px); font-weight:800;
+    color:var(--red);
+  }
+  .solution .stat{ color:var(--teal); }
+  .stat-label{ color:var(--text-dim); font-size:15px; max-width:520px; }
+
+  /* mobile side-by-side shot -- deliberately phone-scaled, not the desktop frame size */
+  .mobile-shot{
+    height:54vh; width:fit-content; margin:0 auto;
+    border-radius:26px; overflow:hidden; border:8px solid #20232d;
+    box-shadow:0 30px 80px -20px rgba(0,0,0,.6);
+  }
+  .mobile-shot img{ display:block; height:100%; width:auto; max-width:none; }
+
+  /* ---- timeline ---- */
+  .timeline{
+    width:100%; max-width:840px; text-align:left;
+    max-height:52vh; overflow-y:auto; padding-right:6px;
+  }
+  .timeline::-webkit-scrollbar{ width:6px; }
+  .timeline::-webkit-scrollbar-thumb{ background:var(--card-border); border-radius:3px; }
+  .tl-item{
+    display:grid; grid-template-columns:70px 1fr; gap:16px;
+    padding:12px 0; border-bottom:1px solid var(--card-border);
+  }
+  .tl-item:last-child{ border-bottom:none; }
+  .tl-date{ font-family:var(--mono); font-size:12px; color:var(--teal); padding-top:2px; }
+  .tl-text strong{ display:block; font-size:15.5px; margin-bottom:2px; }
+  .tl-text span{ font-size:13.5px; color:var(--text-dim); }
+
+  /* ---- comparison table ---- */
+  table.compare{ width:100%; max-width:920px; border-collapse:collapse; text-align:left; font-size:14.5px; }
+  table.compare th{
+    font-family:var(--mono); font-size:11px; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--text-faint); padding:10px 14px; border-bottom:1px solid var(--card-border);
+  }
+  table.compare td{ padding:12px 14px; border-bottom:1px solid var(--card-border); vertical-align:top; }
+  table.compare td:first-child{ color:var(--text); font-weight:600; white-space:nowrap; }
+  table.compare td.no{ color:var(--red); }
+  table.compare td.yes{ color:var(--teal); }
+  table.compare td.mid{ color:var(--text-dim); }
+  table.compare tr:last-child td{ border-bottom:none; }
+
+  /* ---- CTA link ---- */
+  .cta-link{
+    display:inline-flex; align-items:center; gap:10px;
+    font-family:var(--mono); font-size:17px; font-weight:700; color:var(--bg);
+    background:var(--teal); border-radius:10px; padding:16px 28px;
+    text-decoration:none; margin-top:8px;
+    box-shadow:0 20px 50px -18px rgba(25,168,0,.55);
+    transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .cta-link:hover{ transform:translateY(-2px); box-shadow:0 24px 60px -16px rgba(25,168,0,.7); }
+  .cta-note{ color:var(--text-faint); font-size:13px; }
+
+  /* ---- nav controls ---- */
+  .nav-controls{
+    position:fixed; bottom:0; left:0; right:0; z-index:50;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:18px 28px; background:linear-gradient(0deg, var(--bg) 40%, transparent);
+  }
+  .nav-btn{
+    font-family:var(--sans); font-size:14px; font-weight:600; color:var(--text);
+    background:var(--card); border:1px solid var(--card-border); border-radius:8px;
+    padding:10px 18px; cursor:pointer; display:flex; align-items:center; gap:8px;
+    transition:background .15s ease, border-color .15s ease;
+  }
+  .nav-btn:hover{ background:#20232e; border-color:#3a3f4d; }
+  .nav-btn:disabled{ opacity:.3; cursor:default; }
+  .nav-btn:disabled:hover{ background:var(--card); }
+  .counter{ font-family:var(--mono); font-size:12px; color:var(--text-faint); }
+  .dots{ display:flex; gap:6px; }
+  .dots button{
+    width:6px; height:6px; border-radius:50%; border:none; background:var(--card-border);
+    cursor:pointer; padding:0;
+  }
+  .dots button.active{ background:var(--text); width:16px; border-radius:3px; transition:width .2s ease; }
+  .center-controls{ display:flex; flex-direction:column; align-items:center; gap:8px; }
+
+  .click-zone{
+    position:fixed; top:0; bottom:80px; width:14%; z-index:40; cursor:pointer;
+  }
+  .click-zone.left{ left:0; }
+  .click-zone.right{ right:0; }
+
+  kbd{
+    font-family:var(--mono); background:var(--card); border:1px solid var(--card-border);
+    border-radius:4px; padding:1px 6px; font-size:12px;
+  }
+
+  @media (max-width:820px){
+    .two-col, .two-col.reverse{ grid-template-columns:1fr; }
+    .two-col.reverse .browser-frame{ order:0; }
+    .slide{ padding:48px 6vw 100px; }
+    .shot-scroll{ max-height:34vh; }
+    p.lede.title-lede{ white-space:normal; max-width:640px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="progress"><div class="progress-fill" id="progressFill"></div></div>
+
+<div class="click-zone left" id="zoneLeft" aria-hidden="true"></div>
+<div class="click-zone right" id="zoneRight" aria-hidden="true"></div>
+
+<div class="deck" id="deck">
+
+  <!-- 1 -->
+  <section class="slide">
+    <div class="slide-inner">
+      <span class="brand-mark">CASE STUDY</span>
+      <h1>Zegema Beach Records</h1>
+      <p class="lede title-lede">Rebuilding a one-person record label's website — without losing its DIY, scrappy soul.</p>
+      <div class="byline">Redesign &amp; build by Erica Shultz, with Claude Code · 2026</div>
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section class="slide">
+    <div class="slide-inner">
+      <span class="eyebrow">THE CONTEXT</span>
+      <h2>A real store, run by one person, for over a decade</h2>
+      <p class="lede">Zegema Beach Records is a screamo/hardcore label and mailorder shop. The site has been built page by page on Squarespace for years. It works: people find it and buy records. But it was never designed as a cohesive, user friendly news and shopping hub, and it shows.</p>
+      <p class="lede">We'll walk through what's actually live today, then how I redesigned and rebuilt it using Claude Code — keeping the fan-site DIY feeling intact while adding the browsing and shopping tools a real store needs.</p>
+    </div>
+  </section>
+
+  <!-- 3: divider -->
+  <section class="slide">
+    <div class="slide-inner divider problem">
+      <span class="eyebrow problem">PART ONE</span>
+      <div class="bar"></div>
+      <h1>What's live right now</h1>
+      <p class="lede">zegemabeachrecords.com, as of today</p>
+    </div>
+  </section>
+
+  <!-- 4 -->
+  <section class="slide">
+    <div class="slide-inner problem" style="max-width:1180px;">
+      <span class="eyebrow problem">PROBLEM</span>
+      <h2>One page, no map</h2>
+      <div class="two-col">
+        <div class="browser-frame">
+          <div class="browser-chrome"><span></span><span></span><span></span><div class="url">zegemabeachrecords.com</div></div>
+          <div class="shot-scroll"><img src="images/live-home-desktop.png" alt="Zegema Beach Records live homepage"></div>
+        </div>
+        <div class="callouts">
+          <div class="callout"><div class="dot">1</div><p><strong>Disorganized content.</strong> Blog posts, product blocks, and reviews are interleaved with no visual separation.</p></div>
+          <div class="callout"><div class="dot">2</div><p><strong>No dedicated store landing page.</strong> The current store consists of a drop down navigation menu.</p></div>
+          <div class="callout"><div class="dot">3</div><p><strong>Large hero logo.</strong> Logo takes up a large portion of the desktop landing page, preventing users from viewing actual content.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5: stat slide -->
+  <section class="slide">
+    <div class="slide-inner problem">
+      <span class="eyebrow problem">PROBLEM</span>
+      <h2>Endless scroll, literally</h2>
+      <div class="stat">52,449px</div>
+      <p class="stat-label">The homepage's full scroll height on a standard desktop viewport — roughly <strong style="color:var(--text)">45 screens</strong> of scrolling to reach the bottom, with no jump links, pagination, or way to filter what you're looking at.</p>
+    </div>
+  </section>
+
+  <!-- 6 -->
+  <section class="slide">
+    <div class="slide-inner problem" style="max-width:1180px;">
+      <span class="eyebrow problem">PROBLEM</span>
+      <h2>Browsing means guessing a URL</h2>
+      <div class="two-col reverse">
+        <div class="callouts">
+          <div class="callout"><div class="dot">1</div><p><strong>No search. No filters. No sort.</strong> Nothing to narrow a catalog of hundreds of releases.</p></div>
+          <div class="callout"><div class="dot">2</div><p><strong>19 separate flat pages</strong> split by format and alphabet instead — 12" (#–N), 12" (O–Z), 7", 5"/6"/9"/10", Cassettes, CDs, Posters (#–O), Posters (P–Z), Buttons, Stickers, Steals, two Sold Out pages…</p></div>
+          <div class="callout"><div class="dot">3</div><p><strong>Finding one band's tape</strong> means already knowing which of those 19 pages it's filed under.</p></div>
+        </div>
+        <div class="browser-frame">
+          <div class="browser-chrome"><span></span><span></span><span></span><div class="url">zegemabeachrecords.com/specials</div></div>
+          <div class="shot-scroll"><img src="images/live-store-dropdown.png" alt="Live site store nav dropdown showing 19 flat category pages"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7 -->
+  <section class="slide">
+    <div class="slide-inner problem">
+      <span class="eyebrow problem">PROBLEM</span>
+      <h2>No front door to anything else</h2>
+      <p class="lede">The label runs a companion podcast and blog, and posts on Instagram and YouTube — none of it is linked from the site's navigation. The Archives menu is a single flat dropdown of 30-plus band interviews, listed as bare text with no thumbnails, search, or grouping.</p>
+    </div>
+  </section>
+
+  <!-- 8: mobile -->
+  <section class="slide">
+    <div class="slide-inner problem" style="max-width:1180px;">
+      <span class="eyebrow problem">PROBLEM</span>
+      <h2>Illegible, and hard to navigate</h2>
+      <div class="two-col mobile-feature">
+        <div class="mobile-shot"><img src="images/live-home-mobile.png" alt="Live site on mobile"></div>
+        <div class="callouts">
+          <div class="callout"><div class="dot">1</div><p><strong>Low-contrast text.</strong> Body copy renders in near-black over dark slate — well under WCAG contrast minimums.</p></div>
+          <div class="callout"><div class="dot">2</div><p><strong>One unlabeled dropdown for all six pages.</strong> It has a chevron, but no visible page list — you have to open it just to see where you can go.</p></div>
+          <div class="callout"><div class="dot">3</div><p><strong>Same full-screen hero on every page.</strong> On a phone, that's a full scroll before any unique content appears.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9: divider -->
+  <section class="slide">
+    <div class="slide-inner divider solution">
+      <span class="eyebrow solution">PART TWO</span>
+      <div class="bar"></div>
+      <h1>Rebuilding it with Claude Code</h1>
+      <p class="lede">The goal was never to make it sleek and modern. Make it feel like the fan-run site it's always been — just usable.</p>
+    </div>
+  </section>
+
+  <!-- 10: timeline -->
+  <section class="slide">
+    <div class="slide-inner solution" style="max-width:900px;">
+      <span class="eyebrow solution">THE PROCESS</span>
+      <h2>114 commits, five days, one file</h2>
+      <div class="timeline" id="timeline"></div>
+    </div>
+  </section>
+
+  <!-- 11 -->
+  <section class="slide">
+    <div class="slide-inner solution" style="max-width:1180px;">
+      <span class="eyebrow solution">THE REDESIGN</span>
+      <h2>Same wall, a real front door</h2>
+      <div class="two-col">
+        <div class="browser-frame">
+          <div class="browser-chrome"><span></span><span></span><span></span><div class="url">zegemabeachrecords.com</div></div>
+          <div class="shot-scroll"><img src="images/redesign-home-desktop.png" alt="Redesigned homepage"></div>
+        </div>
+        <div class="callouts">
+          <div class="callout"><div class="dot">1</div><p><strong>Full nav, including Search</strong> — Home, Store, Archives, Search, Contact, Cart, always visible.</p></div>
+          <div class="callout"><div class="dot">2</div><p><strong>A Quick Links hub</strong> puts the podcast, blog, Bandcamp, YouTube, Instagram, and chat room one click from the homepage — for the first time.</p></div>
+          <div class="callout"><div class="dot">3</div><p><strong>DIY aesthetic.</strong> Anyone can make a Geocities page, but make it bespoke, organized, user friendly and easily shoppable with modern functionality.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 12 -->
+  <section class="slide">
+    <div class="slide-inner solution" style="max-width:1180px;">
+      <span class="eyebrow solution">THE REDESIGN</span>
+      <h2>One store, actually browsable</h2>
+      <div class="two-col reverse">
+        <div class="callouts">
+          <div class="callout"><div class="dot">1</div><p><strong>One storefront, not nineteen pages.</strong> Every format and label lives in a single filterable grid.</p></div>
+          <div class="callout"><div class="dot">2</div><p><strong>Real filters:</strong> text search, New Items / Steals toggles, Bands A–Z, Merch, and Labels — collapsible, and full-width on mobile.</p></div>
+          <div class="callout"><div class="dot">3</div><p><strong>Selected filters persist</strong> as you move between the grid and a product page, so "Back to Store" returns you to where you were.</p></div>
+        </div>
+        <div class="browser-frame">
+          <div class="browser-chrome"><span></span><span></span><span></span><div class="url">zegemabeachrecords.com/store</div></div>
+          <div class="shot-scroll"><img src="images/redesign-store-filters.png" alt="Redesigned store with filters"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 13 -->
+  <section class="slide">
+    <div class="slide-inner solution" style="max-width:1180px;">
+      <span class="eyebrow solution">THE REDESIGN</span>
+      <h2>Search that searches</h2>
+      <div class="two-col">
+        <div class="browser-frame">
+          <div class="browser-chrome"><span></span><span></span><span></span><div class="url">zegemabeachrecords.com/search</div></div>
+          <div class="shot-scroll"><img src="images/redesign-search.png" alt="Redesigned site search"></div>
+        </div>
+        <div class="callouts">
+          <div class="callout"><div class="dot">1</div><p><strong>Type a band or release name,</strong> get live matches across news posts and the full catalog site-wide.</p></div>
+          <div class="callout"><div class="dot">2</div><p><strong>Zero to something the old site never had at all.</strong></p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 14 -->
+  <section class="slide">
+    <div class="slide-inner solution" style="max-width:1180px;">
+      <span class="eyebrow solution">THE REDESIGN</span>
+      <h2>A real product page</h2>
+      <div class="two-col reverse">
+        <div class="callouts">
+          <div class="callout"><div class="dot">1</div><p><strong>Photo gallery with lightbox,</strong> plus swipe support on mobile.</p></div>
+          <div class="callout"><div class="dot">2</div><p><strong>Listen Now, size/variant pickers, quantity, Add to Cart</strong> — with a cart that persists across the visit.</p></div>
+          <div class="callout"><div class="dot">3</div><p><strong>Per-release copy</strong> carried over faithfully from the live site — nothing about the label's voice was flattened.</p></div>
+        </div>
+        <div class="browser-frame">
+          <div class="browser-chrome"><span></span><span></span><span></span><div class="url">zegemabeachrecords.com/store/beau-navire</div></div>
+          <div class="shot-scroll"><img src="images/redesign-pdp.png" alt="Redesigned product detail page"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 15 -->
+  <section class="slide">
+    <div class="slide-inner solution" style="max-width:1180px;">
+      <span class="eyebrow solution">THE REDESIGN</span>
+      <h2>Nostalgia the old site never had</h2>
+      <div class="two-col">
+        <div class="browser-frame">
+          <div class="browser-chrome"><span></span><span></span><span></span><div class="url">zegemabeachrecords.com/chat</div></div>
+          <div class="shot-scroll"><img src="images/redesign-chat.png" alt="Redesigned AOL-style chat room"></div>
+        </div>
+        <div class="callouts">
+          <div class="callout"><div class="dot">1</div><p><strong>An AOL-style Chat Room</strong> — one of several personality touches, alongside the Quick Links icon grid and Fixedsys-styled headers.</p></div>
+          <div class="callout"><div class="dot">2</div><p><strong>A Guestbook,</strong> too — sign it or browse what other visitors left, leaning further into the fan-site feeling.</p></div>
+          <div class="callout"><div class="dot">3</div><p><strong>Mailing List widget</strong> — send news/releases/updates straight to a user's inbox.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 16: mobile -->
+  <section class="slide">
+    <div class="slide-inner solution" style="max-width:1180px;">
+      <span class="eyebrow solution">THE REDESIGN</span>
+      <h2>Mobile that actually works</h2>
+      <div class="two-col reverse mobile-feature">
+        <div class="callouts">
+          <div class="callout"><div class="dot">1</div><p><strong>A labeled ☰ Menu button,</strong> not an unlabeled dropdown showing only the current page.</p></div>
+          <div class="callout"><div class="dot">2</div><p><strong>Readable contrast</strong> throughout — no near-black text on dark backgrounds.</p></div>
+          <div class="callout"><div class="dot">3</div><p><strong>Swipeable photo galleries</strong> — built for touch, not just resized from desktop.</p></div>
+          <div class="callout"><div class="dot">4</div><p><strong>Quick Links navigation</strong> added under the main nav bar.</p></div>
+        </div>
+        <div class="mobile-shot"><img src="images/redesign-home-mobile.png" alt="Redesigned homepage on mobile"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 17: comparison table -->
+  <section class="slide">
+    <div class="slide-inner" style="max-width:960px;">
+      <span class="eyebrow">SUMMARY</span>
+      <h2>What changed</h2>
+      <table class="compare">
+        <tr><th>Feature</th><th>Live site</th><th>Redesign</th></tr>
+        <tr><td>Site search</td><td class="no">None</td><td class="yes">Live search across news &amp; catalog</td></tr>
+        <tr><td>Store landing page</td><td class="no">19 flat category pages</td><td class="yes">One filterable grid</td></tr>
+        <tr><td>Filters / sort</td><td class="no">None</td><td class="yes">Search, New/Steals, Bands A–Z, Merch, Labels</td></tr>
+        <tr><td>Product pages</td><td class="no">Squarespace default</td><td class="yes">Gallery + lightbox, swipe, variant picker</td></tr>
+        <tr><td>Cart</td><td class="no">Squarespace default</td><td class="yes">Persistent, custom-built</td></tr>
+        <tr><td>Social / podcast / blog links</td><td class="no">Not linked in nav</td><td class="yes">Quick Links hub on homepage</td></tr>
+        <tr><td>Mobile nav</td><td class="no">Unlabeled dropdown</td><td class="yes">Labeled ☰ Menu button</td></tr>
+        <tr><td>Contrast / accessibility</td><td class="no">Fails WCAG in places</td><td class="yes">Passes throughout</td></tr>
+        <tr><td>Community / chat</td><td class="no">None</td><td class="yes">AOL-style Chat Room</td></tr>
+        <tr><td>Guest book</td><td class="no">None</td><td class="yes">Sign &amp; browse a Guestbook</td></tr>
+        <tr><td>Mailing list</td><td class="no">None</td><td class="yes">Sign-up widget on homepage</td></tr>
+        <tr><td>Widgets</td><td class="no">None</td><td class="yes">Reviews, Features &amp; Johnny's Recos panels</td></tr>
+        <tr><td>Page organization</td><td class="no">Single column</td><td class="yes">Two-column layout (feed + widgets)</td></tr>
+        <tr><td>DIY / nostalgic feel</td><td class="mid">Somewhat</td><td class="yes">Preserved &amp; extended</td></tr>
+      </table>
+    </div>
+  </section>
+
+  <!-- 18: try it -->
+  <section class="slide">
+    <div class="slide-inner solution">
+      <span class="eyebrow solution">TRY IT YOURSELF</span>
+      <h2>This isn't a mockup — it's live</h2>
+      <p class="lede">Click around the actual staging build: search the catalog, filter the store, open a product page, drop something in the cart, or say hi in the Chat Room.</p>
+      <a class="cta-link" href="https://zbr-rho.vercel.app/" target="_blank" rel="noopener">zbr-rho.vercel.app →</a>
+      <span class="cta-note">Opens in a new tab</span>
+    </div>
+  </section>
+
+  <!-- 19: closing -->
+  <section class="slide">
+    <div class="slide-inner">
+      <span class="eyebrow">TAKEAWAY</span>
+      <h1>Still scrappy. Just usable now.</h1>
+      <p class="lede">Every functional gap on the live site — search, filters, a store landing page, social links, mobile accessibility — got solved without reaching for a template that would've sanded off what makes this label's site feel handmade.</p>
+      <div class="byline">Built with Claude Code · Erica Shultz · 2026</div>
+    </div>
+  </section>
+
+</div>
+
+<div class="nav-controls">
+  <button class="nav-btn" id="prevBtn">← Prev</button>
+  <div class="center-controls">
+    <div class="dots" id="dots"></div>
+    <div class="counter" id="counter">1 / 19</div>
+  </div>
+  <button class="nav-btn" id="nextBtn">Next →</button>
+</div>
+
+<script>
+(function(){
+  var timelineData = [
+    ["Jul 21", "First pass at the GeoCities-style redesign", "Established the aesthetic direction: starfield tile, beveled nav, the retro fan-site shell everything else would build on."],
+    ["Jul 22", "Working shopping cart, persisted with localStorage", "The first real e-commerce behavior — add, remove, quantity, and a cart that survives a page reload."],
+    ["Jul 22", "Browsable Canada/Intl Store with product PDPs", "Replaced the idea of 19 static pages with one real store and detail pages."],
+    ["Jul 22", "Collapsible Merch/Labels filters, full-width on mobile", "Store sidebar filtering took shape — the direct fix for \"no way to narrow the catalog.\""],
+    ["Jul 22", "Restyled Quick Links, added the Chat Room", "First pass at the social/podcast/blog hub, plus the AOL-style chat that became a signature touch."],
+    ["Jul 23", "Main nav Search built into a working site search", "Live search shipped — the fix for the old Archives dropdown and the missing search bar both."],
+    ["Jul 23", "Two-column PDP layout with image carousel + lightbox", "Product pages went from basic to genuinely nice to browse."],
+    ["Jul 23", "Archives page built from the live site's dropdown", "Turned 30+ flat interview links into one organized, browsable page."],
+    ["Jul 24", "Chat Room restyled as a real AOL chat window", "Refined the nostalgia touch until it actually looked like 1999."],
+    ["Jul 25", "Swipe support added to photo galleries", "Final mobile polish pass — real touch gestures for the PDP gallery, not just a resized desktop layout."]
+  ];
+  var tl = document.getElementById('timeline');
+  timelineData.forEach(function(item){
+    var el = document.createElement('div');
+    el.className = 'tl-item';
+    el.innerHTML = '<div class="tl-date">'+item[0]+'</div><div class="tl-text"><strong>'+item[1]+'</strong><span>'+item[2]+'</span></div>';
+    tl.appendChild(el);
+  });
+
+  var slides = Array.prototype.slice.call(document.querySelectorAll('.slide'));
+  var total = slides.length;
+  var idx = 0;
+
+  var dotsEl = document.getElementById('dots');
+  slides.forEach(function(_, i){
+    var b = document.createElement('button');
+    b.addEventListener('click', function(){ go(i); });
+    dotsEl.appendChild(b);
+  });
+  var dots = Array.prototype.slice.call(dotsEl.children);
+
+  var prevBtn = document.getElementById('prevBtn');
+  var nextBtn = document.getElementById('nextBtn');
+  var counter = document.getElementById('counter');
+  var fill = document.getElementById('progressFill');
+
+  function render(){
+    slides.forEach(function(s, i){
+      s.classList.toggle('active', i === idx);
+    });
+    dots.forEach(function(d, i){ d.classList.toggle('active', i === idx); });
+    counter.textContent = (idx+1) + ' / ' + total;
+    prevBtn.disabled = idx === 0;
+    nextBtn.disabled = idx === total - 1;
+    fill.style.width = ((idx) / (total - 1) * 100) + '%';
+  }
+
+  function go(i){
+    idx = Math.max(0, Math.min(total - 1, i));
+    render();
+  }
+
+  prevBtn.addEventListener('click', function(){ go(idx - 1); });
+  nextBtn.addEventListener('click', function(){ go(idx + 1); });
+  document.getElementById('zoneLeft').addEventListener('click', function(){ go(idx - 1); });
+  document.getElementById('zoneRight').addEventListener('click', function(){ go(idx + 1); });
+
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'ArrowRight' || e.key === ' ') { go(idx + 1); e.preventDefault(); }
+    if (e.key === 'ArrowLeft') { go(idx - 1); e.preventDefault(); }
+    if (e.key === 'Home') { go(0); }
+    if (e.key === 'End') { go(total - 1); }
+  });
+
+  // swipe support
+  var touchStartX = null;
+  document.addEventListener('touchstart', function(e){ touchStartX = e.touches[0].clientX; });
+  document.addEventListener('touchend', function(e){
+    if (touchStartX === null) return;
+    var dx = e.changedTouches[0].clientX - touchStartX;
+    if (Math.abs(dx) > 50) { go(dx < 0 ? idx + 1 : idx - 1); }
+    touchStartX = null;
+  });
+
+  render();
+})();
+</script>
+
+</body>
+</html>
