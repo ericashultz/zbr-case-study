@@ -248,6 +248,22 @@
     p.lede.title-lede{ white-space:normal; max-width:640px; }
     .mobile-shot{ height:min(60vh, 78vw); }
     h1 .line-break-mobile{ display:block; }
+
+    /* stack the comparison table into cards instead of 3 cramped columns */
+    table.compare, table.compare tbody, table.compare tr, table.compare td{ display:block; width:100%; }
+    table.compare{ max-height:56vh; overflow-y:auto; padding-right:4px; }
+    table.compare tr:first-child{ display:none; }
+    table.compare tr{
+      margin-bottom:12px; padding:12px 14px; border-radius:10px;
+      background:var(--card); border:1px solid var(--card-border);
+    }
+    table.compare td{ padding:3px 0; border-bottom:none; white-space:normal; }
+    table.compare td:first-child{ font-size:15px; margin-bottom:4px; }
+    table.compare td[data-label]::before{
+      content:attr(data-label); display:block; font-family:var(--mono);
+      font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:var(--text-faint);
+      margin-bottom:1px;
+    }
   }
 </style>
 </head>
@@ -499,20 +515,20 @@
       <h2>What changed</h2>
       <table class="compare">
         <tr><th>Feature</th><th>Live site</th><th>Redesign</th></tr>
-        <tr><td>Site search</td><td class="no">None</td><td class="yes">Live search across news &amp; catalog</td></tr>
-        <tr><td>Store landing page</td><td class="no">19 flat category pages</td><td class="yes">One filterable grid</td></tr>
-        <tr><td>Filters / sort</td><td class="no">None</td><td class="yes">Search, New/Steals, Bands A–Z, Merch, Labels</td></tr>
-        <tr><td>Product pages</td><td class="no">Squarespace default</td><td class="yes">Gallery + lightbox, swipe, variant picker</td></tr>
-        <tr><td>Cart</td><td class="no">Squarespace default</td><td class="yes">Persistent, custom-built</td></tr>
-        <tr><td>Social / podcast / blog links</td><td class="no">Not linked in nav</td><td class="yes">Quick Links hub on homepage</td></tr>
-        <tr><td>Mobile nav</td><td class="no">Unlabeled dropdown</td><td class="yes">Labeled ☰ Menu button</td></tr>
-        <tr><td>Contrast / accessibility</td><td class="no">Fails WCAG in places</td><td class="yes">Passes throughout</td></tr>
-        <tr><td>Community / chat</td><td class="no">None</td><td class="yes">AOL-style Chat Room</td></tr>
-        <tr><td>Guest book</td><td class="no">None</td><td class="yes">Sign &amp; browse a Guestbook</td></tr>
-        <tr><td>Mailing list</td><td class="no">None</td><td class="yes">Sign-up widget on homepage</td></tr>
-        <tr><td>Widgets</td><td class="no">None</td><td class="yes">Reviews, Features &amp; Johnny's Recos panels</td></tr>
-        <tr><td>Page organization</td><td class="no">Single column</td><td class="yes">Two-column layout (feed + widgets)</td></tr>
-        <tr><td>DIY / nostalgic feel</td><td class="mid">Somewhat</td><td class="yes">Preserved &amp; extended</td></tr>
+        <tr><td>Site search</td><td class="no" data-label="Live site">None</td><td class="yes" data-label="Redesign">Live search across news &amp; catalog</td></tr>
+        <tr><td>Store landing page</td><td class="no" data-label="Live site">19 flat category pages</td><td class="yes" data-label="Redesign">One filterable grid</td></tr>
+        <tr><td>Filters / sort</td><td class="no" data-label="Live site">None</td><td class="yes" data-label="Redesign">Search, New/Steals, Bands A–Z, Merch, Labels</td></tr>
+        <tr><td>Product pages</td><td class="no" data-label="Live site">Squarespace default</td><td class="yes" data-label="Redesign">Gallery + lightbox, swipe, variant picker</td></tr>
+        <tr><td>Cart</td><td class="no" data-label="Live site">Squarespace default</td><td class="yes" data-label="Redesign">Persistent, custom-built</td></tr>
+        <tr><td>Social / podcast / blog links</td><td class="no" data-label="Live site">Not linked in nav</td><td class="yes" data-label="Redesign">Quick Links hub on homepage</td></tr>
+        <tr><td>Mobile nav</td><td class="no" data-label="Live site">Unlabeled dropdown</td><td class="yes" data-label="Redesign">Labeled ☰ Menu button</td></tr>
+        <tr><td>Contrast / accessibility</td><td class="no" data-label="Live site">Fails WCAG in places</td><td class="yes" data-label="Redesign">Passes throughout</td></tr>
+        <tr><td>Community / chat</td><td class="no" data-label="Live site">None</td><td class="yes" data-label="Redesign">AOL-style Chat Room</td></tr>
+        <tr><td>Guest book</td><td class="no" data-label="Live site">None</td><td class="yes" data-label="Redesign">Sign &amp; browse a Guestbook</td></tr>
+        <tr><td>Mailing list</td><td class="no" data-label="Live site">None</td><td class="yes" data-label="Redesign">Sign-up widget on homepage</td></tr>
+        <tr><td>Widgets</td><td class="no" data-label="Live site">None</td><td class="yes" data-label="Redesign">Reviews, Features &amp; Johnny's Recos panels</td></tr>
+        <tr><td>Page organization</td><td class="no" data-label="Live site">Single column</td><td class="yes" data-label="Redesign">Two-column layout (feed + widgets)</td></tr>
+        <tr><td>DIY / nostalgic feel</td><td class="mid" data-label="Live site">Somewhat</td><td class="yes" data-label="Redesign">Preserved &amp; extended</td></tr>
       </table>
     </div>
   </section>
