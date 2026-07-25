@@ -119,10 +119,13 @@
 
   .two-col{
     display:grid; grid-template-columns:1.15fr .85fr; gap:40px; align-items:center; width:100%;
+    margin-top:14px;
   }
   .two-col.reverse{ grid-template-columns:.85fr 1.15fr; }
   .two-col.reverse .browser-frame{ order:2; }
   .two-col.mobile-feature{ grid-template-columns:1fr 1fr; gap:48px; }
+  .two-col.mobile-feature.closer{ display:flex; align-items:center; width:fit-content; gap:44px; margin:0 auto; }
+  .two-col.closer .callouts{ gap:10px; }
   .callouts{ display:flex; flex-direction:column; gap:14px; max-width:440px; text-align:left; }
   .callout{
     display:flex; gap:12px; align-items:flex-start; text-align:left;
@@ -235,6 +238,7 @@
     .slide{ padding:48px 6vw 100px; }
     .shot-scroll{ max-height:34vh; }
     p.lede.title-lede{ white-space:normal; max-width:640px; }
+    .two-col.closer{ flex-direction:column; }
   }
 </style>
 </head>
@@ -468,7 +472,7 @@
     <div class="slide-inner solution" style="max-width:1180px;">
       <span class="eyebrow solution">THE REDESIGN</span>
       <h2>Mobile that actually works</h2>
-      <div class="two-col reverse mobile-feature">
+      <div class="two-col reverse mobile-feature closer">
         <div class="callouts">
           <div class="callout"><div class="dot">1</div><p><strong>A labeled ☰ Menu button,</strong> not an unlabeled dropdown showing only the current page.</p></div>
           <div class="callout"><div class="dot">2</div><p><strong>Readable contrast</strong> throughout — no near-black text on dark backgrounds.</p></div>
