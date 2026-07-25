@@ -22,7 +22,7 @@
     --headline: "Arial Narrow", "Helvetica Neue Condensed Bold", Arial, sans-serif;
   }
   *{margin:0;padding:0;box-sizing:border-box;}
-  html,body{height:100%;}
+  html,body{height:100%; height:100dvh;}
   body{
     background:var(--bg);
     color:var(--text);
@@ -47,7 +47,10 @@
   }
   .slide{
     position:absolute; inset:0;
-    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    display:flex; flex-direction:column;
+    align-items:center; align-items:safe center;
+    justify-content:center; justify-content:safe center;
+    overflow-y:auto; -webkit-overflow-scrolling:touch;
     padding:64px 8vw 90px;
     opacity:0; visibility:hidden;
     transform:translateX(40px);
@@ -346,7 +349,7 @@
   <section class="slide">
     <div class="slide-inner problem" style="max-width:1180px;">
       <span class="eyebrow problem">PROBLEM</span>
-      <h2>Illegible, and hard to navigate</h2>
+      <h2>Illegible and hard to navigate</h2>
       <div class="two-col mobile-feature closer">
         <div class="mobile-shot"><img src="images/live-home-mobile.png" alt="Live site on mobile"></div>
         <div class="callouts">
@@ -363,7 +366,7 @@
       <span class="eyebrow solution">PART TWO</span>
       <div class="bar"></div>
       <h1>Rebuilding it with Claude Code</h1>
-      <p class="lede">The goal was never to make it sleek and modern. Make it feel like the fan-run site it's always been — just usable.</p>
+      <p class="lede">The goal was never to make it sleek and modern, but make it feel like the gritty site it's always been — just usable.</p>
     </div>
   </section>
 
@@ -477,7 +480,7 @@
       <h2>Mobile that actually works</h2>
       <div class="two-col reverse mobile-feature closer">
         <div class="callouts">
-          <div class="callout"><div class="dot">1</div><p><strong>A labeled ☰ Menu button,</strong> not an unlabeled dropdown.</p></div>
+          <div class="callout"><div class="dot">1</div><p><strong>A labeled ☰ Menu button,</strong> not an unlabeled dropdown menu.</p></div>
           <div class="callout"><div class="dot">2</div><p><strong>Readable contrast</strong> throughout — no near-black text on dark backgrounds.</p></div>
           <div class="callout"><div class="dot">3</div><p><strong>Swipeable photo galleries</strong> — built for touch, not just resized from desktop.</p></div>
           <div class="callout"><div class="dot">4</div><p><strong>Quick Links navigation</strong> added under the main nav bar.</p></div>
