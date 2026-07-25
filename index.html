@@ -267,6 +267,11 @@
       font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:var(--text-faint);
       margin-bottom:1px;
     }
+
+    /* 19 dots don't fit next to Prev/Next on a phone -- drop them, keep the counter */
+    .dots{ display:none; }
+    .nav-controls{ padding-left:calc(18px + env(safe-area-inset-left)); padding-right:calc(18px + env(safe-area-inset-right)); }
+    .nav-btn{ padding:10px 14px; font-size:13px; }
   }
 </style>
 </head>
@@ -387,7 +392,7 @@
       <span class="eyebrow solution">PART TWO</span>
       <div class="bar"></div>
       <h1>Rebuilding it with Claude Code</h1>
-      <p class="lede">The goal was never to make it sleek and modern, but make it feel like the gritty site it's always been — just usable.</p>
+      <p class="lede">The goal was never to make it sleek and modern, but to keep the no-frills vibe it's always had — just usable…with a couple frills thrown in.</p>
     </div>
   </section>
 
