@@ -162,7 +162,7 @@
     border-radius:22px; overflow:hidden; border:4px solid #20232d;
     box-shadow:0 30px 80px -20px rgba(0,0,0,.6);
   }
-  .mobile-shot img{ display:block; height:100%; width:auto; max-width:none; }
+  .mobile-shot img, .mobile-shot video{ display:block; height:100%; width:auto; max-width:none; }
 
   /* ---- timeline ---- */
   .timeline{
@@ -333,6 +333,7 @@
           <div class="callout"><div class="dot">1</div><p><strong>Disorganized content.</strong> Blog posts, product blocks, and reviews are interleaved with no visual separation.</p></div>
           <div class="callout"><div class="dot">2</div><p><strong>No dedicated store landing page.</strong> The current store consists of a drop down navigation menu.</p></div>
           <div class="callout"><div class="dot">3</div><p><strong>Large hero logo.</strong> Logo takes up a large portion of the desktop landing page, preventing users from viewing actual content.</p></div>
+          <div class="callout"><div class="dot">4</div><p><strong>Extra large music players and photos</strong> cause longer load time and gaps between text.</p></div>
         </div>
       </div>
     </div>
@@ -424,12 +425,17 @@
       <div class="two-col">
         <div class="browser-frame">
           <div class="browser-chrome"><span></span><span></span><span></span><div class="url">zegemabeachrecords.com</div></div>
-          <div class="shot-scroll"><img src="images/redesign-home-desktop.png" alt="Redesigned homepage"></div>
+          <div class="shot-scroll">
+            <video autoplay loop muted playsinline poster="images/redesign-home-desktop.png">
+              <source src="videos/redesign-scroll.mp4" type="video/mp4">
+              <source src="videos/redesign-scroll.webm" type="video/webm">
+            </video>
+          </div>
         </div>
         <div class="callouts">
-          <div class="callout"><div class="dot">1</div><p><strong>Full nav, including Search</strong> — Home, Store, Archives, Search, Contact, Cart, always visible.</p></div>
+          <div class="callout"><div class="dot">1</div><p><strong>Bespoke Bandcamp players</strong> fit seamlessly within the design.</p></div>
           <div class="callout"><div class="dot">2</div><p><strong>A Quick Links hub</strong> puts the podcast, blog, Bandcamp, YouTube, Instagram, and chat room one click from the homepage — for the first time.</p></div>
-          <div class="callout"><div class="dot">3</div><p><strong>DIY aesthetic.</strong> Anyone can build a GeoCities site, but make it bespoke, organized, user friendly and easily shoppable with modern functionality.</p></div>
+          <div class="callout"><div class="dot">3</div><p><strong>Organized content.</strong> News, music videos and players, shoppable products, reviews, and features are properly labeled and organized.</p></div>
           <div class="callout"><div class="dot">4</div><p><strong>Added pagination</strong> on the homepage groups news items by the date/week they were posted, thus eliminating the endless scroll.</p></div>
         </div>
       </div>
@@ -481,12 +487,12 @@
       <div class="two-col reverse">
         <div class="callouts">
           <div class="callout"><div class="dot">1</div><p><strong>Photo gallery with lightbox,</strong> plus swipe support on mobile.</p></div>
-          <div class="callout"><div class="dot">2</div><p><strong>Listen Now, size/variant pickers, quantity, Add to Cart</strong> — with a cart that persists across the visit.</p></div>
+          <div class="callout"><div class="dot">2</div><p><strong>Bandcamp player, size/variant pickers, quantity</strong> — with a cart that persists across the visit.</p></div>
           <div class="callout"><div class="dot">3</div><p><strong>Per-release copy</strong> carried over faithfully from the live site — nothing about the label's voice was flattened.</p></div>
         </div>
         <div class="browser-frame">
-          <div class="browser-chrome"><span></span><span></span><span></span><div class="url">zegemabeachrecords.com/store/beau-navire</div></div>
-          <div class="shot-scroll"><img src="images/redesign-pdp.png" alt="Redesigned product detail page"></div>
+          <div class="browser-chrome"><span></span><span></span><span></span><div class="url">zegemabeachrecords.com/store/closet-witch</div></div>
+          <div class="shot-scroll"><img src="images/redesign-pdp-closetwitch.png" alt="Redesigned product detail page for Closet Witch, with Bandcamp player"></div>
         </div>
       </div>
     </div>
@@ -496,16 +502,16 @@
   <section class="slide">
     <div class="slide-inner solution" style="max-width:1180px;">
       <span class="eyebrow solution">THE REDESIGN</span>
-      <h2>Nostalgia the old site never had</h2>
+      <h2>Community and nostalgia</h2>
       <div class="two-col">
         <div class="browser-frame">
           <div class="browser-chrome"><span></span><span></span><span></span><div class="url">zegemabeachrecords.com/chat</div></div>
           <div class="shot-scroll"><img src="images/redesign-chat.png" alt="Redesigned AOL-style chat room"></div>
         </div>
         <div class="callouts">
-          <div class="callout"><div class="dot">1</div><p><strong>An AOL-style Chat Room</strong> — one of several personality touches, alongside the Quick Links icon grid and Fixedsys-styled headers.</p></div>
-          <div class="callout"><div class="dot">2</div><p><strong>A Guestbook,</strong> too — sign it or browse what other visitors left, leaning further into the fan-site feeling.</p></div>
-          <div class="callout"><div class="dot">3</div><p><strong>Mailing List widget</strong> — send news/releases/updates straight to a user's inbox.</p></div>
+          <div class="callout"><div class="dot">1</div><p><strong>An AOL-style Chat Room</strong> — a fun throw-back, driving fan interaction.</p></div>
+          <div class="callout"><div class="dot">2</div><p><strong>A Guestbook,</strong> too — sign it or browse what other visitors left, leaning further into the nostalgic fan-site feeling.</p></div>
+          <div class="callout"><div class="dot">3</div><p><strong>Mailing List widget</strong> — get news/releases/updates straight to your inbox.</p></div>
         </div>
       </div>
     </div>
@@ -515,7 +521,7 @@
   <section class="slide">
     <div class="slide-inner solution" style="max-width:1180px;">
       <span class="eyebrow solution">THE REDESIGN</span>
-      <h2>Mobile that actually works</h2>
+      <h2>Designed for mobile</h2>
       <div class="two-col reverse mobile-feature closer">
         <div class="callouts">
           <div class="callout"><div class="dot">1</div><p><strong>A labeled ☰ Menu button,</strong> not an unlabeled dropdown menu.</p></div>
@@ -523,7 +529,12 @@
           <div class="callout"><div class="dot">3</div><p><strong>Swipeable photo galleries</strong> — built for touch, not just resized from desktop.</p></div>
           <div class="callout"><div class="dot">4</div><p><strong>Quick Links navigation</strong> added under the main nav bar.</p></div>
         </div>
-        <div class="mobile-shot"><img src="images/redesign-home-mobile.png" alt="Redesigned homepage on mobile"></div>
+        <div class="mobile-shot">
+          <video autoplay loop muted playsinline poster="images/redesign-home-mobile.png">
+            <source src="videos/mobile-scroll.mp4" type="video/mp4">
+            <source src="videos/mobile-scroll.webm" type="video/webm">
+          </video>
+        </div>
       </div>
     </div>
   </section>
@@ -539,6 +550,7 @@
         <tr><td>Store landing page</td><td class="no" data-label="Live site">19 flat category pages</td><td class="yes" data-label="Redesign">One filterable grid</td></tr>
         <tr><td>Filters / sort</td><td class="no" data-label="Live site">None</td><td class="yes" data-label="Redesign">Search, New/Steals, Bands A–Z, Merch, Labels</td></tr>
         <tr><td>Product pages</td><td class="no" data-label="Live site">Squarespace default</td><td class="yes" data-label="Redesign">Gallery + lightbox, swipe, variant picker</td></tr>
+        <tr><td>Bandcamp Player</td><td class="no" data-label="Live site">Large and unwieldy</td><td class="yes" data-label="Redesign">Bespoke styling, thoughtful placement</td></tr>
         <tr><td>Cart</td><td class="no" data-label="Live site">Squarespace default</td><td class="yes" data-label="Redesign">Persistent, custom-built</td></tr>
         <tr><td>Social / podcast / blog links</td><td class="no" data-label="Live site">Not linked in nav</td><td class="yes" data-label="Redesign">Quick Links hub on homepage</td></tr>
         <tr><td>Mobile nav</td><td class="no" data-label="Live site">Unlabeled dropdown</td><td class="yes" data-label="Redesign">Labeled ☰ Menu button</td></tr>
@@ -559,7 +571,7 @@
     <div class="slide-inner solution">
       <span class="eyebrow solution">TRY IT YOURSELF</span>
       <h2>This isn't a mockup — it's live</h2>
-      <p class="lede">Click around the actual staging build: search the catalog, filter the store, open a product page, drop something in the cart, or say hi in the Chat Room.</p>
+      <p class="lede">Click around the actual staging build: search the catalog, filter the store, open a product page, drop something in the cart, read the latest news and reviews, listen to music players, or sign the guestbook.</p>
       <a class="cta-link" href="https://zbr-rho.vercel.app/" target="_blank" rel="noopener">zbr-rho.vercel.app →</a>
       <span class="cta-note">Opens in a new tab</span>
     </div>
