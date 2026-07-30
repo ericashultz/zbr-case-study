@@ -198,6 +198,7 @@
   }
   .post-title-link, .post-title-link:visited{ color:inherit; text-decoration:none; }
   .post-title-link:hover{ color:#FFEE00; }
+  .post-image-link{ display:block; }
   .post p{ color:var(--white); font-size:14px; line-height:1.5; }
   .post-readmore{ margin-left:4px; }
   .post img{ max-width:100%; border:4px ridge var(--silver); }
@@ -252,13 +253,16 @@
     padding:10px; margin-bottom:14px;
   }
   .widget h3{
-    font-family:"Fixedsys Excelsior","Courier New",monospace; font-size:13px;
+    font-family:"Fixedsys Excelsior","Courier New",monospace; font-size:13px; line-height:13px;
     color:#000; background:var(--aqua);
-    margin:4px -10px 8px; padding:5px 8px;
+    margin:4px -10px 14px; padding:5px 8px;
+    overflow:hidden;
   }
   .widget h3:first-child{ margin-top:-10px; }
-  .widget p{ color:var(--ink); font-size:13px; }
+  .widget p{ color:var(--ink); font-size:13px; line-height:calc(15px + 2pt); margin:0 0 8px; }
   .widget img{ width:100%; border:2px outset var(--silver); margin-bottom:6px; }
+  .widget .starlink{ display:block; margin:0 0 16px; }
+  .widget .bcplayer{ margin:0 0 8px; }
 
   .quicklinks-grid{
     display:grid; grid-template-columns:repeat(3, 1fr); gap:10px;
@@ -295,7 +299,8 @@
   }
   .mobile-quicklinks .quicklinks-grid.collapsed{ display:none; }
 
-  .guestbook-buttons{ display:flex; gap:6px; flex-wrap:wrap; }
+  #guestbook-widget p{ margin-bottom:14px; }
+  .guestbook-buttons{ display:flex; gap:6px; flex-wrap:wrap; margin-bottom:8px; }
   .gb-btn{
     flex:1; text-align:center;
     background:linear-gradient(180deg,#ffffff,#d4d4d4);
@@ -834,7 +839,6 @@
       <li><a href="#" data-view-link="home" aria-current="page">Home</a></li>
       <li><a href="#" data-view-link="store">Canada / Intl Store</a></li>
       <li><a href="#" data-view-link="usa">USA Store</a></li>
-      <li><a href="#" data-view-link="archives">Archives</a></li>
       <li><a href="#" data-view-link="search">Search</a></li>
       <li><a href="#" data-view-link="contact">Contact</a></li>
       <li><a href="#" data-view-link="cart">View Cart <span id="cartCount" class="cart-count" hidden>0</span></a></li>
@@ -864,9 +868,9 @@
         <span class="icon"><img src="assets/camera-0.png" alt=""></span>
         <span class="qllabel">Instagram</span>
       </a>
-      <a class="quicklink" href="#" data-view-link="chatRoom">
-        <span class="icon"><img src="assets/user_computer_pair-0.png" alt=""></span>
-        <span class="qllabel">Chat Room</span>
+      <a class="quicklink" href="#" data-view-link="archives">
+        <span class="icon"><img src="assets/directory_open_file_mydocs_2k-4.png" alt=""></span>
+        <span class="qllabel">Archives</span>
       </a>
     </div>
   </div>
@@ -889,25 +893,16 @@
         <article class="post">
           <span class="cat cat-releases">Releases</span>
           <h2><a href="#" class="post-title-link" data-product-id="beau-navire-demo">Beau Navire - 2009 Demo (10")</a></h2>
+          <a href="#" class="post-image-link" data-product-id="beau-navire-demo"><img src="https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/4e6730e0-0103-4041-892d-2cb17cf02e88/Beau+demo.jpg?format=750w" alt="Beau Navire demo 10 inch vinyl"></a>
           <p><strong>Beau Navire</strong> 10"s for their 'Demo 2009' release are back in stock! This is still the OG pressing from Clue #2 that was stashed away for over a decade -- so once this pressing is gonezo you'll have to pay stupid amounts on Discogs -- but you can get them now for just $30USD including shipping!</p>
-          <img src="https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/4e6730e0-0103-4041-892d-2cb17cf02e88/Beau+demo.jpg?format=750w" alt="Beau Navire demo 10 inch vinyl">
-          <p><strong>For fans of: Loma Prieta, Iwrotehaikusaboutcanniblaisminyouryearbook, and Carrion Spring.</strong></p>
-          <p>This early demo from the immortal Cali band mixes the softer/jazzy stuff from Iwrotehaikus with their later and heavier sound. I wicked snapshot in time. We bought these off Clue #2 Records a few months ago and they moved in a day, so we picked up another 50 copies and this is the only place to get'em!!! Hella rare/awesome find! Thanks Hieg &lt;3</p>
-          <p>10" on black vinyl with lyric insert. 6 songs.</p>
-          <p><a class="starlink" href="https://www.youtube.com/watch?v=QN4SyRc3XnU" target="_blank" rel="noopener">Listen Now</a></p>
-          <div class="addcart" data-product="Beau Navire - 2009 Demo (10&quot;)" data-price="25.00">
-            <span class="cart-price">$25.00 USD</span>
-            <label class="cart-qty-wrap">Qty:
-              <input type="number" class="cart-qty" value="1" min="1" max="99">
-            </label>
-            <a class="cart-btn" href="#">ADD TO CART</a>
-          </div>
+          <p><a class="starlink" href="#" data-product-id="beau-navire-demo">Shop Now</a></p>
         </article>
 
         <article class="post">
           <span class="cat cat-releases">Releases</span>
-          <h2>Constrain '1999' EP</h2>
+          <h2><a href="#" class="post-title-link" data-product-id="constrain-1999">Constrain '1999' EP</a></h2>
           <p><strong>Constrain's</strong> new EP <strong>'1999'</strong> was released last week and I moved more than half of the cassettes already. The sassy metalcore is less sass and more metal than the previous EP but still intertwines them and hits like a fucking truck. The tapes arrive at my house next week and will start shipping in early August.</p>
+          <p><a class="starlink" href="#" data-product-id="constrain-1999">Shop Now</a></p>
           <div class="bcplayer">
             <iframe style="border:0; width:100%; height:120px;" src="https://bandcamp.com/EmbeddedPlayer/album=3198503332/size=large/bgcol=000000/linkcol=c0deff/tracklist=false/artwork=small/transparent=true/" seamless title="1999 by Constrain on Bandcamp"><a href="https://tombtreetapes.bandcamp.com/album/1999">1999 by Constrain</a></iframe>
           </div>
@@ -920,18 +915,18 @@
         <article class="post">
           <span class="cat cat-releases">Releases</span>
           <h2><a href="#" class="post-title-link" data-product-id="hillsboro-apiyn">Hillsboro Tapes</a></h2>
+          <a href="#" class="post-image-link" data-product-id="hillsboro-apiyn"><img src="https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/959e2021-d62a-4aa2-8c2f-4b0e80434d5c/0-0+promo.jpg?format=2500w" alt="Hillsboro promo photo"></a>
           <p><strong>Hillsboro</strong> tapes for <strong>'A Party in Your Name'</strong> are officially done and ready to ship! This album is a wicked collection of songs that fall somewhere in the indie/emo/shoegaze category and features my good bud Nima from Wollruss on vocals/guitar.</p>
           <p><a class="starlink" href="#" data-product-id="hillsboro-apiyn">Shop Now</a></p>
-          <div class="bcplayer">
+          <div class="bcplayer" style="margin-top:20px;">
             <iframe style="border:0; width:100%; height:120px;" src="https://bandcamp.com/EmbeddedPlayer/album=3144453157/size=large/bgcol=000000/linkcol=c0deff/tracklist=false/artwork=small/transparent=true/" seamless title="A Party in Your Name by Hillsboro on Bandcamp"><a href="https://hillsboro.bandcamp.com/album/a-party-in-your-name">A Party in Your Name by Hillsboro</a></iframe>
           </div>
-          <img src="https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/959e2021-d62a-4aa2-8c2f-4b0e80434d5c/0-0+promo.jpg?format=2500w" alt="Hillsboro promo photo" style="margin-top:20px;">
         </article>
 
         <article class="post">
           <span class="cat cat-releases">Releases</span>
           <h2><a href="#" class="post-title-link" data-product-id="snag-death-doula">Snag - Death Doula 12" LP</a></h2>
-          <img src="https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/1618898126667-B8FYY1OAHRYMB7MBQIMK/Bandcamp.png?format=1500w" alt="SNAG Death Doula album cover art">
+          <a href="#" class="post-image-link" data-product-id="snag-death-doula"><img src="https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/1618898126667-B8FYY1OAHRYMB7MBQIMK/Bandcamp.png?format=1500w" alt="SNAG Death Doula album cover art"></a>
           <p><strong>For fans of: Funeral Diner, Coma Regalia and Eyes Of Verotika</strong></p>
           <p>Milwaukee's <strong>SNAG</strong> is back for more environmentally/socially/politically conscious screamo.</p>
           <p>12" vinyl /300, 150 on clear, 50 on clear w/silkscreen b-side, 50 on black, and 50 on black w/silkscreen b-side. Download code included. 7 songs.</p>
@@ -959,18 +954,18 @@
         <article class="post">
           <span class="cat cat-news">News -- July 13, 2026</span>
           <h2>Coup D'état 7" Lathe Released!</h2>
+          <img src="https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/a060ef35-87ed-425f-98a9-77c43c5f5cc0/CoupPromo_Cover_RGB.png?format=750w" alt="Coup D'état promo EP cover art">
           <p>Coup D'état just released the 'coup d'état the band the promo the ep' on black 7" lathe out of 50, with 30 going to the band I've only got 20 for ZBR. Two re-recorded songs and a brand new one (only the first two went on the lathe) highlight the band's peak to date and include "new" guitarist Elle and the last recording with OG bassist Raine.</p>
           <p>These are pretty expensive but it's because we paid for the express option so the band could have them in hand for New Friends Fest in early August, so please don't think we're gouging, these have like a $3 profit per copy and that's it -- so it shall never be repressed! Snag it now!!!</p>
           <p><a class="starlink" href="https://zegemabeachrecords.bandcamp.com/album/coup-d-tat-the-band-the-promo-the-ep" target="_blank" rel="noopener">Shop Now</a></p>
-          <img src="https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/a060ef35-87ed-425f-98a9-77c43c5f5cc0/CoupPromo_Cover_RGB.png?format=750w" alt="Coup D'état promo EP cover art">
         </article>
 
         <article class="post">
           <span class="cat cat-news">News</span>
           <h2>Beau Navire Demo 10" Restock</h2>
+          <img class="post-img-crop" src="https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/8a1731a2-137b-4966-a96d-644ba1ad00c3/1000005554.jpg?format=750w" alt="Beau Navire demo 10 inch restock photo">
           <p>I've got a Beau Navire restock for the Demo 10" going back up on Tuesday at 9am PST / 11am CST / 12pm EST. The last time we threw these up we sold 50 in 24 hours, but now there is no US store -- but for the love of science please remember that the $15CAD shipping price is actually just $10US. These are not available anywhere else and they are the OG pressing!!! Check the New Items/Specials page at drop time.</p>
           <p><a class="starlink" href="#" data-view-link="store" data-special-filter="new">Shop New Items</a></p>
-          <img class="post-img-crop" src="https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/8a1731a2-137b-4966-a96d-644ba1ad00c3/1000005554.jpg?format=750w" alt="Beau Navire demo 10 inch restock photo">
         </article>
 
         <article class="post">
@@ -1013,8 +1008,6 @@
         <article class="post">
           <span class="cat cat-news">Sale</span>
           <h2>Final T-Shirt Sale</h2>
-          <p>Oh shit yo the final T-shirts etc. sale just went up so I'm all outta shirts for sale. I cut down my personal collection from almost 200 to just over 50 so there's some insanely rare/awesome shit in there. Some cheap...some not so much lol. Remember, each order by July 6th gets a free Zampler #27!!!</p>
-          <p><a class="starlink" href="#" data-view-link="store" data-category-filter="shirt">Shop Shirts</a></p>
           <div class="pdp-carousel" id="shirtSaleCarousel">
             <div class="pdp-carousel-track">
               <img class="pdp-carousel-img" src="https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/ad5776d4-f751-4f43-9659-986652ee3774/-square.jpg?format=750w" alt="ZBR shirt sale photo">
@@ -1043,6 +1036,8 @@
               <span class="pdp-carousel-dot" aria-current="false"></span>
             </div>
           </div>
+          <p>Oh shit yo the final T-shirts etc. sale just went up so I'm all outta shirts for sale. I cut down my personal collection from almost 200 to just over 50 so there's some insanely rare/awesome shit in there. Some cheap...some not so much lol. Remember, each order by July 6th gets a free Zampler #27!!!</p>
+          <p><a class="starlink" href="#" data-view-link="store" data-category-filter="shirt">Shop Shirts</a></p>
         </article>
 
         <article class="post">
@@ -1066,13 +1061,13 @@
           <h2>Mal Criado Released</h2>
           <img src="https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/1645646257010-LSJI3DG1QK1ZJKT75U6S/cover.jpg?format=750w" alt="Mal Criado Ni Todo La Tierra Entera album cover">
           <p>Mal Criado's 'Ni Todo La Tierra Entera' released on Tomb Tree! The 13 jams exude anger, dissatisfaction, and inequality at the horseshit system in place, all wrapped in a nasty powerviolence tortilla. Mmmm, so good!!</p>
-          <div class="bcplayer">
-            <iframe style="border:0; width:100%; height:120px;" src="https://bandcamp.com/EmbeddedPlayer/album=2931628913/size=large/bgcol=000000/linkcol=c0deff/tracklist=false/artwork=small/transparent=true/" seamless title="Ni Todo La Tierra Entera by Mal Criado on Bandcamp"><a href="https://malcriadobc.bandcamp.com/album/ni-todo-la-tierra-entera">Ni Todo La Tierra Entera by Mal Criado</a></iframe>
-          </div>
           <p>
             <a class="starlink" href="#">Shop Now</a>
             <a class="starlink readmore-link" href="#" data-modal-target="tmpl-malcriado" data-modal-title="Mal Criado Released">Read More</a>
           </p>
+          <div class="bcplayer">
+            <iframe style="border:0; width:100%; height:120px;" src="https://bandcamp.com/EmbeddedPlayer/album=2931628913/size=large/bgcol=000000/linkcol=c0deff/tracklist=false/artwork=small/transparent=true/" seamless title="Ni Todo La Tierra Entera by Mal Criado on Bandcamp"><a href="https://malcriadobc.bandcamp.com/album/ni-todo-la-tierra-entera">Ni Todo La Tierra Entera by Mal Criado</a></iframe>
+          </div>
         </article>
         <template id="tmpl-malcriado">
           <span class="cat cat-releases">Releases -- June 23, 2026</span>
@@ -1131,9 +1126,9 @@
             <span class="icon"><img src="assets/camera-0.png" alt=""></span>
             <span class="qllabel">Instagram</span>
           </a>
-          <a class="quicklink" href="#" data-view-link="chatRoom">
-            <span class="icon"><img src="assets/user_computer_pair-0.png" alt=""></span>
-            <span class="qllabel">Chat Room</span>
+          <a class="quicklink" href="#" data-view-link="archives">
+            <span class="icon"><img src="assets/directory_open_file_mydocs_2k-4.png" alt=""></span>
+            <span class="qllabel">Archives</span>
           </a>
         </div>
       </div>
@@ -1167,7 +1162,7 @@
 
       <div class="widget" id="lastcopy-widget-snag" style="border-color:var(--white);" data-sidebar-page="1">
         <h3 style="background:var(--white);color:#000;">🚨 Last Copy</h3>
-        <p>In conjunction with our Johnny's Reco-mmendations is our good friends <strong>Snag</strong>. We released their split cassette with <strong>Swallows Nest</strong> (one left!), their debut 12"LP, and their sophomore 12"LP (one left!), which makes them Today's Last Fucking Copy so snag it now or forever hold your peace!</p>
+        <p>We released <strong>Snag</strong>'s split cassette with <strong>Swallows Nest</strong> (one left!), their debut 12"LP, and their sophomore 12"LP (one left!), which makes them Today's Last Fucking Copy so snag it now or forever hold your peace!</p>
         <a class="starlink" href="#" data-view-link="store" data-band-filter="SNAG">Shop Now</a>
         <div class="bcplayer">
           <iframe style="border:0; width:100%; height:42px;" src="https://bandcamp.com/EmbeddedPlayer/album=3279434931/size=small/bgcol=000000/linkcol=c0deff/tracklist=false/transparent=true/" seamless title="Snag / Swallows Nest split on Bandcamp"><a href="https://zegemabeachrecords.bandcamp.com/album/snag-swallows-nest-split">Snag / Swallows Nest split</a></iframe>
@@ -1248,7 +1243,7 @@
 
       <div class="widget" id="lastcopy-widget-apostlesoferis" style="border-color:var(--white);" data-sidebar-page="3" hidden>
         <h3 style="background:var(--white);color:#000;">🚨 Last Copy</h3>
-        <p>Today's Last Fucking Copy goes to another CanaDave (now just Dave) release, as I am down to the final <strong>Apostles Of Eris x Encarsia</strong> split cassette. Arguably some of the best AOE material and pretty much the only proper release from the prog skramz gods Encarsia. This will not be made again. Snag it now below or forever hold your peace.</p>
+        <p>Today's Last Fucking Copy goes to the final <strong>Apostles Of Eris x Encarsia</strong> split cassette. Arguably some of the best AOE material and pretty much the only proper release from the prog skramz gods Encarsia. Snag it now!</p>
         <a class="starlink" href="https://zegemabeachrecords.bandcamp.com/album/split-14" target="_blank" rel="noopener">Shop Now</a>
         <div class="bcplayer">
           <iframe style="border:0; width:100%; height:42px;" src="https://bandcamp.com/EmbeddedPlayer/album=3181300521/size=small/bgcol=000000/linkcol=c0deff/tracklist=false/transparent=true/" seamless title="Split by Apostles Of Eris + Encarsia on Bandcamp"><a href="https://zegemabeachrecords.bandcamp.com/album/split-14">Split by Apostles Of Eris + Encarsia</a></iframe>
@@ -1266,7 +1261,7 @@
 
       <div class="widget">
         <h3>Mailing List</h3>
-        <p>Zamplers, lathes, last copies, and tour news -- straight to your inbox!</p>
+        <p>Get the latest news and releases -- straight to your inbox!</p>
         <a class="starlink" href="mailto:zegemabeachrecords@example.com">Email The Webmaster</a>
       </div>
 
@@ -1546,7 +1541,7 @@
 
   <footer>
     <p>&copy; 2026 Zegema Beach Records -- Canada</p>
-    <p><a href="#" data-view-link="store">Canada / Intl Store</a> &middot; <a href="#" data-view-link="usa">USA Store</a> &middot; <a href="#" data-view-link="archives">Archives</a> &middot; <a href="#" data-view-link="contact">Contact</a></p>
+    <p><a href="#" data-view-link="store">Canada / Intl Store</a> &middot; <a href="#" data-view-link="usa">USA Store</a> &middot; <a href="#" data-view-link="contact">Contact</a></p>
   </footer>
 
 </div>
@@ -2982,7 +2977,7 @@
   function setupReadMore() {
     var CHAR_LIMIT = 500;
     document.querySelectorAll('.post-page .post').forEach(function (post) {
-      if (post.querySelector('img, .bcplayer, .videolink, .addcart, .pdp-carousel')) return;
+      if (post.querySelector(':scope > img, .addcart, .pdp-carousel, a.starlink')) return;
       var paragraphs = Array.prototype.slice.call(post.querySelectorAll('p'));
       if (!paragraphs.length) return;
       var fullText = paragraphs.map(function (p) { return p.textContent; }).join(' ');
@@ -3025,6 +3020,15 @@
     });
   }
   setupReadMore();
+
+  function setupMobileBcPlayers() {
+    if (window.innerWidth > 700) return;
+    document.querySelectorAll('.post-page .bcplayer iframe').forEach(function (iframe) {
+      iframe.src = iframe.src.replace('size=large', 'size=small').replace('artwork=small/', '');
+      iframe.setAttribute('style', iframe.getAttribute('style').replace('height:120px', 'height:42px'));
+    });
+  }
+  setupMobileBcPlayers();
 
   renderBandList();
   renderStoreGrid();
