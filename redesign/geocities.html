@@ -199,6 +199,7 @@
   .post-title-link, .post-title-link:visited{ color:inherit; text-decoration:none; }
   .post-title-link:hover{ color:#FFEE00; }
   .post p{ color:var(--white); font-size:14px; line-height:1.5; }
+  .post-readmore{ margin-left:4px; }
   .post img{ max-width:100%; border:4px ridge var(--silver); }
   .post img.post-img-crop{ width:100%; height:320px; object-fit:cover; object-position:top; }
   @media (max-width:700px){
@@ -746,13 +747,16 @@
     #reviews-widget{ order:2; }
     #features-widget{ order:3; }
     #johnnys-widget{ order:4; }
+    #lastcopy-widget-snag{ order:5; }
     #reviews-widget-p2-1{ order:2; }
     #reviews-widget-p2-2{ order:3; }
     #reviews-widget-p2-3{ order:4; }
     #features-widget-p2{ order:5; }
     #johnnys-widget-p2{ order:6; }
+    #lastcopy-widget-agentmulder{ order:6; }
     #features-widget-p3{ order:2; }
     #johnnys-widget-p3{ order:3; }
+    #lastcopy-widget-apostlesoferis{ order:4; }
     .pagenav{ order:7; flex-basis:auto; }
     .sidecol > .widget{ order:8; }
     #guestbook-widget{ margin-top:20px; }
@@ -760,9 +764,9 @@
     /* Safari doesn't reliably stretch flex items whose ancestor is
        display:contents, so force full width explicitly instead of
        relying on align-items:stretch. */
-    .post-page, #reviews-widget, #features-widget, #johnnys-widget,
-    #reviews-widget-p2-1, #reviews-widget-p2-2, #reviews-widget-p2-3, #features-widget-p2, #johnnys-widget-p2,
-    #features-widget-p3, #johnnys-widget-p3,
+    .post-page, #reviews-widget, #features-widget, #johnnys-widget, #lastcopy-widget-snag,
+    #reviews-widget-p2-1, #reviews-widget-p2-2, #reviews-widget-p2-3, #features-widget-p2, #johnnys-widget-p2, #lastcopy-widget-agentmulder,
+    #features-widget-p3, #johnnys-widget-p3, #lastcopy-widget-apostlesoferis,
     .pagenav, .sidecol > .widget{
       width:100%;
     }
@@ -917,6 +921,7 @@
           <span class="cat cat-releases">Releases</span>
           <h2><a href="#" class="post-title-link" data-product-id="hillsboro-apiyn">Hillsboro Tapes</a></h2>
           <p><strong>Hillsboro</strong> tapes for <strong>'A Party in Your Name'</strong> are officially done and ready to ship! This album is a wicked collection of songs that fall somewhere in the indie/emo/shoegaze category and features my good bud Nima from Wollruss on vocals/guitar.</p>
+          <p><a class="starlink" href="#" data-product-id="hillsboro-apiyn">Shop Now</a></p>
           <div class="bcplayer">
             <iframe style="border:0; width:100%; height:120px;" src="https://bandcamp.com/EmbeddedPlayer/album=3144453157/size=large/bgcol=000000/linkcol=c0deff/tracklist=false/artwork=small/transparent=true/" seamless title="A Party in Your Name by Hillsboro on Bandcamp"><a href="https://hillsboro.bandcamp.com/album/a-party-in-your-name">A Party in Your Name by Hillsboro</a></iframe>
           </div>
@@ -924,15 +929,9 @@
         </article>
 
         <article class="post">
-          <span class="cat cat-releases">Last Copy</span>
-          <h2>Snag</h2>
-          <p>In conjunction with our Johnny's Reco-mmendations is our good friends <strong>Snag</strong>. We released their split cassette with <strong>Swallows Nest</strong> (one left!), their debut 12"LP, and their sophomore 12"LP (one left!), which makes them Today's Last Fucking Copy so snag it now or forever hold your peace!</p>
-          <p><a class="starlink" href="https://zegemabeachrecords.bandcamp.com/album/snag-swallows-nest-split" target="_blank" rel="noopener">Shop Now</a></p>
-          <div class="bcplayer">
-            <iframe style="border:0; width:100%; height:120px;" src="https://bandcamp.com/EmbeddedPlayer/album=3279434931/size=large/bgcol=000000/linkcol=c0deff/tracklist=false/artwork=small/transparent=true/" seamless title="Snag / Swallows Nest split on Bandcamp"><a href="https://zegemabeachrecords.bandcamp.com/album/snag-swallows-nest-split">Snag / Swallows Nest split</a></iframe>
-          </div>
-
-          <h3 style="margin-top:20px;"><a href="#" class="post-title-link" data-product-id="snag-death-doula">Death Doula (12"LP/shirt)</a></h3>
+          <span class="cat cat-releases">Releases</span>
+          <h2><a href="#" class="post-title-link" data-product-id="snag-death-doula">Snag - Death Doula 12" LP</a></h2>
+          <img src="https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/1618898126667-B8FYY1OAHRYMB7MBQIMK/Bandcamp.png?format=1500w" alt="SNAG Death Doula album cover art">
           <p><strong>For fans of: Funeral Diner, Coma Regalia and Eyes Of Verotika</strong></p>
           <p>Milwaukee's <strong>SNAG</strong> is back for more environmentally/socially/politically conscious screamo.</p>
           <p>12" vinyl /300, 150 on clear, 50 on clear w/silkscreen b-side, 50 on black, and 50 on black w/silkscreen b-side. Download code included. 7 songs.</p>
@@ -960,18 +959,18 @@
         <article class="post">
           <span class="cat cat-news">News -- July 13, 2026</span>
           <h2>Coup D'état 7" Lathe Released!</h2>
-          <img src="https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/a060ef35-87ed-425f-98a9-77c43c5f5cc0/CoupPromo_Cover_RGB.png?format=750w" alt="Coup D'état promo EP cover art">
           <p>Coup D'état just released the 'coup d'état the band the promo the ep' on black 7" lathe out of 50, with 30 going to the band I've only got 20 for ZBR. Two re-recorded songs and a brand new one (only the first two went on the lathe) highlight the band's peak to date and include "new" guitarist Elle and the last recording with OG bassist Raine.</p>
           <p>These are pretty expensive but it's because we paid for the express option so the band could have them in hand for New Friends Fest in early August, so please don't think we're gouging, these have like a $3 profit per copy and that's it -- so it shall never be repressed! Snag it now!!!</p>
           <p><a class="starlink" href="https://zegemabeachrecords.bandcamp.com/album/coup-d-tat-the-band-the-promo-the-ep" target="_blank" rel="noopener">Shop Now</a></p>
+          <img src="https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/a060ef35-87ed-425f-98a9-77c43c5f5cc0/CoupPromo_Cover_RGB.png?format=750w" alt="Coup D'état promo EP cover art">
         </article>
 
         <article class="post">
           <span class="cat cat-news">News</span>
           <h2>Beau Navire Demo 10" Restock</h2>
-          <img class="post-img-crop" src="https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/8a1731a2-137b-4966-a96d-644ba1ad00c3/1000005554.jpg?format=750w" alt="Beau Navire demo 10 inch restock photo">
           <p>I've got a Beau Navire restock for the Demo 10" going back up on Tuesday at 9am PST / 11am CST / 12pm EST. The last time we threw these up we sold 50 in 24 hours, but now there is no US store -- but for the love of science please remember that the $15CAD shipping price is actually just $10US. These are not available anywhere else and they are the OG pressing!!! Check the New Items/Specials page at drop time.</p>
           <p><a class="starlink" href="#" data-view-link="store" data-special-filter="new">Shop New Items</a></p>
+          <img class="post-img-crop" src="https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/8a1731a2-137b-4966-a96d-644ba1ad00c3/1000005554.jpg?format=750w" alt="Beau Navire demo 10 inch restock photo">
         </article>
 
         <article class="post">
@@ -988,6 +987,7 @@
           <span class="cat cat-news">News</span>
           <h2>Sungaze Drops New Music Video</h2>
           <p>Sungaze released a new music video for one of my favourite tracks from their 'I'm No Longer Afraid Of Heights' 12"LP that Softseed Music released a few months back. Check out the video and scope the album below -- ZBR even has copies in the store for less than Bandcamp!</p>
+          <p><a class="starlink" href="#" data-product-id="sungaze-im-no-longer-afraid-of-heights">Shop Now</a></p>
           <a class="videolink" href="https://www.youtube.com/watch?v=SKhq5tjReRU" target="_blank" rel="noopener">
             <img src="https://i.ytimg.com/vi/SKhq5tjReRU/hqdefault.jpg" alt="Watch Sungaze - Another Life (Official Music Video) on YouTube">
             <span class="playbtn" aria-hidden="true"></span>
@@ -997,15 +997,6 @@
           </div>
         </article>
 
-        <article class="post">
-          <span class="cat cat-releases">Last Copy</span>
-          <h2>Agent Mulder</h2>
-          <p>Today's Last Fucking Copy goes to Agent Mulder's debut EP which somehow has one tape left, snag it! Sassy metallic hardcore from Canada (now dead, so it'll never be made again!).</p>
-          <p><a class="starlink" href="https://tombtreetapes.bandcamp.com/album/and-all-i-loved-i-loved-alone" target="_blank" rel="noopener">Shop Now</a></p>
-          <div class="bcplayer">
-            <iframe style="border:0; width:100%; height:120px;" src="https://bandcamp.com/EmbeddedPlayer/album=1035207150/size=large/bgcol=000000/linkcol=c0deff/tracklist=false/artwork=small/transparent=true/" seamless title="And All I Loved, I Loved Alone by Agent Mulder on Bandcamp"><a href="https://tombtreetapes.bandcamp.com/album/and-all-i-loved-i-loved-alone">And All I Loved, I Loved Alone by Agent Mulder</a></iframe>
-          </div>
-        </article>
       </div>
 
       <div class="post-page" data-page="3" hidden>
@@ -1067,15 +1058,6 @@
           </div>
         </article>
 
-        <article class="post">
-          <span class="cat cat-releases">Last Copy</span>
-          <h2>Apostles Of Eris x Encarsia</h2>
-          <p>Today's Last Fucking Copy goes to another CanaDave (now just Dave) release, as I am down to the final Apostles Of Eris x Encarsia split cassette. Arguably some of the best AOE material and pretty much the only proper release from the prog skramz gods Encarsia. This will not be made again. Snag it now below or forever hold your peace.</p>
-          <p><a class="starlink" href="https://zegemabeachrecords.bandcamp.com/album/split-14" target="_blank" rel="noopener">Shop Now</a></p>
-          <div class="bcplayer">
-            <iframe style="border:0; width:100%; height:120px;" src="https://bandcamp.com/EmbeddedPlayer/album=3181300521/size=large/bgcol=000000/linkcol=c0deff/tracklist=false/artwork=small/transparent=true/" seamless title="Split by Apostles Of Eris + Encarsia on Bandcamp"><a href="https://zegemabeachrecords.bandcamp.com/album/split-14">Split by Apostles Of Eris + Encarsia</a></iframe>
-          </div>
-        </article>
       </div>
 
       <div class="post-page" data-page="4" hidden>
@@ -1183,6 +1165,15 @@
         </div>
       </div>
 
+      <div class="widget" id="lastcopy-widget-snag" style="border-color:var(--white);" data-sidebar-page="1">
+        <h3 style="background:var(--white);color:#000;">🚨 Last Copy</h3>
+        <p>In conjunction with our Johnny's Reco-mmendations is our good friends <strong>Snag</strong>. We released their split cassette with <strong>Swallows Nest</strong> (one left!), their debut 12"LP, and their sophomore 12"LP (one left!), which makes them Today's Last Fucking Copy so snag it now or forever hold your peace!</p>
+        <a class="starlink" href="#" data-view-link="store" data-band-filter="SNAG">Shop Now</a>
+        <div class="bcplayer">
+          <iframe style="border:0; width:100%; height:42px;" src="https://bandcamp.com/EmbeddedPlayer/album=3279434931/size=small/bgcol=000000/linkcol=c0deff/tracklist=false/transparent=true/" seamless title="Snag / Swallows Nest split on Bandcamp"><a href="https://zegemabeachrecords.bandcamp.com/album/snag-swallows-nest-split">Snag / Swallows Nest split</a></iframe>
+        </div>
+      </div>
+
       <div class="widget" id="reviews-widget-p2-1" data-sidebar-page="2" hidden>
         <h3 style="background:var(--royalblue);color:var(--white);">Reviews</h3>
         <p><strong>Concealer's 'This Room Could Be Heaven'</strong> got some love from <strong>Wall Of Sound</strong>! We're hoping to repress this asap cuz it's like...album of the year.</p>
@@ -1228,6 +1219,15 @@
         </div>
       </div>
 
+      <div class="widget" id="lastcopy-widget-agentmulder" style="border-color:var(--white);" data-sidebar-page="2" hidden>
+        <h3 style="background:var(--white);color:#000;">🚨 Last Copy</h3>
+        <p>Today's Last Fucking Copy goes to <strong>Agent Mulder's</strong> debut EP which somehow has one tape left, snag it! Sassy metallic hardcore from Canada (now dead, so it'll never be made again!).</p>
+        <a class="starlink" href="https://tombtreetapes.bandcamp.com/album/and-all-i-loved-i-loved-alone" target="_blank" rel="noopener">Shop Now</a>
+        <div class="bcplayer">
+          <iframe style="border:0; width:100%; height:42px;" src="https://bandcamp.com/EmbeddedPlayer/album=1035207150/size=small/bgcol=000000/linkcol=c0deff/tracklist=false/transparent=true/" seamless title="And All I Loved, I Loved Alone by Agent Mulder on Bandcamp"><a href="https://tombtreetapes.bandcamp.com/album/and-all-i-loved-i-loved-alone">And All I Loved, I Loved Alone by Agent Mulder</a></iframe>
+        </div>
+      </div>
+
       <div class="widget" id="features-widget-p3" style="border-color:#19A800;" data-sidebar-page="3" hidden>
         <h3 style="background:#19A800;color:var(--white);">Features</h3>
         <p><strong>Everything Is Noise</strong> included the new <strong>Mal Criado</strong> album 'Ni Todo La Tierra Entera' in their monthly blast!</p>
@@ -1243,6 +1243,15 @@
         <a class="starlink" href="https://softseedmusic.bandcamp.com/album/frau-eva" target="_blank" rel="noopener">Shop Now</a>
         <div class="bcplayer">
           <iframe style="border:0; width:100%; height:42px;" src="https://bandcamp.com/EmbeddedPlayer/album=3236546299/size=small/bgcol=000000/linkcol=c0deff/tracklist=false/transparent=true/" seamless title="Frau Eva by MIEKE on Bandcamp"><a href="https://softseedmusic.bandcamp.com/album/frau-eva">Frau Eva by MIEKE</a></iframe>
+        </div>
+      </div>
+
+      <div class="widget" id="lastcopy-widget-apostlesoferis" style="border-color:var(--white);" data-sidebar-page="3" hidden>
+        <h3 style="background:var(--white);color:#000;">🚨 Last Copy</h3>
+        <p>Today's Last Fucking Copy goes to another CanaDave (now just Dave) release, as I am down to the final <strong>Apostles Of Eris x Encarsia</strong> split cassette. Arguably some of the best AOE material and pretty much the only proper release from the prog skramz gods Encarsia. This will not be made again. Snag it now below or forever hold your peace.</p>
+        <a class="starlink" href="https://zegemabeachrecords.bandcamp.com/album/split-14" target="_blank" rel="noopener">Shop Now</a>
+        <div class="bcplayer">
+          <iframe style="border:0; width:100%; height:42px;" src="https://bandcamp.com/EmbeddedPlayer/album=3181300521/size=small/bgcol=000000/linkcol=c0deff/tracklist=false/transparent=true/" seamless title="Split by Apostles Of Eris + Encarsia on Bandcamp"><a href="https://zegemabeachrecords.bandcamp.com/album/split-14">Split by Apostles Of Eris + Encarsia</a></iframe>
         </div>
       </div>
 
@@ -1747,7 +1756,7 @@
     if (view === 'chatRoom') {
       chatLogEl.scrollTop = chatLogEl.scrollHeight;
     }
-    if (window.innerWidth <= 700 && view !== 'usa') {
+    if (window.innerWidth <= 700 && view !== 'usa' && view !== 'search') {
       document.querySelector('nav.mainnav').scrollIntoView({ block: 'start', behavior: 'instant' });
     } else {
       window.scrollTo({ top: 0, behavior: 'instant' });
@@ -2338,6 +2347,32 @@
       category: 'vinyl',
       vinylSize: '7',
       label: 'Zegema Beach Releases',
+      soldOut: false
+    },
+    {
+      id: 'sungaze-im-no-longer-afraid-of-heights',
+      band: 'Sungaze',
+      title: "I'm No Longer Afraid of Heights (12\")",
+      cat: 'Releases',
+      price: 35.00,
+      priceLabel: 'CA$35.00',
+      image: 'https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/309a3c7a-3cbb-451f-a687-1ae1b6f19b0d/cover.jpg?format=1500w',
+      imageAlt: "Sungaze I'm No Longer Afraid of Heights album cover art",
+      gallery: [
+        { src: 'https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/309a3c7a-3cbb-451f-a687-1ae1b6f19b0d/cover.jpg?format=1500w', alt: "Sungaze I'm No Longer Afraid of Heights album cover art" },
+        { src: 'https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/3ad9520a-62e4-4e56-9dc7-df78bffaf842/vinyl+promo.jpg?format=750w', alt: 'Sungaze I\'m No Longer Afraid of Heights vinyl promo photo' }
+      ],
+      description: [
+        "For fans of: Smush, She's Green, Figure Eight, Wednesday, and Leavs.",
+        'Cincinnati, Ohio\'s SUNGAZE have been releasing steadily for nearly a decade now, and with this, their fourth full length album, the band pushes their unique and gorgeous sound into its most consistent and accessible for yet. Featuring 10 songs of dreamy/nostalgic shoegaze rock, listeners are in for a treat with tracks like "Another Life" (very Smush & She\'s Green-esque with huge riffs), "House on the Hill" and "Sold Out" (soaring vocals), "Always Looking Behind" (epic/dreamy/beautiful), etc. The record comes on clear coke bottle vinyl with a bunch of additional art like printed inner-sleeves and a double-sided insert.',
+        '12"s /250 on coke bottle clear, includes printed inner-sleeves, double-sided insert, and download code.'
+      ],
+      listenUrl: 'https://softseedmusic.bandcamp.com/album/im-no-longer-afraid-of-heights',
+      bcAlbumId: '1428819205',
+      variants: null,
+      category: 'vinyl',
+      vinylSize: '12',
+      label: 'Softseed Music',
       soldOut: false
     },
     {
@@ -2943,6 +2978,53 @@
       openProduct(tile.dataset.productId);
     }
   });
+
+  function setupReadMore() {
+    var CHAR_LIMIT = 500;
+    document.querySelectorAll('.post-page .post').forEach(function (post) {
+      if (post.querySelector('img, .bcplayer, .videolink, .addcart, .pdp-carousel')) return;
+      var paragraphs = Array.prototype.slice.call(post.querySelectorAll('p'));
+      if (!paragraphs.length) return;
+      var fullText = paragraphs.map(function (p) { return p.textContent; }).join(' ');
+      if (fullText.length <= CHAR_LIMIT) return;
+
+      var cut = fullText.lastIndexOf(' ', CHAR_LIMIT);
+      var truncated = fullText.slice(0, cut > 0 ? cut : CHAR_LIMIT) + '…';
+
+      var fullWrap = document.createElement('div');
+      fullWrap.className = 'post-full-text';
+      fullWrap.hidden = true;
+      post.insertBefore(fullWrap, paragraphs[0]);
+      paragraphs.forEach(function (p) { fullWrap.appendChild(p); });
+
+      var preview = document.createElement('p');
+      preview.className = 'post-preview';
+      preview.textContent = truncated + ' ';
+      var readMoreLink = document.createElement('a');
+      readMoreLink.href = '#';
+      readMoreLink.className = 'starlink post-readmore';
+      readMoreLink.textContent = 'Read More';
+      readMoreLink.addEventListener('click', function (e) {
+        e.preventDefault();
+        preview.hidden = true;
+        fullWrap.hidden = false;
+      });
+      preview.appendChild(readMoreLink);
+      post.insertBefore(preview, fullWrap);
+
+      var readLessLink = document.createElement('a');
+      readLessLink.href = '#';
+      readLessLink.className = 'starlink post-readmore';
+      readLessLink.textContent = 'Read Less';
+      readLessLink.addEventListener('click', function (e) {
+        e.preventDefault();
+        fullWrap.hidden = true;
+        preview.hidden = false;
+      });
+      fullWrap.appendChild(readLessLink);
+    });
+  }
+  setupReadMore();
 
   renderBandList();
   renderStoreGrid();
