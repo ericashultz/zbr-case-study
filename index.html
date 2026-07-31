@@ -98,6 +98,20 @@
   .divider.problem .bar{ background:var(--red); }
   .divider.solution .bar{ background:var(--teal); }
 
+  /* ---- exploration row (3-up thumbnails) ---- */
+  .explore-row{ display:flex; gap:24px; width:100%; margin-top:10px; }
+  .explore-item{ flex:1; display:flex; flex-direction:column; gap:10px; align-items:center; min-width:0; }
+  .explore-item .browser-frame{ width:100%; }
+  .explore-item .shot-scroll{ max-height:22vh; }
+  .explore-caption{
+    font-family:var(--mono); font-size:11px; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--text-faint);
+  }
+  .explore-item.chosen .browser-frame{
+    border-color:var(--teal); box-shadow:0 0 0 2px var(--teal), 0 30px 80px -20px rgba(0,0,0,.6);
+  }
+  .explore-item.chosen .explore-caption{ color:var(--teal); font-weight:700; }
+
   /* ---- screenshot cards ---- */
   .browser-frame{
     width:100%; border-radius:12px; overflow:hidden;
@@ -406,7 +420,39 @@
     </div>
   </section>
 
-  <!-- 10: timeline -->
+  <!-- 10: initial exploration -->
+  <section class="slide">
+    <div class="slide-inner solution" style="max-width:1180px;">
+      <span class="eyebrow solution">THE PROCESS</span>
+      <h2>Initial exploration</h2>
+      <p class="lede">I started with a broad prompt that produced generic first drafts. I brainstormed on the label's DNA and point of view. I needed a fun, unique, and gritty enough theme to host ZBR's content — a 90s GeoCities direction seemed like the perfect fit.</p>
+      <div class="explore-row">
+        <div class="explore-item">
+          <div class="browser-frame">
+            <div class="browser-chrome"><span></span><span></span><span></span><div class="url">draft 1</div></div>
+            <div class="shot-scroll"><img src="images/exploration/exploration-draft-1.jpg" alt="First generic design draft, a bold red and black news layout"></div>
+          </div>
+          <span class="explore-caption">First draft</span>
+        </div>
+        <div class="explore-item">
+          <div class="browser-frame">
+            <div class="browser-chrome"><span></span><span></span><span></span><div class="url">draft 2</div></div>
+            <div class="shot-scroll"><img src="images/exploration/exploration-draft-2.jpg" alt="Second generic design draft, a dark modern editorial layout"></div>
+          </div>
+          <span class="explore-caption">Second draft</span>
+        </div>
+        <div class="explore-item chosen">
+          <div class="browser-frame">
+            <div class="browser-chrome"><span></span><span></span><span></span><div class="url">geocities</div></div>
+            <div class="shot-scroll"><img src="images/exploration/exploration-geocities.jpg" alt="The chosen direction, a 90s GeoCities-style starfield concept"></div>
+          </div>
+          <span class="explore-caption">The direction ✓</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 11: timeline -->
   <section class="slide">
     <div class="slide-inner solution" style="max-width:900px;">
       <span class="eyebrow solution">THE PROCESS</span>
@@ -415,7 +461,7 @@
     </div>
   </section>
 
-  <!-- 11 -->
+  <!-- 12 -->
   <section class="slide">
     <div class="slide-inner solution" style="max-width:1180px;">
       <span class="eyebrow solution">THE REDESIGN</span>
@@ -440,7 +486,7 @@
     </div>
   </section>
 
-  <!-- 12 -->
+  <!-- 13 -->
   <section class="slide">
     <div class="slide-inner solution" style="max-width:1180px;">
       <span class="eyebrow solution">THE REDESIGN</span>
@@ -459,7 +505,7 @@
     </div>
   </section>
 
-  <!-- 13 -->
+  <!-- 14 -->
   <section class="slide">
     <div class="slide-inner solution" style="max-width:1180px;">
       <span class="eyebrow solution">THE REDESIGN</span>
@@ -482,7 +528,7 @@
     </div>
   </section>
 
-  <!-- 14 -->
+  <!-- 15 -->
   <section class="slide">
     <div class="slide-inner solution" style="max-width:1180px;">
       <span class="eyebrow solution">THE REDESIGN</span>
@@ -501,7 +547,7 @@
     </div>
   </section>
 
-  <!-- 15: mobile -->
+  <!-- 16: mobile -->
   <section class="slide">
     <div class="slide-inner solution" style="max-width:1180px;">
       <span class="eyebrow solution">THE REDESIGN</span>
@@ -523,7 +569,7 @@
     </div>
   </section>
 
-  <!-- 16: comparison table -->
+  <!-- 17: comparison table -->
   <section class="slide">
     <div class="slide-inner" style="max-width:960px;">
       <span class="eyebrow">SUMMARY</span>
@@ -550,7 +596,7 @@
     </div>
   </section>
 
-  <!-- 17: try it -->
+  <!-- 18: try it -->
   <section class="slide">
     <div class="slide-inner solution">
       <span class="eyebrow solution">TRY IT YOURSELF</span>
@@ -561,7 +607,7 @@
     </div>
   </section>
 
-  <!-- 18: closing -->
+  <!-- 19: closing -->
   <section class="slide">
     <div class="slide-inner">
       <span class="eyebrow">TAKEAWAY</span>
@@ -577,7 +623,7 @@
   <button class="nav-btn" id="prevBtn">← Prev</button>
   <div class="center-controls">
     <div class="dots" id="dots"></div>
-    <div class="counter" id="counter">1 / 18</div>
+    <div class="counter" id="counter">1 / 19</div>
   </div>
   <button class="nav-btn" id="nextBtn">Next →</button>
 </div>
