@@ -28,6 +28,7 @@
     --ink:#d9d9d9;
   }
   * { box-sizing: border-box; }
+  html{ -webkit-text-size-adjust:100%; text-size-adjust:100%; }
   html,body{
     margin:0; padding:0;
     background-color:#000033;
@@ -81,6 +82,7 @@
     font-family:Arial,sans-serif;
     color:var(--white);
     font-size:14px;
+    line-height:1.5;
     margin:16px 0;
   }
 
@@ -192,6 +194,7 @@
   .post h2, .post h3{
     font-family:"Arial Narrow",Arial,sans-serif;
     font-weight:bold; font-style:italic;
+    font-size:26px;
     color:var(--white);
     text-shadow:1px 1px 0 #660066;
     margin:4px 0 8px;
@@ -199,17 +202,21 @@
   .post-title-link, .post-title-link:visited{ color:inherit; text-decoration:none; }
   .post-title-link:hover{ color:#FFEE00; }
   .post-image-link{ display:block; }
-  .post p{ color:var(--white); font-size:14px; line-height:1.5; }
+  .post p{ color:var(--white); font-size:15px; line-height:1.5; }
+  .post .starlink{ font-size:16px; line-height:1.25; }
   .post-readmore{ margin-left:4px; }
   .post img{ max-width:100%; border:4px ridge var(--silver); }
+  .post h2:has(+ img), .post h2:has(+ a.post-image-link){ margin-bottom:12px; }
   .post img.post-img-crop{ width:100%; height:320px; object-fit:cover; object-position:top; }
   @media (max-width:700px){
     .post img.post-img-crop{ width:100% !important; height:180px !important; object-fit:cover !important; }
+    .post h2, .post h3{ font-size:24px; }
   }
   .thumbstrip{ display:flex; flex-wrap:wrap; gap:4px; margin:8px 0; }
   .thumbstrip img{ width:24%; border:2px outset var(--silver); }
 
   .bcplayer{ margin:8px 0; border:2px inset var(--silver); line-height:0; }
+  .widget .bcplayer, .bcplayer-compact{ border-bottom-color:#888; border-right-color:#888; }
   .videolink{
     display:block; position:relative; margin:8px 0;
     line-height:0;
@@ -259,16 +266,16 @@
     overflow:hidden;
   }
   .widget h3:first-child{ margin-top:-10px; }
-  .widget p{ color:var(--ink); font-size:13px; line-height:calc(15px + 2pt); margin:0 0 8px; }
+  .widget p{ color:var(--ink); font-size:14px; line-height:1.5; margin:0 0 8px; }
   .widget img{ width:100%; border:2px outset var(--silver); margin-bottom:6px; }
-  .widget .starlink{ display:block; margin:0 0 16px; }
+  .widget .starlink{ display:block; font-size:15px; line-height:1.25; margin:0 0 16px; }
   .widget .bcplayer{ margin:0 0 8px; }
 
   .quicklinks-grid{
     display:grid; grid-template-columns:repeat(3, 1fr); gap:10px;
   }
   .quicklink{
-    display:flex; flex-direction:column; align-items:center; gap:4px;
+    display:flex; flex-direction:column; align-items:center; gap:6px;
     text-decoration:none; padding:6px 2px;
   }
   .quicklink .icon{
@@ -282,7 +289,7 @@
   .quicklink:active .icon{ border-style:inset; }
   .quicklink .icon img{ width:32px; height:32px; border:none; margin-bottom:0; }
   .quicklink .qllabel{
-    font-family:"Fixedsys Excelsior","Courier New",monospace; font-weight:bold; font-size:12px;
+    font-family:"Fixedsys Excelsior","Courier New",monospace; font-weight:bold; font-size:14px;
     color:var(--white); text-align:center; text-decoration:none;
   }
 
@@ -605,6 +612,7 @@
 
   @media (max-width:700px){
     .store-sidebar{ flex:1 1 100%; width:100%; }
+    .store-page{ margin-top:0; padding-top:4px; }
   }
 
   .store-grid{
@@ -952,7 +960,7 @@
 
       <div class="post-page" data-page="2" hidden>
         <article class="post">
-          <span class="cat cat-news">News -- July 13, 2026</span>
+          <span class="cat cat-releases">Releases -- July 13, 2026</span>
           <h2>Coup D'état 7" Lathe Released!</h2>
           <img src="https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/a060ef35-87ed-425f-98a9-77c43c5f5cc0/CoupPromo_Cover_RGB.png?format=750w" alt="Coup D'état promo EP cover art">
           <p>Coup D'état just released the 'coup d'état the band the promo the ep' on black 7" lathe out of 50, with 30 going to the band I've only got 20 for ZBR. Two re-recorded songs and a brand new one (only the first two went on the lathe) highlight the band's peak to date and include "new" guitarist Elle and the last recording with OG bassist Raine.</p>
@@ -961,7 +969,7 @@
         </article>
 
         <article class="post">
-          <span class="cat cat-news">News</span>
+          <span class="cat cat-releases">Releases</span>
           <h2>Beau Navire Demo 10" Restock</h2>
           <img class="post-img-crop" src="https://images.squarespace-cdn.com/content/v1/51f9e29ee4b0d46ee28f3709/8a1731a2-137b-4966-a96d-644ba1ad00c3/1000005554.jpg?format=750w" alt="Beau Navire demo 10 inch restock photo">
           <p>I've got a Beau Navire restock for the Demo 10" going back up on Tuesday at 9am PST / 11am CST / 12pm EST. The last time we threw these up we sold 50 in 24 hours, but now there is no US store -- but for the love of science please remember that the $15CAD shipping price is actually just $10US. These are not available anywhere else and they are the OG pressing!!! Check the New Items/Specials page at drop time.</p>
@@ -969,7 +977,7 @@
         </article>
 
         <article class="post">
-          <span class="cat cat-releases">Releases</span>
+          <span class="cat cat-releases">Music Video</span>
           <h2>Constrain '1999' Drops Friday</h2>
           <p>Constrain's new EP '1999' releases this Friday July 17th on Tomb Tree! I'll have about 20 copies available for sale but they might not arrive until the week after, but I'll likely get the dips done this week so people know what the variants look like. Check out their new music video for their final single below that was shot on their West Coast weekend run last month...you might even spot yourself a Dave!</p>
           <a class="videolink" href="https://www.youtube.com/watch?v=bhlxQPTpIX8" target="_blank" rel="noopener">
@@ -979,7 +987,7 @@
         </article>
 
         <article class="post">
-          <span class="cat cat-news">News</span>
+          <span class="cat cat-news">Music Video</span>
           <h2>Sungaze Drops New Music Video</h2>
           <p>Sungaze released a new music video for one of my favourite tracks from their 'I'm No Longer Afraid Of Heights' 12"LP that Softseed Music released a few months back. Check out the video and scope the album below -- ZBR even has copies in the store for less than Bandcamp!</p>
           <p><a class="starlink" href="#" data-product-id="sungaze-im-no-longer-afraid-of-heights">Shop Now</a></p>
@@ -3026,6 +3034,7 @@
     document.querySelectorAll('.post-page .bcplayer iframe').forEach(function (iframe) {
       iframe.src = iframe.src.replace('size=large', 'size=small').replace('artwork=small/', '');
       iframe.setAttribute('style', iframe.getAttribute('style').replace('height:120px', 'height:42px'));
+      iframe.closest('.bcplayer').classList.add('bcplayer-compact');
     });
   }
   setupMobileBcPlayers();
