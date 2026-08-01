@@ -265,6 +265,10 @@
     .mobile-shot{ height:min(60vh, 78vw); }
     h1 .line-break-mobile{ display:block; }
 
+    /* stack the three exploration screenshots instead of squeezing them side by side */
+    .explore-row{ flex-direction:column; gap:16px; }
+    .explore-item .shot-scroll{ max-height:none; }
+
     /* stack the comparison table into cards instead of 3 cramped columns */
     table.compare, table.compare tbody, table.compare tr, table.compare td{ display:block; width:100%; }
     table.compare{ max-height:56vh; overflow-y:auto; padding-right:4px; }
